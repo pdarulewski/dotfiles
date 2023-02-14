@@ -1,5 +1,6 @@
 .DS_Store
 packer_compiled.lua
+poetry.lock
 
 private.sh
 
