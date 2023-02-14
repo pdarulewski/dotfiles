@@ -4,11 +4,16 @@ M.config = function()
 
   lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
+  lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
+  lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+
+  lvim.keys.visual_mode["<C-S-k>"] = ":m '<-2<CR>gv=gv"
+  lvim.keys.visual_mode["<C-S-j>"] = ":m '>+1<CR>gv=gv"
+
   lvim.keys.normal_mode["<C-k>"] = ":m -2<cr>"
   lvim.keys.normal_mode["<C-j>"] = ":m +1<cr>"
 
-  lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
-  lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+  lvim.keys.visual_mode["<C-p>"] = "\"_dP"
 
   lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 

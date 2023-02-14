@@ -1,5 +1,6 @@
 vim.opt.relativenumber = true
 vim.opt.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣" -- white characters
+vim.opt.colorcolumn = "120"
 
 lvim.lsp.diagnostics.virtual_text = false
 
@@ -18,6 +19,10 @@ lvim.builtin.terminal.direction = "float"
 
 lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup.filters.exclude = { "__pycache__" }
+
+vim.api.nvim_set_option("foldmethod", "indent") -- fold object by indent
+vim.api.nvim_set_option("foldlevel", 99)
 
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
@@ -38,35 +43,13 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
 
+require("user.debugging").config()
+
 require("user.linters").config()
 require("user.formatters").config()
 require("user.keymappings").config()
 require("user.plugins").config()
 
-
-require('dapui').setup()
-
-require('dap-python').setup('~/Library/Caches/pypoetry/virtualenvs/lvim-_NmbRTpQ-py3.11/bin/python')
-table.insert(require('dap').configurations.python,
-  {
-    type = 'python',
-    module = 'train',
-    request = 'launch',
-    name = 'Launch the module',
-    cwd = ''
-  }
-)
-
-local dap, dapui = require("dap"), require("dapui")
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
-end
 
 require("lsp_signature").setup()
 require("symbols-outline").setup({ width = 10, })

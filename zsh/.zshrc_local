@@ -1,0 +1,15 @@
+plugins=(
+	git
+	virtualenv
+	python
+	github
+	docker
+	zsh-autosuggestions
+	poetry
+	macos
+	zsh-syntax-highlighting
+	z
+	zsh-fzf-history-search
+)
+
+source $HOME/.config/zsh/.zstyle.zsh
