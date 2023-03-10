@@ -20,22 +20,21 @@ M.config = function()
       config = function()
         require("todo-comments").setup {
           keywords = {
-            NOTE = { alt = { "SECTION" } }
+            NOTE = { alt = { "SECTION", "REVIEW" } }
           }
         }
       end
     },
+    { "arcticicestudio/nord-vim" },
     {
       'rose-pine/neovim',
       as = 'rose-pine',
       config = function()
         require("rose-pine").setup({ dark_variant = "moon" })
-        vim.cmd('colorscheme rose-pine')
+        -- vim.cmd('colorscheme rose-pine')
       end
     },
-    {
-      "Pocco81/auto-save.nvim",
-    }
+    { "Pocco81/auto-save.nvim" },
   }
 
 end

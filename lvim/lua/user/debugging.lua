@@ -18,6 +18,13 @@ M.config = function()
   end
 
   require('dap.ext.vscode').load_launchjs(nil, {})
+  require('dap-python').test_runner = 'pytest'
+
+  local configurations = require('dap').configurations.python
+
+  for _, configuration in pairs(configurations) do
+    configuration.justMyCode = false
+  end
 
 end
 
