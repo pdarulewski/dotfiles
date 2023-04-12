@@ -7,6 +7,7 @@ M.config = function()
   formatters.setup {
     { command = "black", filetypes = { "python" } },
     { command = "isort", filetypes = { "python" } },
+    { command = "gofumpt", filetypes = { "go" } }
   }
 
 end

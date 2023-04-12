@@ -4,7 +4,6 @@ M.config = function()
 
   require('dapui').setup()
 
-  require('dap-python').setup('~/Library/Caches/pypoetry/virtualenvs/lvim-_NmbRTpQ-py3.11/bin/python')
 
   local dap, dapui = require("dap"), require("dapui")
   dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -17,8 +16,11 @@ M.config = function()
     dapui.close()
   end
 
-  require('dap.ext.vscode').load_launchjs(nil, {})
+  require('dap-go').setup()
+  require('dap-python').setup('~/Library/Caches/pypoetry/virtualenvs/lvim-_NmbRTpQ-py3.11/bin/python')
   require('dap-python').test_runner = 'pytest'
+
+  require('dap.ext.vscode').load_launchjs(nil, {})
 
   local configurations = require('dap').configurations.python
 

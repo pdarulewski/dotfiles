@@ -82,7 +82,7 @@ source $HOME/.config/zsh/.zshrc_local
 
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/.config/.exec.sh
+source $HOME/.config/exec.sh
 
 # User configuration
 

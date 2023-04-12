@@ -1,12 +1,19 @@
 vim.opt.relativenumber = true
-vim.opt.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣" -- white characters
+vim.opt.list = true
+vim.opt.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·" -- white characters
 vim.opt.colorcolumn = "120"
 
 lvim.lsp.diagnostics.virtual_text = false
 
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
-lvim.colorscheme = "nord"
+lvim.colorscheme = "tokyonight"
+require("tokyonight").setup {
+  styles = {
+    comments = { italic = true },
+    keywords = { italic = true },
+  },
+}
 
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -38,11 +45,11 @@ lvim.builtin.treesitter.ensure_installed = {
   "json",
   "lua",
   "python",
+  "go",
   "typescript",
   "tsx",
   "css",
   "rust",
-  "java",
   "yaml",
 }
 
@@ -52,12 +59,11 @@ lvim.builtin.treesitter.highlight.enable = true
 
 require("user.debugging").config()
 
-require("user.linters").config()
 require("user.formatters").config()
+require("user.linters").config()
 require("user.keymappings").config()
 require("user.plugins").config()
 
-
 require("lsp_signature").setup()
-require("symbols-outline").setup({ width = 10, })
+require("symbols-outline").setup({ width = 30, })
 require('neoscroll').setup()
