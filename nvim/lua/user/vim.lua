@@ -6,6 +6,8 @@ vim.opt.colorcolumn = "120"
 vim.opt.smartindent = true
 vim.opt.scrolloff = 6
 vim.opt.wrap = false
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.mouse = "a"
@@ -20,6 +22,3 @@ vim.opt.updatetime = 50
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
-vim.cmd[[colorscheme tokyonight-moon]]
-
