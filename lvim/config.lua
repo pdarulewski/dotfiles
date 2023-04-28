@@ -57,12 +57,12 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
 
+require("user.plugins").config()
 require("user.debugging").config()
 
 require("user.formatters").config()
 require("user.linters").config()
 require("user.keymappings").config()
-require("user.plugins").config()
 
 require("lsp_signature").setup()
 require("symbols-outline").setup({ width = 30, })

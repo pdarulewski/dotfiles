@@ -10,7 +10,7 @@ require("tokyonight").setup({
   },
   dim_inactive = true,
   on_highlights = function(hl, colors)
-	  hl.CursorLineNr = { fg = colors.cyan }
+	  hl.CursorLineNr = { fg = colors.yellow }
 	  hl.LineNr = { fg = colors.cyan }
   end
 })
