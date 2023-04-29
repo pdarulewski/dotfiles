@@ -6,8 +6,17 @@ null_ls.setup({
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.isort,
 		null_ls.builtins.formatting.gofumpt,
+
+		null_ls.builtins.diagnostics.pylint,
+		null_ls.builtins.diagnostics.ruff,
+		null_ls.builtins.diagnostics.golangci_lint,
+
 		null_ls.builtins.completion.spell,
+
+		null_ls.builtins.formatting.trim_newlines,
+		null_ls.builtins.formatting.trim_whitespace,
 	},
 })
+
 
 vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])

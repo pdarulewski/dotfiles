@@ -8,10 +8,15 @@ require("nvim-tree").setup({
   },
   filters = {
     dotfiles = false,
+    custom = {
+      "__pycache__",
+      ".DS_Store",
+      ".mypy_cache",
+      ".pytest_cache",
+      ".git$",
+    }
   },
   git = {
     ignore = false,
   }
 })
-
-vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeToggle)

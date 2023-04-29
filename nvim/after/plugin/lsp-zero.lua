@@ -1,33 +1,38 @@
 local lsp = require("lsp-zero").preset({})
 
 lsp.on_attach(function(client, bufnr)
-	lsp.default_keymaps({ buffer = bufnr })
+  lsp.default_keymaps({
+    buffer = bufnr,
+    preserve_mappings = false
+  })
 end)
 
-lsp.setup_servers({
-	"gopls",
-	"pyright",
-	"rust_analyzer",
-	"lua_ls",
-})
 
--- (Optional) Configure lua language server for neovim
-require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+lsp.setup_servers({
+  "gopls",
+  "pyright",
+  "rust_analyzer",
+  "lua_ls",
+})
 
 lsp.setup()
+--
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup()
 
-local cmp = require("cmp")
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
+require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
-cmp.setup({
-	mapping = {
-		-- `Enter` key to confirm completion
-		["<CR>"] = cmp.mapping.confirm({ select = false }),
-
-		-- Ctrl+Space to trigger completion menu
-		["<S-Space>"] = cmp.mapping.complete(),
-
-		["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select),
-		["<Tab>"] = cmp.mapping.select_next_item(cmp_select),
-	},
-})
+require('lspconfig').yamlls.setup {
+  settings = {
+    yaml = {
+      schemas = {
+        ['http://json.schemastore.org/github-workflow'] = '.github/workflows/*.{yml,yaml}',
+        ['http://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
+        ['http://json.schemastore.org/ansible-stable-2.9'] = 'roles/tasks/*.{yml,yaml}',
+        ['http://json.schemastore.org/prettierrc'] = '.prettierrc.{yml,yaml}',
+        ['http://json.schemastore.org/stylelintrc'] = '.stylelintrc.{yml,yaml}',
+        ['http://json.schemastore.org/circleciconfig'] = '.circleci/**/*.{yml,yaml}'
+      },
+    },
+  }
+}

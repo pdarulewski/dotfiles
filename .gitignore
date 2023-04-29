@@ -1,6 +1,15 @@
 .DS_Store
+
+gcloud/
+gh/
+github-copilot/
+htop/
+
+lazygit/state.yml
+spicetify/*
+!spicetify/config-xpui.ini
+scripts
+
 packer_compiled.lua
-poetry.lock
 
 private.sh
-

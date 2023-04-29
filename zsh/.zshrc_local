@@ -4,6 +4,7 @@ plugins=(
 	python
 	github
 	docker
+	kubectl
 	zsh-autosuggestions
 	poetry
 	macos

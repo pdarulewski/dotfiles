@@ -1,8 +1,5 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex) -- explorer
-vim.keymap.set("n", "<leader>h", ":nohl<CR>") -- no highlight
-
 vim.keymap.set("n", "<C-l>", "<C-w>l") -- left buffer
 vim.keymap.set("n", "<C-h>", "<C-w>h") -- right buffer
 
@@ -17,8 +14,15 @@ vim.keymap.set("v", "<S-C-j>", ":m '>+1<CR>gv=gv") -- move selection down
 
 vim.keymap.set("x", "<leader>p", '"_dP') -- paste without replacing content in the clipboard
 
-vim.keymap.set("n", "J", "mzJ`z") -- paste without replacing content in the clipboard
-vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "J", "mzJ`z") -- keep cursor in place while J
 
 vim.keymap.set("v", "<", "<gv") -- after reindent, keep the selection
 vim.keymap.set("v", ">", ">gv") -- after reindent, keep the selection
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+vim.keymap.set("n", "<C-Up>", ":res +2<CR>")
+vim.keymap.set("n", "<C-Down>", ":res -2<CR>")
+vim.keymap.set("n", "<C-Left>", ":vertical res +2<CR>")
+vim.keymap.set("n", "<C-Right>", ":vertical res -2<CR>")

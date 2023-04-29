@@ -22,3 +22,6 @@ vim.opt.updatetime = 50
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+vim.api.nvim_set_option("foldmethod", "indent") -- fold object by indent
+vim.api.nvim_set_option("foldlevel", 99)

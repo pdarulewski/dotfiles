@@ -1,4 +1,4 @@
 require("user.packer")
 require("user.tokyonight")
-require("user.keymaps")
+require("user.keymappings")
 require("user.vim")
