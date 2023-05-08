@@ -1,4 +1,6 @@
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+#!/usr/bin/env zsh
+
+zstyle ':completion:*' cache-path "${HOME}/.zcompcache"
 zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*' file-list all
 zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
@@ -12,4 +14,10 @@ zstyle :compinstall filename '$HOME/.config/zsh/.zshrc'
 autoload -Uz compinit
 compinit
 
-source $(dirname $(gem which colorls))/tab_complete.sh
+# search with arrows through history based on already written text
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down

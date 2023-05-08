@@ -1,0 +1,24 @@
+[core]
+	editor = nvim
+
+[color "branch"]
+	current = green
+	local = blue
+	remote = yellow
+
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = blue
+
+[commit]
+	gpgsign = true
+
+[help]
+	autocorrect = 1
+
+[init]
+	defaultBranch = main
+[user]
+	email = pawel.darulewski@gmail.com
+	name = Pawel Darulewski
