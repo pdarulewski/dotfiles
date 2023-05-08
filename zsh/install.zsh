@@ -44,5 +44,5 @@ if [ ! -e $zsh_plugins_path/powerlevel10k ]; then
    $zsh_plugins_path/powerlevel10k
 
 else
-  print_green "zsh-fzf-history-search exists, skipping."
+  print_green "powerlevel10k exists, skipping."
 fi

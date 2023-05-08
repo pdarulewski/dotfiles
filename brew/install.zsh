@@ -20,6 +20,7 @@ brew install gh
 brew install gnupg
 brew install lazygit
 
+brew install ripgrep
 brew install tree
 brew install fzf
 

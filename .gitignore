@@ -16,4 +16,4 @@ dlv/
 
 packer_compiled.lua
 
-private.sh
+custom.sh

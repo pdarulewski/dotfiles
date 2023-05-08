@@ -36,9 +36,9 @@ map("n", "<C-Down>", ":res -2<CR>", opts)
 map("n", "<C-Left>", ":vertical res +2<CR>", opts)
 map("n", "<C-Right>", ":vertical res -2<CR>", opts)
 
-map("i", "jk", "<ESC>", opts)
-map("i", "kj", "<ESC>", opts)
-map("i", "jj", "<ESC>", opts)
+map("i", "jk", "<ESC>:w<cr>", opts)
+map("i", "kj", "<ESC>:w<cr>", opts)
+map("i", "jj", "<ESC>:w<cr>", opts)
 
 -- smart deletion, dd
 -- It solves the issue, where you want to delete empty line, but dd will override you last yank.
