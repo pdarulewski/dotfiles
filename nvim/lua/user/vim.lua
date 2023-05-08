@@ -1,27 +1,46 @@
-vim.opt.nu = true
-vim.opt.relativenumber = true
-vim.opt.list = true
-vim.opt.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·" -- white characters
-vim.opt.colorcolumn = "120"
-vim.opt.smartindent = true
-vim.opt.scrolloff = 6
-vim.opt.wrap = false
-vim.opt.cursorline = true
-vim.opt.cursorlineopt = "number"
+vim.o.nu = true
+vim.o.relativenumber = true
+vim.o.list = true
+vim.o.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·" -- white characters
+vim.o.colorcolumn = "120"
+vim.o.smartindent = true
+vim.o.scrolloff = 6
+vim.o.wrap = false
+vim.o.cursorline = true
+vim.o.cursorlineopt = "number"
+vim.o.autowrite = true
+vim.o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+vim.o.mouse = "a"
+vim.o.termguicolors = true
 
-vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.mouse = "a"
-vim.opt.swapfile = false
-vim.opt.termguicolors = true
+vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undofile = true
+vim.o.swapfile = false
 
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+vim.o.updatetime = 50
 
-vim.opt.updatetime = 50
+vim.o.history = 10000
+vim.o.undolevels = 1000
 
--- disable netrw at the very start of your init.lua (strongly advised)
+-- disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.api.nvim_set_option("foldmethod", "indent") -- fold object by indent
-vim.api.nvim_set_option("foldlevel", 99)
+-- Folding
+vim.o.foldenable = true
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+
+vim.opt.fillchars = {
+  vert = "▕", -- alternatives │
+  fold = " ",
+  eob = " ", -- suppress ~ at EndOfBuffer
+  diff = "╱", -- alternatives = ⣿ ░ ─
+  msgsep = "‾",
+  foldopen = "▾",
+  foldsep = "│",
+  foldclose = "▸",
+}
+
+vim.o.foldcolumn = "0"
+vim.o.foldmethod = "manual"

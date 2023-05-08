@@ -1,28 +1,55 @@
+local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
+
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<C-l>", "<C-w>l") -- left buffer
-vim.keymap.set("n", "<C-h>", "<C-w>h") -- right buffer
+-- buffer navigation
+map("n", "<C-l>", "<C-w>l", opts)
+map("n", "<C-h>", "<C-w>h", opts)
+map("n", "<C-j>", "<C-w>j", opts)
+map("n", "<C-k>", "<C-w>k", opts)
 
-vim.keymap.set("n", "<C-j>", "<C-w>j") -- left buffer
-vim.keymap.set("n", "<C-k>", "<C-w>k") -- right buffer
+-- move lines up and down
+map("n", "<S-C-k>", ":m -2<cr>", opts)
+map("n", "<S-C-j>", ":m +1<cr>", opts)
+map("v", "<S-C-k>", ":m '<-2<CR>gv=gv", opts)
+map("v", "<S-C-j>", ":m '>+1<CR>gv=gv", opts)
 
-vim.keymap.set("n", "<S-C-k>", ":m -2<cr>") -- move line up
-vim.keymap.set("n", "<S-C-j>", ":m +1<cr>") -- move line down
+-- paste without replacing content in the clipboard
+map("x", "<leader>p", '"_dP', opts)
 
-vim.keymap.set("v", "<S-C-k>", ":m '<-2<CR>gv=gv") -- move selection up
-vim.keymap.set("v", "<S-C-j>", ":m '>+1<CR>gv=gv") -- move selection down
+-- keep cursor in place while J
+map("n", "J", "mzJ`z", opts)
 
-vim.keymap.set("x", "<leader>p", '"_dP') -- paste without replacing content in the clipboard
+map("x", "<Tab>", ">gv", opts)
+map("x", "<S-Tab>", "<gv", opts)
 
-vim.keymap.set("n", "J", "mzJ`z") -- keep cursor in place while J
+-- center while moving up and down
+map("n", "<C-d>", "<C-d>zz", opts)
+map("n", "<C-u>", "<C-u>zz", opts)
 
-vim.keymap.set("v", "<", "<gv") -- after reindent, keep the selection
-vim.keymap.set("v", ">", ">gv") -- after reindent, keep the selection
+map("n", "n", "nzz", opts)
+map("n", "N", "Nzz", opts)
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+map("n", "<C-Up>", ":res +2<CR>", opts)
+map("n", "<C-Down>", ":res -2<CR>", opts)
+map("n", "<C-Left>", ":vertical res +2<CR>", opts)
+map("n", "<C-Right>", ":vertical res -2<CR>", opts)
 
-vim.keymap.set("n", "<C-Up>", ":res +2<CR>")
-vim.keymap.set("n", "<C-Down>", ":res -2<CR>")
-vim.keymap.set("n", "<C-Left>", ":vertical res +2<CR>")
-vim.keymap.set("n", "<C-Right>", ":vertical res -2<CR>")
+map("i", "jk", "<ESC>", opts)
+map("i", "kj", "<ESC>", opts)
+map("i", "jj", "<ESC>", opts)
+
+-- smart deletion, dd
+-- It solves the issue, where you want to delete empty line, but dd will override you last yank.
+-- Code above will check if u are deleting empty line, if so - use black hole register.
+-- [src: https://www.reddit.com/r/neovim/comments/w0jzzv/comment/igfjx5y/?utm_source=share&utm_medium=web2x&context=3]
+local function smart_dd()
+  if vim.api.nvim_get_current_line():match("^%s*$") then
+    return '"_dd'
+  else
+    return "dd"
+  end
+end
+
+map("n", "dd", smart_dd, { noremap = true, expr = true })

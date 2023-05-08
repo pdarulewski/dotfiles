@@ -5,6 +5,7 @@ require("which-key").setup({
 })
 
 local n_mappings = {
+  q = { "<cmd>wa<cr><cmd>qa<cr>", "Quit" },
   c = { "<cmd>lua Buf_kill()<cr>", "Close Buffer" },
 
   ["/"] = { "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", "Comment" },
@@ -25,6 +26,13 @@ local n_mappings = {
     ["0"] = { "<cmd>lua require('harpoon.ui').nav_file(10)<cr>", "Go to File 10" },
   },
 
+  H = {
+    name = "+hop",
+    a = { "<cmd>HopAnywhere<cr>", "Hop Anywhere" },
+    w = { "<cmd>HopWord<cr>", "Hop Word" },
+    c = { "<cmd>HopChar1<cr>", "Hop Char" },
+  },
+
   g = { "<cmd>LazyGit<cr>", "LazyGit" },
 
   d = {
@@ -35,14 +43,19 @@ local n_mappings = {
       c = { "<cmd>lua require('dap-python').test_class({ config = { justMyCode = false } })<cr>", "Test Class" },
       s = { "<cmd>lua require('dap-python').debug_selection({ config = { justMyCode = false } })<cr>", "Debug Selection" },
     },
+    g = {
+      name = "+go",
+      m = { "<cmd>lua require('dap-go').debug_test()<cr>", "Test method" },
+      l = { "<cmd>lua require('dap-go').debug_last_test()<cr>", "Test last method" },
+    },
     u = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle UI" },
-    t = { "<cmd>lua require('dap').toggle_breakpoint()", "Breakpoint" },
+    t = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Breakpoint" },
     T = { "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", "Conditional breakpoint" },
   },
 
   e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 
-  P = { "<cmd>Telescope projects<cr>", "Projects" },
+  p = { "<cmd>Telescope projects<cr>", "Projects" },
 
   f = {
     name = "+find",
@@ -56,9 +69,13 @@ local n_mappings = {
 
   u = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },
 
-  r = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace all" },
+  r = { ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", "Replace all" },
 
   n = { "<cmd>noh<cr>", "No highlight" },
+
+  P = { "<cmd>PackerSync<cr>", "Packer Sync" },
+
+  w = { "<cmd>w<cr>", "Write" },
 }
 
 local n_opts = {

@@ -12,7 +12,12 @@ return require("packer").startup(function(use)
   use({ "ahmedkhalf/project.nvim" })
   use({ "akinsho/toggleterm.nvim", tag = "*" })
   use({ "kdheepak/lazygit.nvim" })
-  use({ "nvim-tree/nvim-tree.lua" })
+  use({
+    "nvim-tree/nvim-tree.lua",
+    requires = {
+      { "nvim-tree/nvim-web-devicons" }
+    }
+  })
   use({ "mbbill/undotree" })
   use({ "theprimeagen/harpoon" })
   use({ "folke/which-key.nvim" })
@@ -46,7 +51,6 @@ return require("packer").startup(function(use)
   use({ "leoluz/nvim-dap-go" })
   use({ "mfussenegger/nvim-dap-python" })
 
-  use({ "akinsho/bufferline.nvim", tag = "*", requires = { "nvim-tree/nvim-web-devicons" } })
   use({ "nvim-lualine/lualine.nvim" })
 
   use({ "RRethy/vim-illuminate" })
@@ -59,7 +63,9 @@ return require("packer").startup(function(use)
   use({ "lukas-reineke/indent-blankline.nvim" })
   use({ "folke/neodev.nvim" })
   use({ "karb94/neoscroll.nvim" })
-  use { "SmiteshP/nvim-navic" }
+  use({ "SmiteshP/nvim-navic" })
+  use({ "phaazon/hop.nvim" })
 
   use({ "folke/tokyonight.nvim" })
+  use({ "EdenEast/nightfox.nvim" })
 end)
