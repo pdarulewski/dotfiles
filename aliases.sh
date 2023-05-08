@@ -3,22 +3,40 @@ alias p='poetry shell'
 alias icat='imgcat.sh'
 alias l='colorls -lAh --sd'
 alias ghpr='gh pr create'
-alias diff='diff -W $(( $(tput cols) - 2 ))'
+alias diff='diff --side-by-side -W $(( $(tput cols) - 2 ))'
+
+function nvim_with_poetry() {
+  source "$(poetry env info --path)/bin/activate"
+  nvim $*;
+  deactivate;
+}
+
+function nvim_with_venv() {
+  source venv/bin/activate
+  nvim $*;
+  deactivate;
+}
 
 function poetry_activate() {
   if [ -e pyproject.toml ]; then
-    if ! command -v poetry &> /dev/null; then
-      echo "Poetry is not installed. Please install it before running this command."
-      return 1
+    if poetry env info --path &> /dev/null; then
+      nvim_with_poetry
+
+    elif [ -e venv/ ]; then
+      nvim_with_venv
+
+    else
+      nvim
+
     fi
 
-    if poetry env info --path &> /dev/null; then
-      source "$(poetry env info --path)/bin/activate"
-      nvim $*;
-      deactivate;
-    fi
+  elif [ -e venv/ ]; then
+      nvim_with_venv
+
   else
     nvim
+
   fi
 }
+
 alias nvim='poetry_activate'
