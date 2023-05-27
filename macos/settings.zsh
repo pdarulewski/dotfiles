@@ -156,7 +156,7 @@ sudo chflags nohidden /Volumes
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
-# Set the icon size of Dock items to 36 pixels
+# Set the icon size of Dock items to 20 pixels
 defaults write com.apple.dock tilesize -int 20
 
 # Minimize windows into their application’s icon
@@ -173,9 +173,6 @@ defaults write com.apple.dock static-only -bool true
 
 # Remove the auto-hiding Dock delay
 defaults write com.apple.dock autohide-delay -float 0
-
-# Remove the animation when hiding/showing the Dock
-defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
