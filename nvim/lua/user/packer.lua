@@ -20,7 +20,6 @@ return require("packer").startup(function(use)
     }
   })
   use({ "mbbill/undotree" })
-  use({ "theprimeagen/harpoon" })
   use({ "folke/which-key.nvim" })
   use({ "goolord/alpha-nvim" })
   use({ "ghillb/cybu.nvim" })
