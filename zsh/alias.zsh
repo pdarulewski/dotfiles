@@ -64,3 +64,19 @@ function poetry_activate() {
 
 alias s='source venv/bin/activate'
 alias p='poetry shell'
+
+alias vi='poetry_activate && echo -e "\033]${PWD}\007"'
+
+change_title_bar () {
+	local statusline="${PWD##*/}"
+	case $TERM in
+		xterm*|gnome*)
+	    		print -Pn "\e]0;$statusline\a";;
+		screen*|tmux*)
+	    		print -Pn "\ek$statusline\e\\";;
+	esac
+}
+
+precmd () {
+    change_title_bar
+}
