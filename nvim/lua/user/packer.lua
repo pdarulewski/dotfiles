@@ -8,17 +8,26 @@ return require("packer").startup(function(use)
     tag = "0.1.1",
     requires = "nvim-lua/plenary.nvim",
   })
+  use({
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+  })
 
   use({ "ahmedkhalf/project.nvim" })
   use({ "nvim-lualine/lualine.nvim" })
   use({ "akinsho/toggleterm.nvim", tag = "*" })
   use({ "kdheepak/lazygit.nvim" })
   use({
-    "nvim-tree/nvim-tree.lua",
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
     requires = {
-      { "nvim-tree/nvim-web-devicons" }
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
     }
   })
+  use({ "folke/edgy.nvim" })
+  use({ "simrat39/symbols-outline.nvim" })
   use({ "mbbill/undotree" })
   use({ "folke/which-key.nvim" })
   use({ "goolord/alpha-nvim" })
@@ -46,7 +55,6 @@ return require("packer").startup(function(use)
         end,
       },
       { "williamboman/mason-lspconfig.nvim" },
-
       { "hrsh7th/nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp" },
       { "L3MON4D3/LuaSnip" },

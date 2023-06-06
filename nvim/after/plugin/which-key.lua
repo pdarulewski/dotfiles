@@ -42,7 +42,7 @@ local n_leader_mappings = {
     T = { "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", "Conditional breakpoint" },
   },
 
-  e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  e = { "<cmd>Neotree toggle<cr>", "Explorer" },
 
   p = { "<cmd>Telescope projects<cr>", "Projects" },
 
@@ -54,6 +54,16 @@ local n_leader_mappings = {
     r = { "<cmd>Telescope lsp_references<cr>", "References" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Symbols" },
     T = { "<cmd>TodoTelescope<cr>", "TODOs" },
+  },
+
+  t = {
+    name = "+trouble",
+    t = { "<cmd>TroubleToggle<cr>", "Trouble" },
+    w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace diagnostics" },
+    d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document diagnostics" },
+    q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
+    l = { "<cmd>TroubleToggle loclist<cr>", "Loclist" },
+    r = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
   },
 
   u = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },

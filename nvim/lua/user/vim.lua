@@ -34,7 +34,7 @@ vim.o.foldlevelstart = 99
 vim.opt.fillchars = {
   vert = "▕", -- alternatives │
   fold = " ",
-  eob = " ", -- suppress ~ at EndOfBuffer
+  eob = " ",  -- suppress ~ at EndOfBuffer
   diff = "╱", -- alternatives = ⣿ ░ ─
   msgsep = "‾",
   foldopen = "▾",

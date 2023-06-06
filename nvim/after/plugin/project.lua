@@ -3,5 +3,8 @@ if not ok then
   return
 end
 
-project.setup({})
+project.setup({
+  detection_methods = {},
+  patterns = { ".git", },
+})
 require("telescope").load_extension("projects")
