@@ -12,3 +12,5 @@ done;
 if [ -e $HOME/.config/zsh/custom.zsh ]; then
   source $HOME/.config/zsh/custom.zsh
 fi
+
+setopt share_history
