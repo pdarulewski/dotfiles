@@ -1,9 +1,24 @@
 #!/usr/bin/env zsh
 
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias l='colorls -lAh --sd'
 
-alias s='source venv/bin/activate'
-alias p='poetry shell'
+alias ga='git add'
+alias gaa='git add --all'
+alias gcb='git checkout -b'
+alias gco='git checkout'
+alias gbd='git branch -D'
+alias gst='git status'
+alias gcmsg='git commit -m'
+function grbi() {
+  git rebase -i HEAD~$1
+}
+alias grbia='git rebase -i `git merge-base feature master`'
+alias grbc='git rebase --continue'
+
+alias k='kubectl'
 #
 alias ghpr='gh pr create'
 alias diff='diff --side-by-side -W $(( $(tput cols) - 2 ))'
@@ -20,13 +35,6 @@ function nvim_with_venv() {
   deactivate;
 }
 
-alias ga='git add'
-alias gaa='git add --all'
-alias gcb='git checkout -b'
-alias gco='git checkout'
-alias gbd='git branch -D'
-alias gst='git status'
-alias gcmsg='git commit -m'
 
 function mkd() {
   mkdir -p "$@" && cd "$_";
@@ -35,23 +43,24 @@ function mkd() {
 function poetry_activate() {
   if [ -e pyproject.toml ]; then
     if poetry env info --path &> /dev/null; then
-      nvim_with_poetry
+      nvim_with_poetry $*;
 
     elif [ -e venv/ ]; then
-      nvim_with_venv
+      nvim_with_venv $*;
 
     else
-      nvim
+      nvim $*;
 
     fi
 
   elif [ -e venv/ ]; then
-      nvim_with_venv
+      nvim_with_venv $*;
 
   else
-    nvim
+    nvim $*;
 
   fi
 }
 
-alias nvim='poetry_activate'
+alias s='source venv/bin/activate'
+alias p='poetry shell'

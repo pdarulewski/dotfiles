@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+autoload -Uz compinit && compinit
+
 zstyle ':completion:*' cache-path "${HOME}/.zcompcache"
 zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*' file-list all
@@ -10,9 +12,6 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upp
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on
 zstyle :compinstall filename '$HOME/.config/zsh/.zshrc'
-
-autoload -Uz compinit
-compinit
 
 # search with arrows through history based on already written text
 autoload -U up-line-or-beginning-search
