@@ -1,12 +1,17 @@
-require("which-key").setup({
+local ok, which_key = pcall(require, "which-key")
+if not ok then
+  return
+end
+
+which_key.setup({
   window = {
     border = "single",
   }
 })
 
-local n_mappings = {
+local n_leader_mappings = {
   q = { "<cmd>wa<cr><cmd>qa<cr>", "Quit" },
-  c = { "<cmd>lua Buf_kill()<cr>", "Close Buffer" },
+  c = { "<cmd>bp|bd #<cr>", "Close Buffer" },
 
   ["/"] = { "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", "Comment" },
 
@@ -59,9 +64,9 @@ local n_mappings = {
 
   f = {
     name = "+find",
-    f = { "<cmd>Telescope find_files<cr>", "Files" },
-    F = { "<cmd>Telescope git_files<cr>", "Git Files" },
-    t = { "<cmd>Telescope live_grep<cr>", "Text" },
+    f = { "<cmd>Telescope find_files hidden=true<cr>", "Files" },
+    F = { "<cmd>Telescope git_files hidden=true<cr>", "Git Files" },
+    t = { "<cmd>Telescope live_grep hidden=true<cr>", "Text" },
     r = { "<cmd>Telescope lsp_references<cr>", "References" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Symbols" },
     T = { "<cmd>TodoTelescope<cr>", "TODOs" },
@@ -78,7 +83,7 @@ local n_mappings = {
   w = { "<cmd>w<cr>", "Write" },
 }
 
-local n_opts = {
+local n_leader_opts = {
   mode = "n",
   prefix = "<leader>",
   buffer = nil,
@@ -87,11 +92,11 @@ local n_opts = {
   nowait = true,
 }
 
-local v_mappings = {
+local v_leader_mappings = {
   ["/"] = { "<Plug>(comment_toggle_linewise_visual)<CR>", "Comment" },
 }
 
-local v_opts = {
+local v_leader_opts = {
   mode = "v",
   prefix = "<leader>",
   buffer = nil,
@@ -100,6 +105,5 @@ local v_opts = {
   nowait = true,
 }
 
-local wk = require("which-key")
-wk.register(n_mappings, n_opts)
-wk.register(v_mappings, v_opts)
+which_key.register(n_leader_mappings, n_leader_opts)
+which_key.register(v_leader_mappings, v_leader_opts)

@@ -10,10 +10,10 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 
 -- move lines up and down
-map("n", "<S-C-k>", ":m -2<cr>", opts)
-map("n", "<S-C-j>", ":m +1<cr>", opts)
-map("v", "<S-C-k>", ":m '<-2<CR>gv=gv", opts)
-map("v", "<S-C-j>", ":m '>+1<CR>gv=gv", opts)
+map("n", "<M-k>", ":m -2<cr>", opts)
+map("n", "<M-j>", ":m +1<cr>", opts)
+map("v", "<M-k>", ":m '<-2<CR>gv=gv", opts)
+map("v", "<M-j>", ":m '>+1<CR>gv=gv", opts)
 
 -- paste without replacing content in the clipboard
 map("x", "<leader>p", '"_dP', opts)
@@ -28,14 +28,16 @@ map("x", "<S-Tab>", "<gv", opts)
 map("n", "<C-d>", "<C-d>zz", opts)
 map("n", "<C-u>", "<C-u>zz", opts)
 
-map("n", "n", "nzz", opts)
-map("n", "N", "Nzz", opts)
+map("n", "n", "nzzzv", opts)
+map("n", "N", "Nzzzv", opts)
 
+-- resize windows
 map("n", "<C-Up>", ":res +2<CR>", opts)
 map("n", "<C-Down>", ":res -2<CR>", opts)
 map("n", "<C-Left>", ":vertical res +2<CR>", opts)
 map("n", "<C-Right>", ":vertical res -2<CR>", opts)
 
+-- save buffer
 map("i", "jk", "<ESC>:w<cr>", opts)
 map("i", "kj", "<ESC>:w<cr>", opts)
 map("i", "jj", "<ESC>:w<cr>", opts)

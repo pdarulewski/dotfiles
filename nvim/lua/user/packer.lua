@@ -10,6 +10,7 @@ return require("packer").startup(function(use)
   })
 
   use({ "ahmedkhalf/project.nvim" })
+  use({ "nvim-lualine/lualine.nvim" })
   use({ "akinsho/toggleterm.nvim", tag = "*" })
   use({ "kdheepak/lazygit.nvim" })
   use({
@@ -22,9 +23,17 @@ return require("packer").startup(function(use)
   use({ "theprimeagen/harpoon" })
   use({ "folke/which-key.nvim" })
   use({ "goolord/alpha-nvim" })
+  use({ "ghillb/cybu.nvim" })
 
   use({ "nvim-treesitter/nvim-treesitter" }, { run = ":TSUpdate" })
   use({ "jose-elias-alvarez/null-ls.nvim" })
+  use({
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" }
+    }
+  })
   use({ "ray-x/lsp_signature.nvim" })
   use({
     "VonHeikemen/lsp-zero.nvim",
@@ -45,13 +54,14 @@ return require("packer").startup(function(use)
     },
   })
 
+  use({ "simrat39/rust-tools.nvim" })
+  use({ "saecki/crates.nvim" })
+
   use({ "mfussenegger/nvim-dap" })
   use({ "rcarriga/nvim-dap-ui" })
-
   use({ "leoluz/nvim-dap-go" })
   use({ "mfussenegger/nvim-dap-python" })
 
-  use({ "nvim-lualine/lualine.nvim" })
   --
   use({ "RRethy/vim-illuminate" })
   use({ "windwp/nvim-autopairs" })
@@ -68,4 +78,8 @@ return require("packer").startup(function(use)
 
   use({ "folke/tokyonight.nvim" })
   use({ "EdenEast/nightfox.nvim" })
+  use({ "nordtheme/vim" })
+  use({ "AlexvZyl/nordic.nvim" })
+  use({ "rebelot/kanagawa.nvim" })
+  use({ "catppuccin/nvim", as = "catppuccin" })
 end)

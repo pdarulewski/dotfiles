@@ -1,5 +1,4 @@
 require("user.packer")
-require("user.tokyonight")
--- require("user.nightfox")
+require("colors.theme")
 require("user.keymappings")
 require("user.vim")

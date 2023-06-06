@@ -1,4 +1,7 @@
-local neoscroll = require("neoscroll")
+local ok, neoscroll = pcall(require, "neoscroll")
+if not ok then
+  return
+end
 
 local easing = "sine"
 local zz_time_ms = 100
@@ -27,4 +30,9 @@ local mappings = {}
 mappings["<C-u>"] = { "scroll", { "-vim.wo.scroll", "true", jump_time_ms, easing, "'center'" } }
 mappings["<C-d>"] = { "scroll", { "vim.wo.scroll", "true", jump_time_ms, easing, "'center'" } }
 
-require("neoscroll.config").set_mappings(mappings)
+local ok, config = pcall(require, "neoscroll.config")
+if not ok then
+  return
+end
+
+config.set_mappings(mappings)

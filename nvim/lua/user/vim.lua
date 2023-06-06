@@ -42,5 +42,5 @@ vim.opt.fillchars = {
   foldclose = "▸",
 }
 
-vim.o.foldcolumn = "0"
-vim.o.foldmethod = "manual"
+-- vim.o.foldcolumn = "0"
+vim.o.foldmethod = "indent"

@@ -1,0 +1,6 @@
+-- require("colors.catppuccin")
+-- require("colors.nightfox")
+-- require("colors.nordic")
+-- require("colors.nordtheme")
+require("colors.tokyonight")
+-- require("colors.kanagawa")
