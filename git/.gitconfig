@@ -1,19 +1,34 @@
 [core]
 	editor = nvim
+
 [color "branch"]
 	current = green
 	local = blue
 	remote = yellow
+
 [color "status"]
 	added = green
 	changed = yellow
 	untracked = blue
+
 [commit]
 	gpgsign = true
+
 [help]
 	autocorrect = 1
+
 [init]
 	defaultBranch = main
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[push]
+	autoSetupRemote = true
+
+[pull]
+	rebase = true
+
 [user]
 	email = pawel.darulewski@gmail.com
 	name = Pawel Darulewski
