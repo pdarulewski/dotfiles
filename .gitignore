@@ -8,6 +8,7 @@ lazygit/state.yml
 
 spicetify/*
 !spicetify/config-xpui.ini
+!spicetify/after.zsh
 
 k9s/*
 !k9s/skin.yml

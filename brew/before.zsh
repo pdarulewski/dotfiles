@@ -1,15 +1,11 @@
 #!/usr/bin/env zsh
 
+xcode-select --install
+
 print_green "Checking if Homebrew is already installed..."
 
-# Checks if Homebrew is installed
-# Credit: https://gist.github.com/codeinthehole/26b37efa67041e1307db
-if test ! $(which brew); then
-  print_green "Installing Homebrew.";
-  yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-else
-  print_green "Homebrew is already installed.";
-fi
+print_green "Installing Homebrew.";
+yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 print_green "Updating and upgrading Homebrew..."
 yes | brew update
@@ -38,6 +34,7 @@ brew install go
 brew install node
 brew install ruby
 
+brew install --cask kitty
 brew install --cask rectangle
 brew install --cask spotify
 

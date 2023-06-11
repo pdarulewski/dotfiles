@@ -7,17 +7,23 @@ print_green "Initialisation of dotfiles."
 source git/install.sh
 create_link $PWD "${HOME}/.config"
 
-print_green "Installing install.zsh files"
-for file in **/install.zsh(.)
+print_green "Installing before.zsh files"
+for file in **/before.zsh(.)
 do
-  print_green "Sourcing $file..."
+  print_green "\nSourcing $file..."
   source $file;
 done;
 
-
-print_green "Applying settings.zsh files"
-for file in **/settings.zsh(.)
+print_green "Installing install.zsh files"
+for file in **/install.zsh(.)
 do
-  print_green "Applying $file..."
+  print_green "\nSourcing $file..."
+  source $file;
+done;
+
+print_green "Applying after.zsh files"
+for file in **/after.zsh(.)
+do
+  print_green "\nApplying $file..."
   source $file;
 done;
