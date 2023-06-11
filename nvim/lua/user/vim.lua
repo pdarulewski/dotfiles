@@ -44,3 +44,5 @@ vim.opt.fillchars = {
 
 -- vim.o.foldcolumn = "0"
 vim.o.foldmethod = "indent"
+
+vim.cmd 'set shell=zsh'
