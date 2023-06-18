@@ -18,15 +18,11 @@ return require("packer").startup(function(use)
   use({ "akinsho/toggleterm.nvim", tag = "*" })
   use({ "kdheepak/lazygit.nvim" })
   use({
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    "nvim-tree/nvim-tree.lua",
     requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
+      { "nvim-tree/nvim-web-devicons" }
     }
   })
-  use({ "folke/edgy.nvim" })
   use({ "simrat39/symbols-outline.nvim" })
   use({ "mbbill/undotree" })
   use({ "folke/which-key.nvim" })

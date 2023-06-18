@@ -10,8 +10,16 @@ which_key.setup({
 })
 
 local n_leader_mappings = {
-  q = { "<cmd>wa<cr><cmd>qa<cr>", "Quit" },
   c = { "<cmd>bp|bd #<cr>", "Close Buffer" },
+  e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  g = { "<cmd>LazyGit<cr>", "LazyGit" },
+  n = { "<cmd>noh<cr>", "No highlight" },
+  p = { "<cmd>Telescope projects<cr>", "Projects" },
+  P = { "<cmd>PackerSync<cr>", "Packer Sync" },
+  q = { "<cmd>wa<cr><cmd>qa<cr>", "Quit" },
+  r = { ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", "Replace all" },
+  u = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },
+  w = { "<cmd>w<cr>", "Write" },
 
   ["/"] = { "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", "Comment" },
 
@@ -21,8 +29,6 @@ local n_leader_mappings = {
     w = { "<cmd>HopWord<cr>", "Hop Word" },
     c = { "<cmd>HopChar1<cr>", "Hop Char" },
   },
-
-  g = { "<cmd>LazyGit<cr>", "LazyGit" },
 
   d = {
     name = "+dap",
@@ -41,10 +47,6 @@ local n_leader_mappings = {
     t = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Breakpoint" },
     T = { "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", "Conditional breakpoint" },
   },
-
-  e = { "<cmd>Neotree toggle<cr>", "Explorer" },
-
-  p = { "<cmd>Telescope projects<cr>", "Projects" },
 
   f = {
     name = "+find",
@@ -66,15 +68,6 @@ local n_leader_mappings = {
     r = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
   },
 
-  u = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },
-
-  r = { ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", "Replace all" },
-
-  n = { "<cmd>noh<cr>", "No highlight" },
-
-  P = { "<cmd>PackerSync<cr>", "Packer Sync" },
-
-  w = { "<cmd>w<cr>", "Write" },
 }
 
 local n_leader_opts = {
