@@ -16,7 +16,7 @@ if not ok then
   return
 end
 
-dap_python.setup('Users/pd/Library/Caches/pypoetry/virtualenvs/lvim-_NmbRTpQ-py3.11/bin/python')
+dap_python.setup('/Users/pd/Library/Caches/pypoetry/virtualenvs/debug-oOkcC5sn-py3.11/bin/python')
 dap_python.test_runner = "pytest"
 dap.configurations.python = {}
 
