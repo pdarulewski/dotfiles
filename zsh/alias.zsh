@@ -17,8 +17,10 @@ function grbi() {
 }
 alias grbia='git rebase -i `git merge-base feature master`'
 alias grbc='git rebase --continue'
+alias gl='git log --oneline --decorate --graph'
 
 alias k='kubectl'
+alias kctx='kubectx'
 #
 alias ghpr='gh pr create'
 alias diff='diff --side-by-side -W $(( $(tput cols) - 2 ))'
