@@ -33,6 +33,7 @@ vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
 vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 
 vim.keymap.set("n", "gr", "<cmd>TroubleToggle lsp_references<cr>")
+vim.keymap.set("n", "gR", "<cmd>lua vim.lsp.buf.rename()<cr>")
 
 vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
 vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
