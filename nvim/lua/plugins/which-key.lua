@@ -21,7 +21,6 @@ M.config = function()
     g = { "<cmd>LazyGit<cr>", "LazyGit" },
     n = { "<cmd>noh<cr>", "No highlight" },
     p = { "<cmd>Telescope projects<cr>", "Projects" },
-    P = { "<cmd>PackerSync<cr>", "Packer Sync" },
     q = { "<cmd>wa<cr><cmd>qa<cr>", "Quit" },
     r = { ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", "Replace all" },
     u = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },
@@ -76,6 +75,15 @@ M.config = function()
       r = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
     },
 
+    i = {
+      name = "+iron",
+      i = { "<cmd>IronRepl<cr>", "IronRepl" },
+      r = { "<cmd>IronRestart<cr>", "Restart" },
+      f = { "<cmd>IronFocus<cr>", "Focus" },
+      h = { "<cmd>IronHide<cr>", "Hide" },
+      s = { "<cmd>lua require('iron.core').send_line()<cr>", "Send line" },
+      q = { "<cmd>lua require('iron.core').close_repl()<cr>", "Close" }
+    }
   }
 
   local n_leader_opts = {
@@ -89,6 +97,13 @@ M.config = function()
 
   local v_leader_mappings = {
     ["/"] = { "<Plug>(comment_toggle_linewise_visual)<CR>", "Comment" },
+
+    i = {
+      name = "+iron",
+      i = { "<cmd>IronRepl<cr>", "IronRepl" },
+      r = { "<cmd>IronRestart<cr>", "Restart" },
+      s = { "<cmd>lua require('iron.core').visual_send()<cr>", "Send lines" },
+    },
   }
 
   local v_leader_opts = {

@@ -30,6 +30,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.o.foldenable = true
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
+-- vim.o.foldcolumn = "0"
+vim.o.foldmethod = "indent"
 
 vim.opt.fillchars = {
   vert = "▕", -- alternatives │
@@ -41,8 +43,5 @@ vim.opt.fillchars = {
   foldsep = "│",
   foldclose = "▸",
 }
-
--- vim.o.foldcolumn = "0"
-vim.o.foldmethod = "indent"
 
 vim.cmd 'set shell=zsh'
