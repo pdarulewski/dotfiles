@@ -12,7 +12,7 @@ M.config = function()
     return
   end
 
-  require("nvim-tree").setup({
+  tree.setup({
     log = {
       enable = true,
       truncate = true,
@@ -23,11 +23,11 @@ M.config = function()
         watcher = true,
       },
     },
-    sync_root_with_cwd = true,
+    -- sync_root_with_cwd = true,
     respect_buf_cwd = true,
     update_focused_file = {
       enable = true,
-      update_root = true
+      -- update_root = true
     },
     view = {
       side = "right",

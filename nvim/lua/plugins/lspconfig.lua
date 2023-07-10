@@ -29,22 +29,22 @@ M.config = function()
 
   lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
-  lspconfig.pyright.setup {
-    handlers = {
-      ['textDocument/publishDiagnostics'] = function(...) end
-    },
-    settings = {
-      typeCheckingMode = 'off', -- no effect here...
-      python = {
-        analysis = {
-          typeCheckingMode = 'off', -- and here...
-        },
-      },
-      pyright = {
-        disableDiagnostics = true, -- Used to work in coc
-      }
-    }
-  }
+  -- lspconfig.pyright.setup {
+  --   handlers = {
+  --     ['textDocument/publishDiagnostics'] = function(...) end
+  --   },
+  --   settings = {
+  --     typeCheckingMode = 'off', -- no effect here...
+  --     python = {
+  --       analysis = {
+  --         typeCheckingMode = 'off', -- and here...
+  --       },
+  --     },
+  --     pyright = {
+  --       disableDiagnostics = true, -- Used to work in coc
+  --     }
+  --   }
+  -- }
 
   -- toml schemas
   lspconfig.taplo.setup {

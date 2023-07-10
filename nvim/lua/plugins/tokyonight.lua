@@ -11,9 +11,12 @@ M.config = function()
     styles = {
       comments = { italic = true },
       keywords = { italic = true },
-      sidebars = "transparent", -- style for sidebars, see below
-      floats = "transparent",   -- style for floating windows
+      -- sidebars = "transparent", -- style for sidebars, see below
+      -- floats = "transparent",   -- style for floating windows
+      -- sidebars = "dark", -- style for sidebars, see below
+      -- floats = "dark",   -- style for floating windows
     },
+    sidebars = { "qf", "terminal", "packer" },
     dim_inactive = true,
     on_highlights = function(hl, colors)
       hl.LineNr = { fg = colors.cyan }

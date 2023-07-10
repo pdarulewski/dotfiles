@@ -11,9 +11,13 @@ return {
   { "RRethy/vim-illuminate" },
   { "windwp/nvim-autopairs" },
   { "numToStr/Comment.nvim" },
+
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+  },
   { "EdenEast/nightfox.nvim" },
   { "nordtheme/vim" },
   { "AlexvZyl/nordic.nvim" },
   { "rebelot/kanagawa.nvim" },
-  { "catppuccin/nvim",       name = "catppuccin" },
 }

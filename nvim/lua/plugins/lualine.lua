@@ -11,7 +11,8 @@ M.config = function()
 
   lualine.setup({
     options = {
-      globalstatus = true
+      globalstatus = true,
+      theme = 'tokyonight'
     },
     sections = {
       lualine_c = {
