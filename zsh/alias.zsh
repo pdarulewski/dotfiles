@@ -43,7 +43,7 @@ function mkd() {
 }
 
 function poetry_activate() {
-  if [ -e pyproject.toml ]; then
+	if [ -e pyproject.toml ]; then
     if poetry env info --path &> /dev/null; then
       nvim_with_poetry $*;
 
@@ -69,7 +69,7 @@ alias p='poetry shell'
 
 alias vi='poetry_activate && echo -e "\033]${PWD}\007"'
 
-change_title_bar () {
+function change_title_bar () {
 	local statusline="${PWD##*/}"
 	case $TERM in
 		xterm*|gnome*)
