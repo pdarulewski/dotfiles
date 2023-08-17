@@ -2,9 +2,12 @@
 
 print_green "Installing zsh..."
 
-create_link "$PWD/zsh/.zshrc" ${HOME}/.zshrc
+mkdir -p $HOME/.zsh
 
-zsh_plugins_path="${HOME}/.local/share/zsh/plugins"
+create_link "$PWD/zsh/.zshrc" $HOME/.zshrc
+
+zsh_plugins_path="$HOME/.zsh/plugins"
+
 
 if [ ! -e $zsh_plugins_path/zsh-z ]; then
   git clone --depth 1 https://github.com/agkozak/zsh-z.git\

@@ -4,10 +4,7 @@ source $HOME/.config/zsh/plugin.zsh
 
 export PATH=$PATH:/Users/pd/.spicetify
 
-for file in ${HOME}/.config/**/autocomplete.zsh(N)
-do
-  source $file;
-done;
+fpath+=$HOME/.zsh/completion
 
 if [ -e $HOME/.config/zsh/custom.zsh ]; then
   source $HOME/.config/zsh/custom.zsh
@@ -39,3 +36,10 @@ HISTFILE=$HOME/.zsh_history
 HIST_MAX=1000000000
 HISTSIZE=1000000000
 SAVEHIST=1000000000
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
