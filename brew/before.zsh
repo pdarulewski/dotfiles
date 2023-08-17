@@ -30,6 +30,8 @@ brew install romkatv/powerlevel10k/powerlevel10k
 brew install spicetify/homebrew-tap/spicetify-cli
 
 brew install python@3.11
+brew install poetry
+
 brew install go
 brew install node
 brew install ruby
