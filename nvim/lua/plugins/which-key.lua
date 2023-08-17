@@ -50,6 +50,7 @@ M.config = function()
         l = { "<cmd>lua require('dap-go').debug_last_test()<cr>", "Test last method" },
       },
       u = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle UI" },
+      e = { "<cmd>lua require('dapui').eval()<cr>", "Evaluate" },
       t = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Breakpoint" },
       T = { "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
         "Conditional breakpoint" },
@@ -83,7 +84,9 @@ M.config = function()
       h = { "<cmd>IronHide<cr>", "Hide" },
       s = { "<cmd>lua require('iron.core').send_line()<cr>", "Send line" },
       q = { "<cmd>lua require('iron.core').close_repl()<cr>", "Close" }
-    }
+    },
+
+    l = { "<cmd>Lazy<cr>", "Lazy" },
   }
 
   local n_leader_opts = {

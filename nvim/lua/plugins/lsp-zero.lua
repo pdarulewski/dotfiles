@@ -1,7 +1,7 @@
 local M = {
   "VonHeikemen/lsp-zero.nvim",
   event = "VeryLazy",
-  tag = "v2.x",
+  branch = 'v2.x',
   build = ":MasonUpdate",
   dependencies = {
     "neovim/nvim-lspconfig",

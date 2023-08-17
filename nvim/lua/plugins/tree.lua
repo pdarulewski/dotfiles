@@ -33,7 +33,7 @@ M.config = function()
       side = "right",
     },
     renderer = {
-      group_empty = true,
+      group_empty = false,
     },
     filters = {
       dotfiles = false,
@@ -43,7 +43,7 @@ M.config = function()
         ".DS_Store",
         ".mypy_cache",
         ".pytest_cache",
-        ".git$",
+        "^.git$",
         ".ruff_cache",
         ".ropeproject"
       }
