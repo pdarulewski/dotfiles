@@ -1,8 +1,13 @@
+custom.zsh
+
+
+
 gcloud/
+
 gh/
-github-copilot/
-htop/
-scripts/
+
+github-copilot/hosts.json
+github-copilot/versions.json
 
 lazygit/state.yml
 
@@ -12,9 +17,3 @@ spicetify/*
 
 k9s/*
 !k9s/skin.yml
-
-dlv/
-
-packer_compiled.lua
-
-custom.zsh
