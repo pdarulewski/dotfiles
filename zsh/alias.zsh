@@ -24,3 +24,8 @@ function change_title_bar () {
 precmd () {
     change_title_bar
 }
+
+for file in $HOME/.config/zsh/scripts/*.zsh(.)
+do
+  source $file;
+done;
