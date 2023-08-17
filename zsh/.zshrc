@@ -13,6 +13,11 @@ if [ -e $HOME/.config/zsh/custom.zsh ]; then
   source $HOME/.config/zsh/custom.zsh
 fi
 
+for file in $HOME/.config/**/alias.zsh(.)
+do
+  source $file;
+done;
+
 setopt appendhistory
 
 # https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh
