@@ -8,7 +8,7 @@ customCommands:
 
   - key: "R"
     command: "git checkout HEAD -- {{.SelectedFile.Name | quote}}"
-    description: "commit with commitizen"
+    description: "restore file"
     context: "files"
     loadingText: "restore file"
     subprocess: true
