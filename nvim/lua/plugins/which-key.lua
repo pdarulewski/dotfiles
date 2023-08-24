@@ -50,6 +50,7 @@ M.config = function()
         l = { "<cmd>lua require('dap-go').debug_last_test()<cr>", "Test last method" },
       },
       u = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle UI" },
+      c = { "<cmd>lua require('dapui').close()<cr>", "Close UI" },
       e = { "<cmd>lua require('dapui').eval()<cr>", "Evaluate" },
       t = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Breakpoint" },
       T = { "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
