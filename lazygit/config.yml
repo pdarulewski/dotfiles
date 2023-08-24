@@ -21,3 +21,15 @@ customCommands:
     command: git commit -m "{{index .PromptResponses 0}}" --no-verify
     context: "global"
     subprocess: true
+
+  - key: "<c-g>"
+    command: "gh pr create"
+    context: "global"
+    loadingText: "Creating pull request on GitHub"
+    subprocess: true
+
+  - key: 'E'
+    description: 'Add empty commit'
+    context: 'commits'
+    command: 'git commit --allow-empty -m "empty commit"'
+    loadingText: 'Committing empty commit...'
