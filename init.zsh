@@ -31,14 +31,4 @@ do
 done;
 
 
-print_green "Installing autocompletion files"
-
-mkdir -p $HOME/.zsh/completion
-
-for file in **/completion.zsh(N)
-do
-  print_green "\nInstalling $file..."
-  source $file;
-done;
-
 print_green "Done."
