@@ -3,7 +3,17 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/repo -mindepth 1 -maxdepth 1 -type d | fzf)
+    explicit_dirs=(
+        "$HOME/repo"
+        "$HOME/repo/dotfiles/nvim"
+        "$HOME/Downloads"
+    )
+
+    found_dirs=$(find ~/repo -mindepth 1 -maxdepth 1 -type d)
+
+    all_dirs=("${explicit_dirs[@]}" "$found_dirs")
+
+    selected=$(printf '%s\n' "${all_dirs[@]}" | fzf)
 fi
 
 if [[ -z $selected ]]; then
