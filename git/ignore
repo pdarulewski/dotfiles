@@ -1,9 +1,6 @@
 # MacOS
 .DS_Store
 
-# Editor
-.vscode
-
 # Build
 __debug_bin
 target/
