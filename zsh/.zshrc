@@ -1,16 +1,18 @@
 source $HOME/.config/zsh/export.zsh
 source $HOME/.config/zsh/alias.zsh
 source $HOME/.config/zsh/plugin.zsh
+source $HOME/.config/zsh/completion.zsh
 
 export PATH=$PATH:/Users/pd/.spicetify
 
 fpath+=$HOME/.zsh/completion
 
-if [ -e $HOME/.config/zsh/custom.zsh ]; then
-  source $HOME/.config/zsh/custom.zsh
-fi
-
 for file in $HOME/.config/**/alias.zsh(.)
+do
+  source $file;
+done;
+
+for file in $HOME/.config/zsh/scripts/*.zsh(.)
 do
   source $file;
 done;
