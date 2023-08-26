@@ -4,6 +4,7 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     explicit_dirs=(
+        "$HOME"
         "$HOME/repo"
         "$HOME/repo/dotfiles/nvim"
         "$HOME/Downloads"
