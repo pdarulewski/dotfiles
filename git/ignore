@@ -4,6 +4,7 @@
 # Build
 __debug_bin
 target/
+*.pyc
 
 # Files
 *.log
