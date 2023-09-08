@@ -18,6 +18,7 @@ brew install lazygit
 
 brew install ripgrep
 brew install tree
+brew install bat
 brew install fzf
 
 brew install neovim
