@@ -18,3 +18,6 @@ export GPG_TTY=$(tty)
 
 export EDITOR='vi'
 export PROJECTS="$HOME/repo"
+
+# crontab editor on MacOS
+export VISUAL='nvim'
