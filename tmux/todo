@@ -6,7 +6,7 @@ tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
     tmux new-session -s todo -c $todo_dir
-    tmux send-keys -t todo "nvim $todo_dir/todo.md" C-m
+    tmux send-keys -t todo "nvim $todo_dir/todo.md"
     exit 0
 fi
 
@@ -15,4 +15,3 @@ if ! tmux has-session -t=todo 2> /dev/null; then
 fi
 
 tmux switch-client -t todo
-tmux send-keys -t todo "nvim $todo_dir/todo.md" C-m
