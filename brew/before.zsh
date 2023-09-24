@@ -13,6 +13,7 @@ yes | brew upgrade
 
 brew install btop
 brew install git
+brew install git-lfs
 brew install gh
 brew install gnupg
 brew install lazygit
