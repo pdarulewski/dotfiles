@@ -11,6 +11,7 @@ print_green "Updating and upgrading Homebrew..."
 yes | brew update
 yes | brew upgrade
 
+brew install btop
 brew install git
 brew install gh
 brew install gnupg
