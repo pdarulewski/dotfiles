@@ -28,8 +28,12 @@ customCommands:
     loadingText: "Creating pull request on GitHub"
     subprocess: true
 
-  - key: 'E'
-    description: 'Add empty commit'
-    context: 'commits'
-    command: 'git commit --allow-empty -m "empty commit"'
-    loadingText: 'Committing empty commit...'
+  - key: "E"
+    prompts:
+      - type: "input"
+        title: "Add empty commit"
+        initialValue: "fix: "
+    command: 'git commit --allow-empty -m "{{index .PromptResponses 0}}"'
+    context: "global"
+    subprocess: true
+
