@@ -3,7 +3,7 @@
 function bat_fzf() {
   fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
 }
-alias fzf=bat_fzf
+alias batfzf=bat_fzf
 
 function bat_tail() {
   tail -f $1 | bat --paging=never -l log
