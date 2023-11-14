@@ -6,5 +6,9 @@ __debug_bin
 target/
 *.pyc
 
+# Dependencies
+.venv
+
 # Files
 *.log
+scratch*
