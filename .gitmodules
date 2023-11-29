@@ -2,3 +2,6 @@
 	path = nvim
 	url = git@github.com:pdarulewski/nvim.git
 	branch = main
+[submodule "wallpapers"]
+	path = wallpapers
+	url = git@github.com:pdarulewski/wallpapers.git
