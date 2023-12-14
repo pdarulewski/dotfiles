@@ -4,19 +4,26 @@ xcode-select --install
 
 print_green "Checking if Homebrew is already installed..."
 
-print_green "Installing Homebrew.";
+print_green "Installing Homebrew."
 yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 print_green "Updating and upgrading Homebrew..."
 yes | brew update
 yes | brew upgrade
 
+brew install zsh
+brew install zsh-completions
+brew install romkatv/powerlevel10k/powerlevel10k
+
 brew install btop
+brew install wget
 brew install git
 brew install git-lfs
 brew install gh
 brew install gnupg
 brew install lazygit
+brew install tmux
+brew install fd
 
 brew install ripgrep
 brew install tree
@@ -26,22 +33,27 @@ brew install fzf
 brew install neovim
 brew install neofetch
 
-brew install zsh
-brew install zsh-completions
-brew install romkatv/powerlevel10k/powerlevel10k
+brew install kubectl
+brew install kubectx
+brew install k9s
+
+brew install azure-cli
 
 brew install spicetify/homebrew-tap/spicetify-cli
 
-brew install python@3.11
 brew install poetry
+brew install pyenv
 
 brew install go
 brew install node
-brew install ruby
+
+brew install rustup-init
 
 brew install --cask kitty
 brew install --cask rectangle
 brew install --cask spotify
+brew install --cask arc
+brew install --cask docker
 
 brew tap homebrew/cask-fonts
 brew install font-symbols-only-nerd-font
