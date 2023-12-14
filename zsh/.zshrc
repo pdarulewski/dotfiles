@@ -1,6 +1,7 @@
 source "$HOME"/.config/zsh/_export.zsh
 source "$HOME"/.config/zsh/plugin.zsh
 source "$HOME"/.config/zsh/completion.zsh
+export PATH=$PATH:$HOME/bin
 
 export PATH=$PATH:/Users/pd/.spicetify
 

@@ -6,6 +6,8 @@ print_green "Initialisation of dotfiles."
 
 create_link $PWD "$HOME/.config"
 
+mkdir "$HOME/bin/"
+
 
 print_green "Installing before.zsh files"
 for file in **/before.zsh(.)
