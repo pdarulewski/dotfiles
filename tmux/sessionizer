@@ -6,7 +6,6 @@ else
 	explicit_dirs=(
 		"$HOME"
 		"$HOME/repo"
-		"$HOME/repo/dotfiles/nvim"
 		"$HOME/Downloads"
 		"$HOME/repo/vaults/work"
 		"$HOME/repo/vaults/personal"
