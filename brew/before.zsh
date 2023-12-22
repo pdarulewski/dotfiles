@@ -17,6 +17,7 @@ brew install romkatv/powerlevel10k/powerlevel10k
 
 brew install btop
 brew install wget
+brew install jq
 brew install git
 brew install git-lfs
 brew install gh
@@ -48,6 +49,8 @@ brew install go
 brew install node
 
 brew install rustup-init
+
+brew install postgresql
 
 brew install --cask kitty
 brew install --cask rectangle
