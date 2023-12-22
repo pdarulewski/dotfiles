@@ -1,3 +1,3 @@
 #!/usr/bin/env zsh
 
-chmod +x "$PWD/tmux/tmux-sessionizer"
+chmod +x "$PWD/tmux/sessionizer"
