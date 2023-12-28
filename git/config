@@ -7,8 +7,8 @@
 	remote = yellow
 
 [color "status"]
-	added = green
-	changed = yellow
+	added = cyan
+	changed = magenta
 	untracked = blue
 
 [commit]
