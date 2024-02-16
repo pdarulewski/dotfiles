@@ -14,7 +14,7 @@ alias gcmsg='git commit -m'
 
 # alias grbia='git rebase -i `git merge-base feature main`'
 function grbi() {
-  git rebase -i HEAD~$1
+	git rebase -i HEAD~$1
 }
 
 alias grbc='git rebase --continue'
@@ -24,6 +24,6 @@ alias gl='git log --oneline --decorate --graph'
 alias gp='git pull'
 alias gP='git push'
 
-alias gs='git stash'
+alias gsa='git stash --all'
 alias gsp='git stash pop'
 alias gsd='git stash drop'
