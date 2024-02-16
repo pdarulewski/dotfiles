@@ -21,8 +21,9 @@ alias grbc='git rebase --continue'
 
 alias gl='git log --oneline --decorate --graph'
 
-alias gp='git pull'
-alias gP='git push'
+alias gpl='git pull'
+alias gpu='git push'
+alias gpuf='git push --force-with-lease'
 
 alias gsa='git stash --all'
 alias gsp='git stash pop'
