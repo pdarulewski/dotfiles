@@ -4,10 +4,15 @@ source utils.zsh
 
 print_green "Initialisation of dotfiles."
 
+if [ -e "$HOME/.zshenv" ]; then
+  echo "export ZDOTDIR=\"$HOME/.config/zsh\"" >> "$HOME/.zshenv"
+else
+  echo "export ZDOTDIR=\"$HOME/.config/zsh\"" > "$HOME/.zshenv"
+fi
+
 create_link $PWD "$HOME/.config"
 
 mkdir "$HOME/bin/"
-
 
 print_green "Installing before.zsh files"
 for file in **/before.zsh(.)

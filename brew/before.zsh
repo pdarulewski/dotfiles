@@ -24,15 +24,16 @@ brew install gh
 brew install gnupg
 brew install lazygit
 brew install tmux
-brew install fd
 
+brew install neofetch
+
+brew install fd
 brew install ripgrep
 brew install tree
 brew install bat
 brew install fzf
 
 brew install neovim
-brew install neofetch
 
 brew install kubectl
 brew install kubectx
@@ -40,17 +41,14 @@ brew install k9s
 
 brew install azure-cli
 
-brew install spicetify/homebrew-tap/spicetify-cli
-
 brew install poetry
 brew install pyenv
-
 brew install go
 brew install node
-
 brew install rustup-init
 
 brew install postgresql
+brew install redis
 
 brew install --cask kitty
 brew install --cask rectangle
@@ -58,6 +56,7 @@ brew install --cask spotify
 brew install --cask arc
 brew install --cask docker
 
+brew install spicetify/homebrew-tap/spicetify-cli
 brew tap homebrew/cask-fonts
 brew install font-symbols-only-nerd-font
 brew install font-iosevka-nerd-font

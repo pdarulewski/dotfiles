@@ -12,3 +12,5 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upp
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on
 zstyle :compinstall filename '$HOME/.config/zsh/.zshrc'
+
+fpath+=$HOME/.zsh/completion

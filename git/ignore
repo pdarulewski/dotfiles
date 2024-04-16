@@ -3,7 +3,7 @@
 
 # Build
 bin/
-__debug_bin
+__debug_bin*
 target/
 *.pyc
 
@@ -13,3 +13,4 @@ target/
 # Files
 *.log
 scratch*
+.env
