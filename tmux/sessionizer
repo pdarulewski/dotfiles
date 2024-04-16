@@ -7,13 +7,13 @@ else
 		"$HOME"
 		"$HOME/repo"
 		"$HOME/Downloads"
-		"$HOME/repo/vaults/work"
-		"$HOME/repo/vaults/personal"
 	)
 
-	found_dirs=$(find ~/repo -mindepth 1 -maxdepth 1 -type d)
+	repos=$(find ~/repo -mindepth 1 -maxdepth 3 -type d)
+	vaults=$(find ~/vaults -mindepth 1 -maxdepth 1 -type d)
+	utils=$(find ~/utils -mindepth 1 -maxdepth 1 -type d)
 
-	all_dirs=("${explicit_dirs[@]}" "$found_dirs")
+	all_dirs=("${explicit_dirs[@]}" "$repos" "$vaults" "$utils")
 
 	selected=$(printf '%s\n' "${all_dirs[@]}" | fzf)
 fi
