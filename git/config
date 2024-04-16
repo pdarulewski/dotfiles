@@ -43,4 +43,4 @@
 	enabled = true
 
 [includeIf "gitdir:~/repo/**"]
-	path = ~/dotfiles/git/work_config
+	path = ~/dotfiles/git/maintenance
