@@ -5,8 +5,6 @@ print_green "Installing zsh..."
 mkdir -p $HOME/.zsh
 mkdir -p $HOME/.zsh/completion
 
-create_link "$PWD/zsh/.zshrc" $HOME/.zshrc
-
 zsh_plugins_path="$HOME/.zsh/plugins"
 
 if [ ! -e $zsh_plugins_path/zsh-z ]; then
