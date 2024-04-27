@@ -6,6 +6,8 @@ export VISUAL='nvim'
 export HOSTALIASES=$HOME/.hosts
 
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.gem/ruby/3.3.0/bin
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 alias ..='cd ..'
 alias ...='cd ../..'
