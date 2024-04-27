@@ -1,9 +1,5 @@
 #!/usr/bin/env zsh
 
-set_icon() {
-	sudo cp custom_icons/$1 $2/Contents/Resources/$1
-}
-
-set_icon kitty.icns /Applications/kitty.app
+sudo cp custom_icons/kitty.icns /Applications/kitty.app/Contents/Resources/kitty.icns
 
 sudo killall Finder && sudo killall Finder
