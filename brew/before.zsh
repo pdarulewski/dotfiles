@@ -50,6 +50,12 @@ brew install rustup-init
 brew install postgresql
 brew install redis
 
+brew install xcode-build-server
+brew install xcbeautify
+brew install xcodegen
+brew install swiftlint
+brew install swiftformat
+
 brew install --cask kitty
 brew install --cask rectangle
 brew install --cask spotify
