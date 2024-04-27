@@ -30,10 +30,12 @@ alias gsp='git stash pop'
 alias gsd='git stash drop'
 
 function gc() {
-	org=$(echo $1 | cut -d'/' -f4)
-	repo=$(echo $1 | cut -d'/' -f5 | cut -d'.' -f1)
+	# clone "git@github.com:pdarulewski/dotfiles.git" into ~/repo/github/pdarulewski/dotfiles
+	url=$(echo $1 | cut -d "@" -f 2 | cut -d ":" -f 1)
+	org=$(echo $1 | cut -d ":" -f 2 | cut -d "/" -f 1)
+	repo=$(basename -s .git $1)
 
-	git clone $1 $HOME/repo/$org/$repo
+	git clone $1 $HOME/repo/$url/$org/$repo
 
 	if [ ! -d $HOME/.config/git ]; then
 		mkdir $HOME/.config/git
