@@ -6,7 +6,6 @@ else
 	explicit_dirs=(
 		"$HOME"
 		"$HOME/repo"
-		"$HOME/Downloads"
 	)
 
 	repos=$(find ~/repo -mindepth 1 -maxdepth 3 -type d)
