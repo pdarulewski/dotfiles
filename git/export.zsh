@@ -47,3 +47,9 @@ function gc() {
 
 	echo "\trepo = $HOME/repo/$org/$repo" >>$HOME/.config/git/maintenance
 }
+
+function g() {
+	current_dir=$(pwd)
+	local repo_name=$(echo "$current_dir" | cut -d'/' -f5-7)
+	open "https://$repo_name"
+}
