@@ -46,6 +46,7 @@ brew install pyenv
 brew install go
 brew install node
 brew install rustup-init
+brew install pre-commit
 
 brew install postgresql
 brew install redis
