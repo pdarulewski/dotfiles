@@ -10,11 +10,12 @@ else
   echo "export ZDOTDIR=\"$HOME/.config/zsh\"" > "$HOME/.zshenv"
 fi
 
-create_link $PWD "$HOME/.config"
+ln -s $PWD "$HOME/.config"
 
-mkdir "$HOME/bin/"
+source "$HOME/.config/xdg/pre.zsh"
 
 print_green "Installing before.zsh files"
+
 for file in **/before.zsh(.)
 do
   print_green "\nSourcing $file..."

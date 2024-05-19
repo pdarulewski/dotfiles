@@ -1,3 +1,3 @@
 #!/usr/bin/env zsh
 
-poetry completions zsh > $HOME/.zsh/completion/_poetry
+poetry completions zsh >$ZSH_COMPLETIONS/_poetry

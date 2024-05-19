@@ -1,3 +1,3 @@
 #!/usr/bin/env zsh
 
-kubectl completion zsh > $HOME/.zsh/completion/_kubectl
+kubectl completion zsh >$ZSH_COMPLETIONS/_kubectl

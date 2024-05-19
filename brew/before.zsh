@@ -12,8 +12,6 @@ yes | brew update
 yes | brew upgrade
 
 brew install zsh
-brew install zsh-completions
-brew install romkatv/powerlevel10k/powerlevel10k
 
 brew install btop
 brew install wget

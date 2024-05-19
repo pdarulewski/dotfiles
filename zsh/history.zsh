@@ -1,4 +1,7 @@
+#!/usr/bin/env zsh
+
 setopt appendhistory
+setopt sharehistory
 
 # https://unix.stackexchange.com/questions/273861/unlimited-history-in-zsh
 setopt BANG_HIST              # Treat the '!' character specially during expansion.
@@ -14,11 +17,16 @@ setopt HIST_SAVE_NO_DUPS      # Don't write duplicate entries in the history fil
 setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
 setopt HIST_BEEP              # Beep when accessing nonexistent history.
+setopt HIST_IGNORE_SPACE      # Don't record an entry starting with a space.
 
-HISTFILE=$HOME/.zsh_history
-HIST_MAX=1000000000
-HISTSIZE=1000000000
-SAVEHIST=1000000000
+ZSH_HISTORY_DIR="$ZSH_CACHE"/history
+[[ -d $ZSH_HISTORY_DIR ]] || mkdir -p $ZSH_HISTORY_DIR
+export HISTFILE=$ZSH_HISTORY_DIR/.zsh_history
+
+export HIST_MAX=1000000000
+export HISTSIZE=1000000000
+export SAVEHIST=1000000000
+export SHELL_SESSIONS_DISABLE=1
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
