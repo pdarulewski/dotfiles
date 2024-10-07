@@ -6,6 +6,7 @@ bin/
 __debug_bin*
 target/
 *.pyc
+dist
 
 # Dependencies
 .venv
