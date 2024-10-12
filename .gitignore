@@ -1,10 +1,11 @@
 _personal/*
 
-
+!k9s/skin.yml
+!spicetify/after.zsh
+!spicetify/config-xpui.ini
 gcloud/
-
 gh/
-
+git/maintenance
 github-copilot/hosts.json
 github-copilot/versions.json
 
@@ -15,4 +16,8 @@ spicetify/*
 !spicetify/after.zsh
 
 harsh
-git/maintenance
+k9s/*
+lazygit/state.yml
+spicetify/*
+zsh/.zcompdump
+zsh/.zsh_sessions/
