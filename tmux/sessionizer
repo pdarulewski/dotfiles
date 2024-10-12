@@ -5,6 +5,7 @@ if [[ $# -eq 1 ]]; then
 else
   explicit_dirs=(
     "$HOME"
+    "$HOME/.config"
     "$HOME/repo"
     "$HOME/Downloads/"
   )
