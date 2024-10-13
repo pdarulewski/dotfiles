@@ -37,12 +37,9 @@ function gc() {
 
   git clone $1 $HOME/repo/$url/$org/$repo
 
-  if [ ! -d $HOME/.config/git ]; then
-    mkdir $HOME/.config/git
-  fi
-  if [ ! -f $HOME/.config/git/maintenance ]; then
-    touch $HOME/.config/git/maintenance
-    echo "[maintenance]\n\tauto = false\n\tstrategy = incremental" >>$HOME/.config/git/maintenance
+  if [ ! -f $HOME/repo/maintenance ]; then
+    touch $HOME/repo/maintenance
+    echo "[maintenance]\n\tauto = false\n\tstrategy = incremental" >>$HOME/repo/maintenance
   fi
 
   echo "\trepo = $HOME/repo/$org/$repo" >>$HOME/.config/git/maintenance
