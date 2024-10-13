@@ -2,5 +2,5 @@
 
 {
   git = import ./config/git.nix;
-  home-manager.enable = true;
+  zsh = import ./config/zsh.nix { pkgs = pkgs; lib = lib; config = config; };
 }

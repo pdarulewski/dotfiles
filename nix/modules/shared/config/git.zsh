@@ -50,3 +50,14 @@ function g() {
   local repo_name=$(echo "$current_dir" | cut -d'/' -f5-7)
   open "https://$repo_name"
 }
+
+function gpr() {
+  current_dir=$(pwd)
+  local repo_name=$(echo "$current_dir" | cut -d'/' -f5-7)
+
+  if [[ -n "$1" ]]; then
+    open "https://$repo_name/pulls/$1"
+  else
+    open "https://$repo_name/pulls"
+  fi
+}

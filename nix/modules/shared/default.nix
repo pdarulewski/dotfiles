@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  programs.zsh.enable = true;
   services.nix-daemon.enable = true;
   nix = {
     extraOptions = "experimental-features = nix-command flakes";

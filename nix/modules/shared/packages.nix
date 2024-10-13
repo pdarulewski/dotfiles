@@ -1,32 +1,34 @@
 { pkgs }:
 
 with pkgs; [
-  # apps
+  # gui
   kitty
-  neovim
   slack
-  spicetify-cli
   # spotify
-  tmux
 
-  # basic tools
+  # terminal
   bat
   btop
+  colorls
   fd
   fzf
   gnupg
   jq
   neofetch
+  neovim
   ripgrep
+  spicetify-cli
+  tmux
   tree
   wget
   zoxide
+  zplug
   zsh
-  zsh-powerlevel10k
 
   # fonts
   fira-code
   nerdfonts
+  (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   victor-mono
 
   # git
@@ -57,7 +59,4 @@ with pkgs; [
 
   # rust
   rustup
-
-  # ruby
-  ruby
 ]

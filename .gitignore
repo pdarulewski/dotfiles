@@ -1,9 +1,6 @@
 _personal/*
 
 
-gcloud/
-
-gh/
 
 github-copilot/hosts.json
 github-copilot/versions.json
@@ -15,4 +12,8 @@ spicetify/*
 !spicetify/after.zsh
 
 harsh
-git/maintenance
+
+gcloud
+gh
+git/
+zsh/
