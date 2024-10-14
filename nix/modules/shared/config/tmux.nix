@@ -16,7 +16,7 @@
     set -g default-terminal "xterm-256color"
     set -ga terminal-overrides ",xterm-256color:Tc"
 
-    bind-key -r f run-shell "tmux neww /Users/pd/.config/nix/modules/shared/config/sessionizer.sh"
+    bind-key -r f run-shell "tmux neww /Users/pd/.config/nix/modules/shared/config/deps/sessionizer.sh"
 
     # Tokyonight Storm
     # Upstream: https://github.com/folke/tokyonight.nvim/blob/main/extras/tmux_tokyonight_storm.tmux

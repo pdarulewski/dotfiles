@@ -39,8 +39,9 @@
   };
 
   initExtra = ''
-  source $HOME/.config/nix/modules/shared/config/zsh.zsh
-  source $HOME/.config/nix/modules/shared/config/git.zsh
+  source $HOME/.config/nix/modules/shared/config/deps/zsh.zsh
+  source $HOME/.config/nix/modules/shared/config/deps/git.zsh
+  source $HOME/.config/nix/modules/shared/config/deps/neofetch/neofetch.zsh
   '';
 
   zplug = {
@@ -60,7 +61,7 @@
           }
           {
             name = "powerlevel10k-config";
-            src = lib.cleanSource ../config;
+            src = lib.cleanSource ../config/deps;
             file = "p10k.zsh";
           }
   ];
