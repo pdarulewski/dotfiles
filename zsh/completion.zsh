@@ -4,7 +4,7 @@ ZSH_COMPDUMP_DIR="$ZSH_CACHE"/zcompcache
 [[ -d $ZSH_COMPDUMP_DIR ]] || mkdir -p $ZSH_COMPDUMP_DIR
 ZCOMPCACHE="$ZSH_COMPDUMP_DIR/.zcompdump-${ZSH_VERSION}"
 
-autoload -Uz compinit && compinit -C -d $ZSH_COMPDUMP_DIR
+autoload -Uz compinit && compinit -C -d $ZSH_COMPDUMP_DIR/.zcompdump
 
 zstyle ':completion:*' cache-path $ZCOMPCACHE
 zstyle ':completion:*' completer _extensions _complete _approximate

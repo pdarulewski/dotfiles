@@ -26,7 +26,6 @@ export HISTFILE=$ZSH_HISTORY_DIR/.zsh_history
 export HIST_MAX=1000000000
 export HISTSIZE=1000000000
 export SAVEHIST=1000000000
-export SHELL_SESSIONS_DISABLE=1
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search

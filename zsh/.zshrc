@@ -22,8 +22,9 @@ done;
 
 source $HOME/.config/powerlevel10k/.p10k.zsh
 
+# time ZSH_DEBUGRC=1 zsh -i -c exit
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
 	zprof
 fi
 
-# # time ZSH_DEBUGRC=1 zsh -i -c exit
+source "$HOME"/.config/_personal/export.zsh
