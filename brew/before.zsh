@@ -1,9 +1,5 @@
 #!/usr/bin/env zsh
 
-xcode-select --install
-
-print_green "Checking if Homebrew is already installed..."
-
 print_green "Installing Homebrew."
 yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
@@ -11,49 +7,55 @@ print_green "Updating and upgrading Homebrew..."
 yes | brew update
 yes | brew upgrade
 
+# core
 brew install zsh
 
-brew install btop
-brew install wget
-brew install jq
-brew install git
-brew install git-lfs
-brew install gh
-brew install gnupg
-brew install lazygit
-brew install tmux
-
-brew install neofetch
-
-brew install fd
-brew install ripgrep
-brew install tree
 brew install bat
+brew install btop
+brew install fd
 brew install fzf
+brew install git
+brew install gnupg
+brew install jq
+brew install ripgrep
+brew install tmux
+brew install tree
+brew install wget
 
+# basic
+brew install gh
+brew install git-lfs
+brew install lazydocker
+brew install lazygit
 brew install neovim
 
+# dev
+brew install poetry
+brew install pyenv
+brew install go
+brew install golangci-lint
+brew install node
+brew install ruby
+brew install rustup-init
+brew install pre-commit
+
+# bonus
+brew install neofetch
+
+# kubernetes
 brew install kubectl
 brew install kubectx
 brew install k9s
 
-brew install azure-cli
+# azure
+# brew install azure-cli
 
-brew install poetry
-brew install pyenv
-brew install go
-brew install node
-brew install rustup-init
-brew install pre-commit
-
-brew install postgresql
-brew install redis
-
-brew install xcode-build-server
-brew install xcbeautify
-brew install xcodegen
-brew install swiftlint
-brew install swiftformat
+# xcode
+# brew install xcode-build-server
+# brew install xcbeautify
+# brew install xcodegen
+# brew install swiftlint
+# brew install swiftformat
 
 brew install --cask kitty
 brew install --cask rectangle
