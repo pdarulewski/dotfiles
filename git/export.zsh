@@ -21,7 +21,7 @@ alias grbc='git rebase --continue'
 
 alias gl='git log --oneline --decorate --graph'
 
-alias gpl='git pull'
+alias gp='git pull'
 alias gpu='git push'
 alias gpuf='git push --force-with-lease'
 
@@ -52,4 +52,14 @@ function g() {
   current_dir=$(pwd)
   local repo_name=$(echo "$current_dir" | cut -d'/' -f5-7)
   open "https://$repo_name"
+}
+
+function gpr() {
+  current_dir=$(pwd)
+  local repo_name=$(echo "$current_dir" | cut -d'/' -f5-7)
+  if [ -z "$1" ]; then
+    open "https://$repo_name/pulls"
+  else
+    open "https://$repo_name/pull/$1"
+  fi
 }

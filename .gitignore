@@ -3,10 +3,7 @@ _personal/*
 
 gcloud/
 
-gh/
-
-github-copilot/hosts.json
-github-copilot/versions.json
+github-copilot
 
 lazygit/state.yml
 
