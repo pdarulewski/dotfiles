@@ -29,6 +29,8 @@ alias gsa='git stash --all'
 alias gsp='git stash pop'
 alias gsd='git stash drop'
 
+alias gcp='git cherry-pick'
+
 function gc() {
   # clone "git@github.com:pdarulewski/dotfiles.git" into ~/repo/github.com/pdarulewski/dotfiles
   url=$(echo $1 | cut -d "@" -f 2 | cut -d ":" -f 1)

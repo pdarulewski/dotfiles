@@ -4,7 +4,4 @@ export KUBE_EDITOR="nvim"
 
 alias k='kubectl'
 alias kctx='kubectx'
-
-function kns() {
-	kubectl config set-context --current --namespace="$1"
-}
+alias kns='kubens'
