@@ -19,4 +19,5 @@ export VISUAL='nvim'
 
 export EDITOR='nvim'
 
-export THEME="ocean"
+# export THEME="ocean"
+export THEME="rose"
