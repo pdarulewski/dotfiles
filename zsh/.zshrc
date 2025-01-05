@@ -27,4 +27,4 @@ if [ -n "${ZSH_DEBUGRC+1}" ]; then
 	zprof
 fi
 
-source "$HOME"/.config/_personal/export.zsh
+source "$HOME"/.config/_personal/post.zsh
