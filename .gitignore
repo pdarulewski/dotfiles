@@ -3,6 +3,7 @@ _personal/*
 
 gcloud/
 
+gh/apps.json
 github-copilot
 
 lazygit/state.yml
