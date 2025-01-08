@@ -1,0 +1,10 @@
+font-family = Fira Code
+font-family-italic = Victor Mono
+font-family-bold-italic = Victor Mono
+
+adjust-cell-height = 25
+font-size = 12
+
+cursor-style = block
+cursor-style-blink = false
+cursor-color = #ea9a97
