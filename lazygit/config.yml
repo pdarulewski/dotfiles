@@ -40,30 +40,31 @@ gui:
   nerdFontsVersion: "3"
   theme:
     activeBorderColor:
-      - "#ff966c"
-      - "bold"
+      - '#f5bde6'
+      - bold
     inactiveBorderColor:
-      - "#589ed7"
-    searchingActiveBorderColor:
-      - "#ff966c"
-      - "bold"
+      - '#a5adcb'
     optionsTextColor:
-      - "#82aaff"
+      - '#8aadf4'
     selectedLineBgColor:
-      - "#2d3f76"
-    cherryPickedCommitFgColor:
-      - "#82aaff"
+      - '#363a4f'
     cherryPickedCommitBgColor:
-      - "#c099ff"
-    markedBaseCommitFgColor:
-      - "#82aaff"
-    markedBaseCommitBgColor:
-      - "#ffc777"
+      - '#494d64'
+    cherryPickedCommitFgColor:
+      - '#f5bde6'
     unstagedChangesColor:
-      - "#c53b53"
+      - '#ed8796'
     defaultFgColor:
-      - "#c8d3f5"
+      - '#cad3f5'
+    searchingActiveBorderColor:
+      - '#eed49f'
+  authorColors:
+    '*': '#b7bdf8'
 keybinding:
   commits:
     moveDownCommit: <c-4>
     moveUpCommit: <c-5>
+# git:
+#   paging:
+#     colorArg: always
+#     pager: delta -s --dark --paging=never
