@@ -1,0 +1,6 @@
+brew "act"
+brew "golang-migrate"
+brew "graphql-cli"
+brew "grpc"
+brew "helm"
+brew "luarocks"

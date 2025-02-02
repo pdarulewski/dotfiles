@@ -1,0 +1,5 @@
+brew 'swiftformat'
+brew 'swiftlint'
+brew 'xcbeautify'
+brew 'xcode-build-server'
+brew 'xcodegen'

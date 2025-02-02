@@ -1,0 +1,52 @@
+cask 'arc'
+cask 'docker'
+cask 'ghostty'
+cask 'rectangle'
+
+# core
+brew 'tmux'
+
+brew 'neovim'
+brew 'fd'
+brew 'fzf'
+brew 'ripgrep'
+brew 'tree'
+
+brew 'bat'
+brew 'wget'
+
+brew 'zsh'
+
+brew 'git'
+brew 'gnupg'
+
+brew 'btop'
+
+# basic
+brew 'jq'
+brew 'gh'
+brew 'git-lfs'
+brew 'lazydocker'
+brew 'lazygit'
+brew 'git-delta'
+
+# dev
+# go
+brew 'go'
+brew 'golangci-lint'
+
+# python
+brew 'poetry'
+brew 'pre-commit'
+brew 'pyenv'
+brew 'node'
+brew 'ruby'
+brew 'rustup-init'
+
+# rice
+brew 'neofetch'
+
+# kubernetes
+brew 'kubectl'
+brew 'kubectx'
+brew 'k9s'

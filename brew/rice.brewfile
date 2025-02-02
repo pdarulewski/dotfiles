@@ -1,0 +1,8 @@
+cask 'spotify'
+brew 'spicetify/homebrew-tap/spicetify-cli'
+
+tap 'homebrew/cask-fonts'
+brew 'font-symbols-only-nerd-font'
+brew 'font-iosevka-nerd-font'
+brew 'font-fira-code'
+brew 'font-victor-mono'
