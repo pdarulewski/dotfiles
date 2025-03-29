@@ -1,5 +1,6 @@
 [core]
 	editor = nvim
+	pager = less -N
 
 [color "branch"]
 	current = green
@@ -40,7 +41,7 @@
 	required = true
 
 [rerere]
-	enabled = true
+	enabled = false
 
 [includeIf "gitdir:~/repo/**"]
 	path = ~/dotfiles/git/maintenance
