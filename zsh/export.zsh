@@ -3,7 +3,7 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias l='colorls -lAh --sd'
+alias l='eza -almU --git --total-size --icons=always --group-directories-first'
 
 alias diff='diff --side-by-side -W $(( $(tput cols) - 2 ))'
 

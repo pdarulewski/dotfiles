@@ -2,3 +2,4 @@
 
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+# export CGO_ENABLED='0'

@@ -4,6 +4,7 @@
 # Build
 bin/
 __debug_bin*
+__debug
 target/
 *.pyc
 dist
