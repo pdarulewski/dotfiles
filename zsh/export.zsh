@@ -3,7 +3,6 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias l='colorls -lAh --sd'
 
 alias diff='diff --side-by-side -W $(( $(tput cols) - 2 ))'
 
