@@ -1,0 +1,111 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+$schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+palette:
+  # rose pine moon
+  foam: "#9ccfd8"
+  gold: "#f6c177"
+  iris: "#c4a7e7"
+  love: "#eb6f92"
+  moon: "#ea9a97"
+  pine: "#3e8fb0"
+  subtle: "#908caa"
+  text: "#e0def4"
+transient_prompt:
+  background: transparent
+  foreground: "p:text"
+  template: " ∇ "
+blocks:
+  - alignment: left
+    type: prompt
+    segments:
+      - type: os
+        template: " {{ .Icon }} "
+        foreground: "p:subtle"
+        style: plain
+      - type: session
+        style: "plain"
+        foreground: "p:subtle"
+        template: "{{ .UserName }}@{{ .HostName }}"
+      - type: path
+        template: " {{ .Path }} "
+        foreground: "p:pine"
+        properties:
+          home_icon: "~"
+          style: unique
+        style: plain
+      - type: git
+        template: " {{ .UpstreamIcon }}  {{ .HEAD }} {{if .BranchStatus }}{{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
+        foreground: "p:foam"
+        style: "plain"
+        properties:
+          fetch_status: true
+          fetch_upstream_icon: true
+          branch_icon: " "
+          cherry_pick_icon: " "
+          commit_icon: " "
+          merge_icon: " "
+          no_commits_icon: " "
+          rebase_icon: " "
+          revert_icon: " "
+          tag_icon: " "
+          mapped_branches:
+            feat/*: "🚀 "
+            bug/*: "🐛 "
+  - alignment: right
+    type: prompt
+    segments:
+      - type: status
+        foreground_templates:
+          - "{{ if gt .Code 0 }}p:moon{{ end }}"
+        template: "  {{ .Code }} "
+        style: plain
+      - type: executiontime
+        style: plain
+        foreground: "p:gold"
+        template: "  {{ .FormattedMs }} "
+        properties:
+          threshold: 500
+          style: austin
+          always_enabled: false
+      - type: go
+        style: plain
+        foreground: "p:pine"
+        template: "  {{ .Full }} "
+      - type: rust
+        style: plain
+        foreground: "p:love"
+        template: "  {{ .Full }} "
+      - type: swift
+        style: plain
+        foreground: "p:moon"
+        template: "  {{ .Full }} "
+      - type: zig
+        style: plain
+        foreground: "p:gold"
+        template: "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+      - type: python
+        style: plain
+        foreground: "p:foam"
+        template: "  {{ .Full }} "
+      - type: kubectl
+        style: plain
+        foreground: "p:pine"
+        template: " \U000F10FE {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
+  - alignment: left
+    newline: true
+    type: prompt
+    segments:
+      - type: text
+        style: plain
+        foreground: "p:text"
+        template: " ∇ "
+tooltips:
+  - type: gcp
+    style: plain
+    tips:
+      - gcloud
+      - gcp
+    foreground: "p:gold"
+    template: "  {{.Project}} :: {{.Account}} "
+final_space: true
+version: 3

@@ -11,6 +11,3 @@ zinit light zsh-users/zsh-syntax-highlighting
 
 zinit ice lucid wait'0'
 zinit light joshskidmore/zsh-fzf-history-search
-
-zinit ice depth"1"
-zinit light romkatv/powerlevel10k

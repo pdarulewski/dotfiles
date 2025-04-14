@@ -20,11 +20,11 @@ do
   source $file;
 done;
 
-source $HOME/.config/powerlevel10k/.p10k.zsh
-
 # time ZSH_DEBUGRC=1 zsh -i -c exit
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
 	zprof
 fi
 
 source "$HOME"/.config/_personal/post.zsh
+
+source "$HOME"/.config/ohmyposh/post.zsh
