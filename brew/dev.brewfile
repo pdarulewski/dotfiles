@@ -1,0 +1,44 @@
+# nvim
+brew 'neovim'
+brew 'fd'
+brew 'fzf'
+brew 'ripgrep'
+brew 'lazygit'
+brew "luarocks"
+
+# go
+brew 'go'
+brew 'golangci-lint'
+brew "golang-migrate"
+
+# python
+brew 'poetry'
+brew 'pre-commit'
+brew 'pyenv'
+
+# node
+brew 'node'
+
+# rust
+brew 'rust-analyzer'
+brew 'rustup'
+
+# kubernetes
+brew 'kubectl'
+brew 'kubectx'
+brew 'k9s'
+brew "helm"
+
+# git
+brew 'git-delta'
+brew 'git'
+brew 'gnupg'
+
+# tools
+brew 'jq'
+brew 'gh'
+brew 'git-lfs'
+brew 'lazydocker'
+brew "act"
+brew "grpcurl"
+brew "protobuf"
