@@ -50,7 +50,7 @@ blocks:
           tag_icon: " "
           mapped_branches:
             feat/*: "🚀 "
-            bug/*: "🐛 "
+            fix/*: "🐛 "
   - alignment: right
     type: prompt
     segments:

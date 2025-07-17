@@ -8,12 +8,12 @@ alias f=bat_fzf
 function bat_tail() {
   tail -f $1 | bat --paging=never -l log
 }
-alias tail=bat_tail
+# alias tail=bat_tail
 
 function bat_head() {
   head -n $1 | bat --paging=never -l log
 }
-alias head=bat_head
+# alias head=bat_head
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 

@@ -31,3 +31,5 @@ function v() {
 
   fi
 }
+
+alias renew="sudo ipconfig set en0 BOOTP && sudo ipconfig set en0 DHCP"

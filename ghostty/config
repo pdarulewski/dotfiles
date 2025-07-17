@@ -1,3 +1,4 @@
+# reload cmd + shift + ,
 shell-integration-features = no-cursor
 
 config-file = theme
