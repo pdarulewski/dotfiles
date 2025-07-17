@@ -1,7 +1,8 @@
 # dracula.yml
 # Styles...
 foreground: &foreground "#f8f8f2"
-background: &background "#24273A"
+# background: &background "#24273A"
+background: &background default
 current_line: &current_line "#44475a"
 selection: &selection "#44475a"
 comment: &comment "#6272a4"
