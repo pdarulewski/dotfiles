@@ -3,6 +3,7 @@ cask 'docker'
 cask 'ghostty'
 cask 'rectangle'
 cask 'spotify'
+cask 'raycast'
 
 # core
 brew 'zsh'
