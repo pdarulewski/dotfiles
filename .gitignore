@@ -14,3 +14,8 @@ spicetify/*
 
 harsh
 git/maintenance
+
+act/*
+helm/*
+raycast/*
+rest-client/*
