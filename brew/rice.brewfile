@@ -1,9 +1,0 @@
-brew 'spicetify/homebrew-tap/spicetify-cli'
-brew 'neofetch'
-brew 'jandedobbeleer/oh-my-posh/oh-my-posh'
-
-tap 'homebrew/cask-fonts'
-brew 'font-symbols-only-nerd-font'
-brew 'font-iosevka-nerd-font'
-brew 'font-fira-code'
-brew 'font-victor-mono'

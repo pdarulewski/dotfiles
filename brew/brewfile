@@ -1,4 +1,0 @@
-require "~/.config/brew/core.brewfile"
-require "~/.config/brew/dev.brewfile"
-require "~/.config/brew/rice.brewfile"
-# require "~/.config/brew/xcode.brewfile"

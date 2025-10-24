@@ -24,7 +24,7 @@
       "pd-macos-intel" = mkDarwinSystem "pd-macos-intel" "x86_64-darwin" [
         ./hosts/macos-intel/configuration.nix
 
-        ./modules/macos/defaults.nix
+        ./modules/macos/system-defaults.nix
         ./modules/macos/home-manager.nix
         ./modules/macos/homebrew.nix
         ./modules/macos/users.nix
@@ -33,7 +33,7 @@
       "pd-macos-apple" = mkDarwinSystem "pd-macos-apple" "aarch64-darwin" [
         ./hosts/macos-apple/configuration.nix
 
-        ./modules/macos/defaults.nix
+        ./modules/macos/system-defaults.nix
         ./modules/macos/home-manager.nix
         ./modules/macos/homebrew.nix
         ./modules/macos/users.nix
