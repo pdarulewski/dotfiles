@@ -9,7 +9,7 @@
     useUserPackages = true;
     users.pd = {
       imports = [
-        ./dotfiles
+        ../programs
       ];
     };
   };

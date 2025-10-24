@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./codespell/codespell.nix
     ./zsh.nix
   ];
 
