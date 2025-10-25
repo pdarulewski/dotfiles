@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "catppuccin-btop": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727050041,
+        "narHash": "sha256-mEGZwScVPWGu+Vbtddc/sJ+mNdD2kKienGZVUcTSl+c=",
+        "owner": "catppuccin",
+        "repo": "btop",
+        "rev": "f437574b600f1c6d932627050b15ff5153b58fa3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "btop",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -17,6 +33,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "k9s-themes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760886408,
+        "narHash": "sha256-PYaVzUAQuy5LBkyJ3otWX1iRYWSkt4sD3HIvpGTOiQY=",
+        "owner": "derailed",
+        "repo": "k9s",
+        "rev": "3c37ca2197ca48591566d1f599b7b3a50d54a408",
+        "type": "github"
+      },
+      "original": {
+        "owner": "derailed",
+        "repo": "k9s",
         "type": "github"
       }
     },
@@ -59,7 +91,9 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-btop": "catppuccin-btop",
         "home-manager": "home-manager",
+        "k9s-themes": "k9s-themes",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs"
       }

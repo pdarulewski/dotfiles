@@ -1,9 +1,10 @@
 { ... }:
 {
   imports = [
+    ./btop
     ./codespell
     ./eza
-    ./oh-my-posh/default.nix
+    ./oh-my-posh
     ./zsh.nix
   ];
 

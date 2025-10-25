@@ -9,13 +9,21 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    catppuccin-btop = { url = "github:catppuccin/btop"; flake = false; };
+    k9s = { url = "github:derailed/k9s"; flake = false; };
   };
 
   outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, ... }:
   let
+    themes = {
+      btop = inputs.catppuccin-btop;
+      k9s  = inputs.k9s;
+    };
+
     mkDarwinSystem = name: arch: modules: nix-darwin.lib.darwinSystem {
       system = arch;
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs themes; };
       modules = modules;
     };
 
