@@ -36,7 +36,7 @@
         "type": "github"
       }
     },
-    "k9s-themes": {
+    "k9s": {
       "flake": false,
       "locked": {
         "lastModified": 1760886408,
@@ -93,7 +93,7 @@
       "inputs": {
         "catppuccin-btop": "catppuccin-btop",
         "home-manager": "home-manager",
-        "k9s-themes": "k9s-themes",
+        "k9s": "k9s",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs"
       }
