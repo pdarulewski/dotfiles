@@ -1,5 +1,4 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-$schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 palette:
   # rose pine moon
   foam: "#9ccfd8"
@@ -75,10 +74,6 @@ blocks:
         style: plain
         foreground: "p:love"
         template: "  {{ .Full }} "
-      - type: swift
-        style: plain
-        foreground: "p:moon"
-        template: "  {{ .Full }} "
       - type: zig
         style: plain
         foreground: "p:gold"

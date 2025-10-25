@@ -1,19 +1,21 @@
-{ ... }:
+{ config, ... }:
 {
   programs.zsh = {
-    enable = false;
+    enable = true;
 
     autosuggestion.enable = true;
+
+    dotDir = "${config.xdg.configHome}/zsh";
+
     # enableCompletions = true;
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      ll = "ls -l";
-      # update = "sudo nixos-rebuild switch";
+      update = "sudo nix run nix-darwin -- switch --flake .#pd-macos-intel";
     };
-    history = {
-      size = 5000;
-      path = "$HOME/.zsh_history";
-    };
+
+    initContent = ''
+      source /Users/pd/.config/zsh/.copy.zshrc
+    '';
   };
 }
