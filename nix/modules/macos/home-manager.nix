@@ -7,6 +7,7 @@
   home-manager = {
     extraSpecialArgs = { inherit themes; };
 
+
     useGlobalPkgs = true;
     useUserPackages = true;
     users.pd = {
@@ -14,5 +15,6 @@
         ../programs
       ];
     };
+    verbose = true;
   };
 }
