@@ -1,11 +1,11 @@
-{ inputs, themes, ... }:
+{ inputs, completions, themes, ... }:
 {
   imports = [
     inputs.home-manager.darwinModules.home-manager
   ];
 
   home-manager = {
-    extraSpecialArgs = { inherit themes; };
+    extraSpecialArgs = { inherit completions themes; };
 
 
     useGlobalPkgs = true;

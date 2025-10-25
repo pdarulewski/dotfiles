@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "eza": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759523815,
+        "narHash": "sha256-zLb2VPfmv9J9UdPAXS+QPHI+hvDRl5UBcvW84J6nUK8=",
+        "owner": "eza-community",
+        "repo": "eza",
+        "rev": "5b7bc61765879cebc98613d65f7b99ceab9c6242",
+        "type": "github"
+      },
+      "original": {
+        "owner": "eza-community",
+        "repo": "eza",
+        "type": "github"
+      }
+    },
     "eza-themes": {
       "flake": false,
       "locked": {
@@ -91,6 +107,7 @@
     },
     "root": {
       "inputs": {
+        "eza": "eza",
         "eza-themes": "eza-themes",
         "home-manager": "home-manager",
         "k9s": "k9s",

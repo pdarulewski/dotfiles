@@ -10,6 +10,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    eza = { url = "github:eza-community/eza"; flake = false; };
+
     eza-themes = { url = "github:eza-community/eza-themes"; flake = false; };
     rose-pine-btop = { url = "github:rose-pine/btop"; flake = false; };
     k9s = { url = "github:derailed/k9s"; flake = false; };
@@ -17,6 +19,10 @@
 
   outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, ... }:
   let
+    completions = {
+      eza = inputs.eza;
+    };
+
     themes = {
       btop = inputs.rose-pine-btop;
       eza = inputs.eza-themes;
@@ -25,7 +31,7 @@
 
     mkDarwinSystem = name: arch: modules: nix-darwin.lib.darwinSystem {
       system = arch;
-      specialArgs = { inherit inputs themes; };
+      specialArgs = { inherit inputs completions themes; };
       modules = modules;
     };
 
@@ -37,6 +43,7 @@
         ./modules/macos/system-defaults.nix
         ./modules/macos/home-manager.nix
         ./modules/macos/homebrew.nix
+        ./modules/macos/programs.nix
         ./modules/macos/users.nix
       ];
 
@@ -46,6 +53,7 @@
         ./modules/macos/system-defaults.nix
         ./modules/macos/home-manager.nix
         ./modules/macos/homebrew.nix
+        ./modules/macos/programs.nix
         ./modules/macos/users.nix
       ];
     };

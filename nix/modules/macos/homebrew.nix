@@ -4,18 +4,13 @@
     enable = true;
     brews = [
       "git-delta"
-      "lazydocker"
-      "neovim"
       "neofetch"
 
-      "bat"
       "fd"
       "fzf"
-      "gh"
       "git-lfs"
       "gnupg"
       "jq"
-      "ripgrep"
       "tree"
       "wget"
 

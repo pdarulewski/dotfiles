@@ -14,6 +14,10 @@
         KeyRepeat = 2;
       };
 
+      controlcenter = {
+        BatteryShowPercentage = true;
+      };
+
       dock = {
         autohide = true;
         autohide-delay = 0.0;
