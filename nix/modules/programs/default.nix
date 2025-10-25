@@ -6,6 +6,7 @@
     ./eza
     ./git
     ./k9s
+    ./lazygit
     ./oh-my-posh
     ./zsh.nix
   ];

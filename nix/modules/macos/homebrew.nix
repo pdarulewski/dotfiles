@@ -7,6 +7,7 @@
       "tmux"
 
       "btop"
+      "git-delta"
       "k9s"
       "lazydocker"
       "lazygit"
