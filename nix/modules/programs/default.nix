@@ -4,6 +4,7 @@
     ./btop
     ./codespell
     ./eza
+    ./git
     ./k9s
     ./oh-my-posh
     ./zsh.nix
