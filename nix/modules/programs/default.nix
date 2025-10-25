@@ -4,6 +4,7 @@
     ./btop
     ./codespell
     ./eza
+    ./ghostty
     ./git
     ./k9s
     ./lazygit

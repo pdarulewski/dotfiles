@@ -6,11 +6,8 @@
       "oh-my-posh"
       "tmux"
 
-      "btop"
       "git-delta"
-      "k9s"
       "lazydocker"
-      "lazygit"
       "neovim"
       "neofetch"
 
@@ -18,7 +15,6 @@
       "fd"
       "fzf"
       "gh"
-      "git"
       "git-lfs"
       "gnupg"
       "jq"
