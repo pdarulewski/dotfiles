@@ -3,9 +3,6 @@
   homebrew = {
     enable = true;
     brews = [
-      "oh-my-posh"
-      "tmux"
-
       "git-delta"
       "lazydocker"
       "neovim"

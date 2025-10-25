@@ -9,6 +9,7 @@
     ./k9s
     ./lazygit
     ./oh-my-posh
+    ./tmux
     ./zsh.nix
   ];
 
