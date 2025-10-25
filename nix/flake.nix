@@ -10,14 +10,16 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    catppuccin-btop = { url = "github:catppuccin/btop"; flake = false; };
+    eza-themes = { url = "github:eza-community/eza-themes"; flake = false; };
+    rose-pine-btop = { url = "github:rose-pine/btop"; flake = false; };
     k9s = { url = "github:derailed/k9s"; flake = false; };
   };
 
   outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, ... }:
   let
     themes = {
-      btop = inputs.catppuccin-btop;
+      btop = inputs.rose-pine-btop;
+      eza = inputs.eza-themes;
       k9s  = inputs.k9s;
     };
 

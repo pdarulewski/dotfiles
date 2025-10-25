@@ -1,7 +1,5 @@
-{ ... }:
+{ themes, ... }:
 {
-  xdg.configFile."eza/theme.yaml".source = ./theme.yaml;
-
   programs.eza = {
     enable = true;
 
@@ -14,6 +12,8 @@
       "--icons=always"
       "--total-size"
     ];
+
+    theme = "${themes.eza}/themes/rose-pine-moon.yml";
   };
 
   programs.zsh.shellAliases = {
