@@ -1,4 +1,0 @@
---hidden
-
---glob=!.git/*
---glob=!poetry.lock

@@ -1,0 +1,138 @@
+{
+  "nodes": {
+    "eza": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759523815,
+        "narHash": "sha256-zLb2VPfmv9J9UdPAXS+QPHI+hvDRl5UBcvW84J6nUK8=",
+        "owner": "eza-community",
+        "repo": "eza",
+        "rev": "5b7bc61765879cebc98613d65f7b99ceab9c6242",
+        "type": "github"
+      },
+      "original": {
+        "owner": "eza-community",
+        "repo": "eza",
+        "type": "github"
+      }
+    },
+    "eza-themes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760304074,
+        "narHash": "sha256-qEC7H9/ghnjkwmMZ788TSgS9ysyIfD+3NHCjxq0Dps0=",
+        "owner": "eza-community",
+        "repo": "eza-themes",
+        "rev": "c03051f67e84110fbae91ab7cbc377b3460f035c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "eza-community",
+        "repo": "eza-themes",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1761395627,
+        "narHash": "sha256-9wQpgBRW2PzYw1wx+MgCt1IbPAYz93csApLMgSZOJCk=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "7296022150cd775917e4c831c393026eae7c2427",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "k9s": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760886408,
+        "narHash": "sha256-PYaVzUAQuy5LBkyJ3otWX1iRYWSkt4sD3HIvpGTOiQY=",
+        "owner": "derailed",
+        "repo": "k9s",
+        "rev": "3c37ca2197ca48591566d1f599b7b3a50d54a408",
+        "type": "github"
+      },
+      "original": {
+        "owner": "derailed",
+        "repo": "k9s",
+        "type": "github"
+      }
+    },
+    "nix-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1761339987,
+        "narHash": "sha256-IUaawVwItZKi64IA6kF6wQCLCzpXbk2R46dHn8sHkig=",
+        "owner": "nix-darwin",
+        "repo": "nix-darwin",
+        "rev": "7cd9aac79ee2924a85c211d21fafd394b06a38de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-darwin",
+        "ref": "master",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1761114652,
+        "narHash": "sha256-f/QCJM/YhrV/lavyCVz8iU3rlZun6d+dAiC3H+CDle4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "01f116e4df6a15f4ccdffb1bcd41096869fb385c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "eza": "eza",
+        "eza-themes": "eza-themes",
+        "home-manager": "home-manager",
+        "k9s": "k9s",
+        "nix-darwin": "nix-darwin",
+        "nixpkgs": "nixpkgs",
+        "rose-pine-btop": "rose-pine-btop"
+      }
+    },
+    "rose-pine-btop": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689701146,
+        "narHash": "sha256-sShQYfsyR5mq/e+pjeIsFzVZv3tCpQEdGC9bnTKlQ5c=",
+        "owner": "rose-pine",
+        "repo": "btop",
+        "rev": "6d6abdc0a8c8bcd3b056d9fe3256cfbe7e359312",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rose-pine",
+        "repo": "btop",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

@@ -1,8 +1,0 @@
-# reload cmd + shift + ,
-shell-integration-features = no-cursor
-
-config-file = theme
-config-file = font
-
-mouse-hide-while-typing = true
-macos-option-as-alt = true

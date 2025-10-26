@@ -1,8 +1,0 @@
-exclude = ["**/.air.toml"]
-
-[formatting]
-column_width = 200
-array_auto_collapse = false
-
-[schema]
-path = "https://raw.githubusercontent.com/air-verse/air/0a3f56961f682c08c2d012dbf828188b4e12e854/air.schema.json"
