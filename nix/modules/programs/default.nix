@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 {
   imports = [
     ./btop
@@ -28,6 +28,9 @@
       mkdir -p ${config.home.homeDirectory}/repo
       mkdir -p ${config.home.homeDirectory}/vault
     '';
+    packages = [
+      pkgs.devenv
+    ];
     username = "pd";
     stateVersion = "25.05";
     sessionVariables = {
