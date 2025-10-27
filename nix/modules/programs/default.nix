@@ -24,8 +24,8 @@
   xdg.enable = true;
 
   home = {
-    activation.createReposDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      mkdir -p ${config.home.homeDirectory}/repo
+    activation.createDirs = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      mkdir -p ${config.home.homeDirectory}/dev
       mkdir -p ${config.home.homeDirectory}/vault
     '';
     packages = [

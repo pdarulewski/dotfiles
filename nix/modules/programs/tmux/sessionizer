@@ -5,11 +5,11 @@ if [[ $# -eq 1 ]]; then
 else
   explicit_dirs=(
     "$HOME"
-    "$HOME/repo"
+    "$HOME/dev"
     "$HOME/Downloads/"
   )
 
-  repos=$(find ~/repo -mindepth 1 -maxdepth 3 \( -type d -o -type l \))
+  repos=$(find ~/dev -mindepth 1 -maxdepth 3 \( -type d -o -type l \))
   vaults=$(find ~/vaults -mindepth 1 -maxdepth 1 -type d)
   utils=$(find ~/utils -mindepth 1 -maxdepth 1 -type d)
 

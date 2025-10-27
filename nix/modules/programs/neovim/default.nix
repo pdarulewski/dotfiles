@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -8,4 +8,6 @@
     vimAlias = true;
     vimdiffAlias = true;
   };
+
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dev/github.com/pdarulewski/dotfiles/nvim";
 }
