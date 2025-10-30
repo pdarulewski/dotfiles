@@ -7,6 +7,7 @@
       "--hidden"
       "--glob=!.git/*"
       "--glob=!*.lock"
+      "--glob=!*.gen.*"
     ];
   };
 }
