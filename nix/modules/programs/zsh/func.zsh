@@ -30,10 +30,10 @@ function v() {
 
 function bk() {
   if [[ -n "$1" ]]; then
-    echo "$1" >>$bookmarks_file
+    echo "$1" >>$BOOKMARKS
   else
     local selected_line selected_url
-    selected_line=$(cat $bookmarks_file | fzf)
+    selected_line=$(cat $BOOKMARKS | fzf)
 
     if [[ -n "$selected_line" ]]; then
       selected_url=$(echo "$selected_line" | awk '{print $1}')

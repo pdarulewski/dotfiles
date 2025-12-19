@@ -15,7 +15,7 @@ else
 
   all_dirs=("${explicit_dirs[@]}" "$repos" "$vaults" "$utils")
 
-  selected=$(printf '%s\n' "${all_dirs[@]}" | /opt/homebrew/bin/fzf)
+  selected=$(printf '%s\n' "${all_dirs[@]}" | fzf)
 fi
 
 if [[ -z $selected ]]; then

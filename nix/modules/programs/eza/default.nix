@@ -11,6 +11,7 @@
       "--git"
       "--group-directories-first"
       "--icons=always"
+      "--no-filesize"
     ];
 
     theme = "${themes.eza}/themes/rose-pine-moon.yml";

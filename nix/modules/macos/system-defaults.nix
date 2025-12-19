@@ -34,7 +34,16 @@
       };
 
       finder = {
+        CreateDesktop = false;
+        FXEnableExtensionChangeWarning = false;
+        FXPreferredViewStyle = "Nlsv";
+        NewWindowTarget = "Home";
+        ShowExternalHardDrivesOnDesktop = false;
+        ShowPathbar = true;
+        ShowRemovableMediaOnDesktop = false;
+        ShowStatusBar = true;
         _FXShowPosixPathInTitle = true;
+        _FXSortFoldersFirst = true;
       };
 
       screencapture = {
@@ -49,6 +58,12 @@
       trackpad = {
         Clicking = true;
         TrackpadThreeFingerDrag = true;
+      };
+
+      WindowManager = {
+        EnableStandardClickToShowDesktop = false;
+        StandardHideDesktopIcons = false;
+        StandardHideWidgets = false;
       };
     };
 

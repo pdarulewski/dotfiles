@@ -5,9 +5,9 @@
     brews = [
       "git-delta"
       "neofetch"
+      "onefetch"
 
       "fd"
-      "fzf"
       "git-lfs"
       "gnupg"
       "jq"

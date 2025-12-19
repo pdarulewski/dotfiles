@@ -11,9 +11,13 @@ in
     enable = true;
 
     ignores = [
+      "*.log"
       ".DS_Store"
+      "*.env"
+      "__debug*"
+      "bin"
       "scratch*"
-      ".env"
+      "tmp"
     ];
 
     settings = {
@@ -93,6 +97,8 @@ in
       gl = "git log --oneline --decorate --graph";
 
       gp = "git pull";
+      gpom = "git pull origin main";
+
       gpu = "git push";
       gpuf = "git push --force-with-lease";
 
