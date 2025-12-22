@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   zstyle = lib.mkOrder 510 ''
     zstyle ':fzf-tab:*' fzf-flags '--height=70%'
     zstyle ':completion:*:git-checkout:*' sort false
@@ -8,7 +12,7 @@ let
     zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always --style=numbers --theme=ansi $realpath'
   '';
 
-  currentDir = builtins.path { path = ./.; };
+  currentDir = builtins.path {path = ./.;};
 
   func = lib.mkOrder 1500 ''
     # add brew on arm fix
@@ -24,11 +28,8 @@ let
 
     fpath+=(${config.xdg.dataHome}/completions)
     zvm_after_init_commands+=('source <(${pkgs.fzf}/bin/fzf --zsh)')
-
-    eval "$(/opt/homebrew/bin/pyenv init - zsh)"
   '';
-in
-{
+in {
   programs.zsh = {
     enable = true;
 
@@ -79,7 +80,7 @@ in
     initContent = lib.mkMerge [
       zstyle
       func
-    ] ;
+    ];
 
     zplug = {
       enable = true;

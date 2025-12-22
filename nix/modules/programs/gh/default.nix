@@ -1,12 +1,14 @@
-{ pkgs, lib, ... }:
-let
-  currentDir = builtins.path { path = ./.; };
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  currentDir = builtins.path {path = ./.;};
 
   functions = lib.mkOrder 1500 ''
     source ${currentDir}/func.zsh
   '';
-in
-{
+in {
   home.packages = with pkgs; [
     kubectl
   ];

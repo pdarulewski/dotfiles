@@ -1,8 +1,6 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   sessionizer = pkgs.writeShellScriptBin "sessionizer" (builtins.readFile ./sessionizer);
-in
-{
+in {
   programs.tmux = {
     enable = true;
 

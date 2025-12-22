@@ -1,12 +1,10 @@
-{ lib, ... }:
-let
-  currentDir = builtins.path { path = ./.; };
+{lib, ...}: let
+  currentDir = builtins.path {path = ./.;};
 
   func = lib.mkOrder 1500 ''
     source ${currentDir}/func.zsh
   '';
-in
-{
+in {
   programs.git = {
     enable = true;
 
@@ -78,7 +76,7 @@ in
   };
 
   programs.zsh = {
-    initContent = lib.mkMerge [ func ];
+    initContent = lib.mkMerge [func];
     shellAliases = {
       ga = "git add";
       gaa = "git add --all";

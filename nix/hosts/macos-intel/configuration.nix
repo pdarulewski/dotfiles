@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   system.stateVersion = 6;
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      trusted-users = [ "root" "pd" ];
+      experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["root" "pd"];
     };
   };
 

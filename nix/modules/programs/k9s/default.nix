@@ -1,5 +1,4 @@
-{ themes, ... }:
-{
+{themes, ...}: {
   programs.k9s = {
     enable = true;
 

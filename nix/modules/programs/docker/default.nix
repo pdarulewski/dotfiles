@@ -1,12 +1,14 @@
-{ pkgs, lib, ... }:
-let
-  currentDir = builtins.path { path = ./.; };
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  currentDir = builtins.path {path = ./.;};
 
   func = lib.mkOrder 1500 ''
     source ${currentDir}/func.zsh
   '';
-in
-{
+in {
   home.packages = with pkgs; [
     docker
   ];
@@ -16,6 +18,6 @@ in
   '';
 
   programs.zsh = {
-    initContent = lib.mkMerge [ func ];
+    initContent = lib.mkMerge [func];
   };
 }

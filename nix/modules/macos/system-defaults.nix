@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   system.primaryUser = "pd";
   system = {
     defaults = {

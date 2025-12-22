@@ -1,6 +1,4 @@
-{ themes, ... }:
-
-{
+{themes, ...}: {
   programs.btop = {
     enable = true;
 

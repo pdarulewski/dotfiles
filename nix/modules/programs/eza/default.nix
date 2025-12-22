@@ -1,5 +1,8 @@
-{ completions, themes, ... }:
 {
+  completions,
+  themes,
+  ...
+}: {
   programs.eza = {
     enable = true;
 
