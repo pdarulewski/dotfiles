@@ -18,8 +18,6 @@
       "kubectl"
       "kubectx"
 
-      "luarocks"
-
       "spicetify-cli"
     ];
 
@@ -29,6 +27,7 @@
       "font-victor-mono"
 
       "docker-desktop"
+      "flux-app"
       "ghostty"
       "raycast"
       "rectangle"
