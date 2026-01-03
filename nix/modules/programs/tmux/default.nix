@@ -23,13 +23,19 @@ in {
           set -g @rose_pine_show_current_program 'on'
         '';
       }
+      {
+        plugin = vim-tmux-navigator;
+        extraConfig = ''
+          set -g @vim_navigator_mapping_prev ""  # removes the C-\ binding
+        '';
+      }
     ];
 
     extraConfig = ''
-      bind -n S-C-k select-pane -U
-      bind -n S-C-j select-pane -D
-      bind -n S-C-h select-pane -L
-      bind -n S-C-l select-pane -R
+      unbind '"'
+      unbind %
+      bind v split-window -h
+      bind s split-window -v
 
       bind-key -r f run-shell "tmux neww '${sessionizer}/bin/sessionizer'"
     '';
