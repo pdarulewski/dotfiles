@@ -31,6 +31,7 @@ M.config = function()
 	local packages = {
 		"alejandra",
 		"codespell",
+		"codelldb",
 		"html-lsp",
 		"jsonlint",
 		"ltex-ls",
@@ -47,12 +48,20 @@ M.config = function()
 
 	registry.refresh()
 
+	local uname = io.popen("uname -s -m"):read("*l")
+	local is_darwin_x86_64 = uname == "Darwin x86_64"
+
 	for _, pkg_name in ipairs(packages) do
 		if not registry.is_installed(pkg_name) then
 			print(string.format("Installing %s", pkg_name))
 
 			local pkg = registry.get_package(pkg_name)
-			pkg:install()
+
+			if is_darwin_x86_64 then
+				pkg:install({ version = "v1.11.1" })
+			else
+				pkg:install()
+			end
 		end
 	end
 end

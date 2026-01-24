@@ -68,6 +68,7 @@ in {
       dev = "nix develop --command zsh";
       update_apple = "sudo nix run nix-darwin -- switch --flake .#pd-macos-apple";
       update_intel = "sudo nix run nix-darwin -- switch --flake .#pd-macos-intel";
+      prune = "nix-store --gc"; # https://nixos.wiki/wiki/Cleaning_the_nix_store
 
       ".." = "cd ..";
       "..." = "cd ../..";

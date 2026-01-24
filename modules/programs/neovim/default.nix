@@ -8,5 +8,5 @@
     vimdiffAlias = true;
   };
 
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink ./nvim;
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dev/github.com/pdarulewski/dotfiles/modules/programs/neovim/nvim";
 }
