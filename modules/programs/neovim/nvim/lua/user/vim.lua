@@ -12,6 +12,7 @@ vim.o.scrolloff = 6
 vim.o.wrap = false
 vim.o.cursorline = true
 vim.o.cursorlineopt = "number"
+vim.o.autoread = true
 vim.o.autowrite = true
 vim.o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.o.mouse = "a"
@@ -68,5 +69,7 @@ vim.diagnostic.config({
 vim.g.gh_repo_map = "±"
 vim.g.gh_line_map_default = 0
 vim.g.gh_line_blame_map_default = 0
+
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 vim.cmd("set shell=zsh")

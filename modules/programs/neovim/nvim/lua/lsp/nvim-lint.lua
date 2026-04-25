@@ -34,9 +34,6 @@ M.config = function()
 
 	lint.linters.markdownlint.args = { "--config", "/Users/pd/.config/markdownlint/markdownlint.json", "--" }
 
-	lint.linters.golangcilint.args =
-		{ "run", "--output.json.path=stdout", "--issues-exit-code=0", "--show-stats=false" }
-
 	lint.linters.sqlfluff.args = {
 		"lint",
 		"--format=json",

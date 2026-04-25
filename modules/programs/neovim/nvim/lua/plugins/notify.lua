@@ -1,20 +1,20 @@
 -- notifications
 
 local M = {
-  "rcarriga/nvim-notify",
-  event = "VeryLazy",
+	"rcarriga/nvim-notify",
+	event = "VeryLazy",
 }
 
 M.config = function()
-  local ok, notify = pcall(require, "notify")
-  if not ok then
-    return
-  end
+	local ok, notify = pcall(require, "notify")
+	if not ok then
+		return
+	end
 
-  notify.setup({
-    top_down = false,
-    stages = "static"
-  })
+	notify.setup({
+		top_down = false,
+		stages = "static",
+	})
 end
 
 return M

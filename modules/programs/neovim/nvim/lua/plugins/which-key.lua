@@ -53,6 +53,9 @@ M.config = function()
 		{ "<leader>1L", "<cmd>Lazy<cr>", desc = "Lazy" },
 		{ "<leader>1M", "<cmd>Mason<cr>", desc = "Mason" },
 		{ "<leader>1I", "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>", desc = "Mason" },
+		{ "<leader>1dd", "<cmd>lua vim.diagnostic.disable()<cr>", desc = "Disable diagnostics" },
+		{ "<leader>1de", "<cmd>lua vim.diagnostic.enable()<cr>", desc = "Enable diagnostics" },
+		{ "<leader>1q", "<cmd>%bd|e#<cr>", desc = "Close all other buffers" },
 
 		-- Python
 		{ "<leader>P", group = "+python" },

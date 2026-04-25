@@ -16,7 +16,9 @@ M.config = function()
 		return
 	end
 
-	go.setup()
+	go.setup({
+		lsp_codelens = false,
+	})
 end
 
 return M

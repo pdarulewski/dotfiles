@@ -107,7 +107,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile", "FileType" }, {
 	desc = "gotmpl",
 	pattern = {
-		"*/helm/*/templates/*.yaml",
+		"*/templates/*.yaml",
 		"tmpl",
 	},
 	callback = function(event)
@@ -131,6 +131,14 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	desc = "tiltfile",
+	pattern = { "Tiltfile" },
+	callback = function(event)
+		vim.bo[event.buf].filetype = "starlark"
+	end,
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	desc = "Disable folding in Telescope results",
 	pattern = "TelescopeResults",
@@ -143,6 +151,25 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 		vim.o.foldmethod = "expr"
 		vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 	end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	desc = "Save window view before write to preserve fold state",
+	callback = function(event)
+		vim.b[event.buf]._view = vim.fn.winsaveview()
+	end,
+	group = neovim_group,
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+	desc = "Restore window view after write to preserve fold state",
+	callback = function(event)
+		if vim.b[event.buf]._view then
+			vim.fn.winrestview(vim.b[event.buf]._view)
+			vim.b[event.buf]._view = nil
+		end
+	end,
+	group = neovim_group,
 })
 
 _G.gh_open_in_browser = function()

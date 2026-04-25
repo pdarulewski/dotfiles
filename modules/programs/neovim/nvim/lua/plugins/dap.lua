@@ -67,7 +67,7 @@ M.config = function()
 		return
 	end
 
-	dap_python.setup("/Users/pd/dev/debug/.venv/bin/python")
+	dap_python.setup("uv")
 	dap_python.test_runner = "pytest"
 	dap.configurations.python = {}
 
@@ -84,6 +84,20 @@ M.config = function()
 		callback({
 			outputMode = "remote",
 		})
+	end
+
+	dap.providers.configs["container"] = function(bufnr)
+		return {
+			{
+				name = "attach to container",
+				type = "go",
+				mode = "remote",
+				outputMode = "remote",
+				request = "attach",
+				host = "127.0.0.1",
+				port = 9000,
+			},
+		}
 	end
 
 	dap.providers.configs["air"] = function(bufnr)

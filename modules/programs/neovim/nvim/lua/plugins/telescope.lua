@@ -36,8 +36,6 @@ M.config = function()
 			},
 		},
 	})
-
-	telescope.load_extension("refactoring")
 end
 
 return M

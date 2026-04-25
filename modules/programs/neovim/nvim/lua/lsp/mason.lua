@@ -22,7 +22,7 @@ M.config = function()
 			"gopls",
 			"lua_ls",
 			"nil_ls",
-			"pyright",
+			"ty",
 			"yamlls",
 		},
 	})
@@ -34,7 +34,6 @@ M.config = function()
 		"codelldb",
 		"html-lsp",
 		"jsonlint",
-		"ltex-ls",
 		"luacheck",
 		"mdformat",
 		"prettier",
