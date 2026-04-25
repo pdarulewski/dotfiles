@@ -1,5 +1,28 @@
 {pkgs, ...}: let
   sessionizer = pkgs.writeShellScriptBin "sessionizer" (builtins.readFile ./sessionizer);
+
+  sekki = pkgs.writeShellScriptBin "sekki" ''
+    cache="/tmp/tmux_sekki_$$_cache"
+    today=$(date +%Y-%m-%d)
+
+    if [ -f "/tmp/tmux_sekki_cache" ] && [ "$(head -1 /tmp/tmux_sekki_cache)" = "$today" ]; then
+      tail -1 /tmp/tmux_sekki_cache
+      exit 0
+    fi
+
+    today_num=$(date +%m%d)
+
+    result=$(${pkgs.jq}/bin/jq -r --arg t "$today_num" '
+      map(. + {n: (.start | gsub("-"; ""))}) |
+      [ .[] | select((.n | tonumber) <= ($t | tonumber)) ] |
+      sort_by(.n | tonumber) |
+      last |
+      "\(.sekki) \(.sekki_en) — \(.ko) \(.ko_en)"
+    ' ${./sekki.json})
+
+    printf '%s\n%s\n' "$today" "$result" > /tmp/tmux_sekki_cache
+    echo "$result"
+  '';
 in {
   programs.tmux = {
     enable = true;
@@ -38,6 +61,8 @@ in {
       bind s split-window -v
 
       bind-key -r f run-shell "tmux neww '${sessionizer}/bin/sessionizer'"
+
+      set -ag status-right ' | #(${sekki}/bin/sekki)'
     '';
   };
 }
