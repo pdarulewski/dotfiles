@@ -9,12 +9,13 @@ in {
     enable = true;
 
     ignores = [
+      "*.env"
       "*.log"
       ".DS_Store"
-      "*.env"
       "__debug*"
       "bin"
       "scratch*"
+      "settings.local.json"
       "tmp"
     ];
 

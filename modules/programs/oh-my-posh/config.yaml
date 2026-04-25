@@ -16,6 +16,15 @@ transient_prompt:
 blocks:
   - alignment: left
     type: prompt
+    newline: false
+    segments:
+      - type: kubectl
+        style: plain
+        foreground: "p:pine"
+        template: " \U000F10FE {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
+  - alignment: left
+    type: prompt
+    newline: true
     segments:
       - type: os
         template: " {{ .Icon }} "
@@ -28,15 +37,31 @@ blocks:
       - type: path
         template: " {{ .Path }} "
         foreground: "p:pine"
-        properties:
+        options:
           home_icon: "~"
           style: unique
         style: plain
+  - alignment: right
+    type: prompt
+    segments:
+      - type: status
+        foreground_templates:
+          - "{{ if gt .Code 0 }}p:moon{{ end }}"
+        template: "  {{ .Code }} "
+        style: plain
+      - type: executiontime
+        style: plain
+        foreground: "p:gold"
+        template: "  {{ .FormattedMs }} "
+        options:
+          threshold: 500
+          style: austin
+          always_enabled: false
       - type: git
         template: " {{ .UpstreamIcon }}  {{ .HEAD }} {{if .BranchStatus }}{{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
         foreground: "p:foam"
         style: "plain"
-        properties:
+        options:
           fetch_status: true
           fetch_upstream_icon: true
           branch_icon: " "
@@ -50,22 +75,6 @@ blocks:
           mapped_branches:
             feat/*: "🚀 "
             fix/*: "🐛 "
-  - alignment: right
-    type: prompt
-    segments:
-      - type: status
-        foreground_templates:
-          - "{{ if gt .Code 0 }}p:moon{{ end }}"
-        template: "  {{ .Code }} "
-        style: plain
-      - type: executiontime
-        style: plain
-        foreground: "p:gold"
-        template: "  {{ .FormattedMs }} "
-        properties:
-          threshold: 500
-          style: austin
-          always_enabled: false
       - type: go
         style: plain
         foreground: "p:pine"
@@ -82,10 +91,6 @@ blocks:
         style: plain
         foreground: "p:foam"
         template: "  {{ .Full }} "
-      - type: kubectl
-        style: plain
-        foreground: "p:pine"
-        template: " \U000F10FE {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
   - alignment: left
     newline: true
     type: prompt
