@@ -1,31 +1,15 @@
 #!/usr/bin/env zsh
 
-function envir() {
-  [ ! -f .env ] || export $(grep -v '^#' .env | xargs)
-}
+alias -g NE='2>/dev/null'
+alias -g NO='>/dev/null'
+alias -g NUL='>/dev/null 2>&1'
+
+alias -g J='| jq'
+alias -g C='| pbcopy'
+alias -g F='| fzf'
 
 function mkd() {
   mkdir -p "$@" && cd "$_"
-}
-
-function chpwd_do_ls() {
-  l
-}
-
-chpwd_functions=(chpwd_do_ls)
-
-function v() {
-  if [ -e .venv/ ]; then
-    # envir
-    s
-    nvim $*
-    deactivate
-
-  else
-    # envir
-    nvim $*
-
-  fi
 }
 
 function bk() {

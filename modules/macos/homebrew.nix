@@ -10,8 +10,10 @@
       "git-lfs"
       "gnupg"
       "jq"
+      "hl"
       "tree"
       "wget"
+      "watch"
 
       "helm"
       "kubectl"

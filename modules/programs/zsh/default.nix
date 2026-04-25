@@ -21,13 +21,17 @@
     fi
 
     source ${currentDir}/func.zsh
+    source ${currentDir}/func_chpwd.zsh
+    source ${currentDir}/widget.zsh
 
     if [ -f "${config.xdg.configHome}/_personal/func.zsh" ]; then
       source ${config.xdg.configHome}/_personal/func.zsh
     fi
 
     fpath+=(${config.xdg.dataHome}/completions)
-    zvm_after_init_commands+=('source <(${pkgs.fzf}/bin/fzf --zsh)')
+
+    source <(${pkgs.fzf}/bin/fzf --zsh)
+    eval "$(atuin init zsh)"
   '';
 in {
   programs.zsh = {
@@ -65,7 +69,7 @@ in {
     };
 
     shellAliases = {
-      dev = "nix develop --command zsh";
+      update_all = "nix flake update";
       update_apple = "sudo nix run nix-darwin -- switch --flake .#pd-macos-apple";
       update_intel = "sudo nix run nix-darwin -- switch --flake .#pd-macos-intel";
       prune = "nix-store --gc"; # https://nixos.wiki/wiki/Cleaning_the_nix_store
@@ -74,8 +78,9 @@ in {
       "..." = "cd ../..";
       "...." = "cd ../../..";
 
-      s = ". .venv/bin/activate";
       diff = "diff --side-by-side -W $(( $(tput cols) - 2 ))";
+      jqpb = "pbpaste | jq '.' | pbcopy";
+      v = "nvim";
     };
 
     initContent = lib.mkMerge [
@@ -86,9 +91,6 @@ in {
     zplug = {
       enable = true;
       plugins = [
-        {
-          name = "jeffreytse/zsh-vi-mode";
-        }
         {
           name = "Aloxaf/fzf-tab";
         }

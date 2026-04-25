@@ -1,10 +1,10 @@
 {
-  pkgs,
   config,
   lib,
   ...
 }: {
   imports = [
+    ./atuin
     ./btop
     ./codespell
     ./docker
@@ -33,9 +33,6 @@
       mkdir -p ${config.home.homeDirectory}/dev
       mkdir -p ${config.home.homeDirectory}/vaults
     '';
-    packages = [
-      pkgs.devenv
-    ];
     username = "pd";
     stateVersion = "25.05";
     sessionVariables = {
