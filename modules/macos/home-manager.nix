@@ -9,7 +9,7 @@
   ];
 
   home-manager = {
-    extraSpecialArgs = {inherit completions themes;};
+    extraSpecialArgs = {inherit inputs completions themes;};
 
     useGlobalPkgs = true;
     useUserPackages = true;

@@ -22,6 +22,7 @@ blocks:
         style: plain
         foreground: "p:pine"
         template: " \U000F10FE {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
+        timeout: 1000
   - alignment: left
     type: prompt
     newline: true
@@ -49,6 +50,7 @@ blocks:
           - "{{ if gt .Code 0 }}p:moon{{ end }}"
         template: "  {{ .Code }} "
         style: plain
+        timeout: 1000
       - type: executiontime
         style: plain
         foreground: "p:gold"
@@ -57,6 +59,7 @@ blocks:
           threshold: 500
           style: austin
           always_enabled: false
+        timeout: 1000
       - type: git
         template: " {{ .UpstreamIcon }}  {{ .HEAD }} {{if .BranchStatus }}{{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
         foreground: "p:foam"
@@ -75,22 +78,27 @@ blocks:
           mapped_branches:
             feat/*: "🚀 "
             fix/*: "🐛 "
+        timeout: 1000
       - type: go
         style: plain
         foreground: "p:pine"
         template: "  {{ .Full }} "
+        timeout: 1000
       - type: rust
         style: plain
         foreground: "p:love"
         template: "  {{ .Full }} "
+        timeout: 1000
       - type: zig
         style: plain
         foreground: "p:gold"
         template: "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        timeout: 1000
       - type: python
         style: plain
         foreground: "p:foam"
         template: "  {{ .Full }} "
+        timeout: 1000
   - alignment: left
     newline: true
     type: prompt
@@ -107,5 +115,6 @@ tooltips:
       - gcp
     foreground: "p:gold"
     template: "  {{.Project}} :: {{.Account}} "
+    timeout: 1000
 final_space: true
 version: 3

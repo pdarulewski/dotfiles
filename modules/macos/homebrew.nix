@@ -2,37 +2,20 @@
   homebrew = {
     enable = true;
     brews = [
-      "git-delta"
-      "neofetch"
-      "onefetch"
-
-      "fd"
-      "git-lfs"
-      "gnupg"
-      "jq"
+      # hl and watch have no nixpkgs equivalent on macOS
       "hl"
-      "tree"
-      "wget"
       "watch"
-
-      "helm"
-      "kubectl"
-      "kubectx"
-
-      "spicetify-cli"
     ];
 
     casks = [
-      "font-symbols-only-nerd-font"
-      "font-fira-code"
-      "font-victor-mono"
-
-      "docker-desktop"
-      "flux-app"
+      # ghostty: package managed via programs/ghostty but installed via cask
+      # due to https://github.com/nix-community/home-manager/issues/6295
       "ghostty"
       "raycast"
-      "rectangle"
-      "spotify"
+
+      # macOS proprietary GUI apps, not available in nixpkgs
+      "docker-desktop"
+      "flux-app"
       "zen"
     ];
 
