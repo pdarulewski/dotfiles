@@ -1,6 +1,11 @@
 -- plugins that don't need any setup
 
 return {
+	{
+		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
+	},
+
 	-- lazygit in nvim terminal
 	{ "kdheepak/lazygit.nvim" },
 

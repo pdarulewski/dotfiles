@@ -78,6 +78,7 @@ M.config = function()
 
 	dap_go.setup()
 
+	-- https://github.com/mfussenegger/nvim-dap/issues/232#issuecomment-877699202
 	dap.configurations.go = nil
 
 	dap.adapters.delve = function(callback, config)

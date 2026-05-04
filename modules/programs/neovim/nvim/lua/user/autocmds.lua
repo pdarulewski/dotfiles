@@ -153,24 +153,24 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-	desc = "Save window view before write to preserve fold state",
-	callback = function(event)
-		vim.b[event.buf]._view = vim.fn.winsaveview()
-	end,
-	group = neovim_group,
-})
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-	desc = "Restore window view after write to preserve fold state",
-	callback = function(event)
-		if vim.b[event.buf]._view then
-			vim.fn.winrestview(vim.b[event.buf]._view)
-			vim.b[event.buf]._view = nil
-		end
-	end,
-	group = neovim_group,
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	desc = "Save window view before write to preserve fold state",
+-- 	callback = function(event)
+-- 		vim.b[event.buf]._view = vim.fn.winsaveview()
+-- 	end,
+-- 	group = neovim_group,
+-- })
+--
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+-- 	desc = "Restore window view after write to preserve fold state",
+-- 	callback = function(event)
+-- 		if vim.b[event.buf]._view then
+-- 			vim.fn.winrestview(vim.b[event.buf]._view)
+-- 			vim.b[event.buf]._view = nil
+-- 		end
+-- 	end,
+-- 	group = neovim_group,
+-- })
 
 _G.gh_open_in_browser = function()
 	vim.cmd("GH")
