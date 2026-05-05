@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function kpf() {
+function pf() {
   if [ -z "$1" ]; then
     echo "Usage: kpf <pod-name>"
     return 1

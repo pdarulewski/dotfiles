@@ -28,7 +28,6 @@
     kubectx
 
     rectangle
-    spotify
     spicetify-cli
   ];
 
