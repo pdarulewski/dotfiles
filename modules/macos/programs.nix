@@ -22,10 +22,14 @@
     # misc
     # neofetch
     # onefetch
+    claude-code
 
     # kubernetes
     kubernetes-helm
     kubectx
+
+    # nvim
+    tree-sitter
 
     rectangle
     spicetify-cli

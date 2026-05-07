@@ -16,6 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
+
     eza = {
       url = "github:eza-community/eza";
       flake = false;
@@ -42,6 +46,7 @@
     nixpkgs,
     nix-darwin,
     home-manager,
+    flake-utils,
     ...
   }: let
     completions = {
@@ -60,27 +65,37 @@
         specialArgs = {inherit inputs completions themes;};
         modules = modules;
       };
-  in {
-    darwinConfigurations = {
-      "pd-macos-intel" = mkDarwinSystem "pd-macos-intel" "x86_64-darwin" [
-        ./hosts/macos-intel/configuration.nix
+  in
+    flake-utils.lib.eachDefaultSystem (system: {
+      devShells.default = nixpkgs.legacyPackages.${system}.mkShell {
+        name = "dotfiles";
+        packages = with nixpkgs.legacyPackages.${system}; [
+          nil
+          alejandra
+        ];
+      };
+    })
+    // {
+      darwinConfigurations = {
+        "pd-macos-intel" = mkDarwinSystem "pd-macos-intel" "x86_64-darwin" [
+          ./hosts/macos-intel/configuration.nix
 
-        ./modules/macos/system-defaults.nix
-        ./modules/macos/home-manager.nix
-        ./modules/macos/homebrew.nix
-        ./modules/macos/programs.nix
-        ./modules/macos/users.nix
-      ];
+          ./modules/macos/system-defaults.nix
+          ./modules/macos/home-manager.nix
+          ./modules/macos/homebrew.nix
+          ./modules/macos/programs.nix
+          ./modules/macos/users.nix
+        ];
 
-      "pd-macos-apple" = mkDarwinSystem "pd-macos-apple" "aarch64-darwin" [
-        ./hosts/macos-apple/configuration.nix
+        "pd-macos-apple" = mkDarwinSystem "pd-macos-apple" "aarch64-darwin" [
+          ./hosts/macos-apple/configuration.nix
 
-        ./modules/macos/system-defaults.nix
-        ./modules/macos/home-manager.nix
-        ./modules/macos/homebrew.nix
-        ./modules/macos/programs.nix
-        ./modules/macos/users.nix
-      ];
+          ./modules/macos/system-defaults.nix
+          ./modules/macos/home-manager.nix
+          ./modules/macos/homebrew.nix
+          ./modules/macos/programs.nix
+          ./modules/macos/users.nix
+        ];
+      };
     };
-  };
 }
