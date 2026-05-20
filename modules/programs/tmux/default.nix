@@ -40,16 +40,23 @@ in {
         plugin = rose-pine;
         extraConfig = ''
           set -g @rose_pine_variant 'moon'
-          set -g @rose_pine_host 'on'
+          set -g @rose_pine_host 'off'
+          set -g @rose_pine_user 'off'
           set -g @rose_pine_date_time '%H:%M %Y-%m-%d Week: %V'
-          set -g @rose_pine_user 'on'
           set -g @rose_pine_show_current_program 'on'
+          set -g @rose_pine_status_right_prepend_section '#(${sekki}/bin/sekki) | '
         '';
       }
       {
         plugin = vim-tmux-navigator;
         extraConfig = ''
-          set -g @vim_navigator_mapping_prev ""  # removes the C-\ binding
+        '';
+      }
+      {
+        plugin = extrakto;
+        extraConfig = ''
+          set -g @extrakto_insert_key "enter"
+          set -g @extrakto_copy_key "tab"
         '';
       }
     ];
@@ -62,7 +69,6 @@ in {
 
       bind-key -r f run-shell "tmux neww '${sessionizer}/bin/sessionizer'"
 
-      set -ag status-right ' | #(${sekki}/bin/sekki)'
     '';
   };
 }

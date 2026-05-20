@@ -12,6 +12,7 @@
       # due to https://github.com/nix-community/home-manager/issues/6295
       "ghostty"
       "raycast"
+      "rectangle"
       "spotify"
 
       # macOS proprietary GUI apps, not available in nixpkgs

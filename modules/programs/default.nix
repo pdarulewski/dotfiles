@@ -28,6 +28,8 @@
 
   xdg.enable = true;
 
+  xdg.localBinInPath = true;
+
   home = {
     activation.createDirs = lib.hm.dag.entryAfter ["writeBoundary"] ''
       mkdir -p ${config.home.homeDirectory}/dev

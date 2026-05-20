@@ -11,6 +11,10 @@ M.config = function()
 	end
 
 	conform.setup({
+		log_level = vim.log.levels.DEBUG,
+		format_on_save = {
+			timeout_ms = 10000,
+		},
 		formatters_by_ft = {
 			c = { "clang-format" },
 			cpp = { "clang-format" },

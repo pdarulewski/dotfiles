@@ -25,6 +25,7 @@
     claude-code
 
     # kubernetes
+    argocd
     kubernetes-helm
     kubectx
 
