@@ -108,6 +108,7 @@ M.config = function()
 		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 		{ "<leader>ff", "<cmd>Telescope git_files hidden=true<cr>", desc = "Git Files" },
 		{ "<leader>fF", "<cmd>Telescope find_files hidden=true<cr>", desc = "Files" },
+		{ "<leader>fn", "<cmd>Telescope notify<cr>", desc = "Notifications" },
 		{ "<leader>fp", "<cmd>Telescope live_grep search_dirs=./.venv hidden=true<cr>", desc = "In project" },
 		{ "<leader>fr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
 		{ "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Symbols" },

@@ -31,6 +31,9 @@ M.config = function()
 			},
 		},
 		lsp = {
+			progress = {
+				throttle = 1000,
+			},
 			signature = {
 				enabled = false,
 			},

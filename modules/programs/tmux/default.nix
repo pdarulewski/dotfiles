@@ -69,6 +69,14 @@ in {
 
       bind-key -r f run-shell "tmux neww '${sessionizer}/bin/sessionizer'"
 
+      # Zellij-like pane frames
+      set -g pane-border-status top
+      set -g pane-border-format " [ ###P #W ] "
+      set -g pane-border-lines double
+
+      # Active pane border colors (Rose Pine Moon colors)
+      set -g pane-active-border-style "fg=#ea9a97,bg=default"
+      set -g pane-border-style "fg=#393552,bg=default"
     '';
   };
 }

@@ -19,6 +19,7 @@ M.config = function()
 		lua = { "luacheck" },
 		-- markdown = { "markdownlint" },
 		python = { "ruff" },
+		rust = { "clippy" },
 		sh = { "shellcheck" },
 		swift = { "swiftlint" },
 		sql = { "sqlfluff" },

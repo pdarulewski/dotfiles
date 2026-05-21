@@ -31,7 +31,6 @@ M.config = function()
 	local packages = {
 		"alejandra",
 		"codespell",
-		"codelldb",
 		"html-lsp",
 		"jsonlint",
 		"luacheck",
