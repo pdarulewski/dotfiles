@@ -48,6 +48,10 @@ M.config = function()
 		{ "<leader>gl", "<cmd>lua gh_open_in_browser()<cr>", desc = "Open GitHub" },
 		{ "<leader>gc", "<cmd>lua gh_copy_to_clipboard()<cr>", desc = "Copy link GitHub" },
 		{ "<leader>gp", "<cmd>lua Snacks.picker.gh_pr()<cr>", desc = "PRs" },
+		{ "<leader>gw", group = "+Worktree" },
+		{ "<leader>gwc", "<cmd>WorktreeCreate<cr>", desc = "Create" },
+		{ "<leader>gwd", "<cmd>WorktreeDelete<cr>", desc = "Delete" },
+		{ "<leader>gws", "<cmd>WorktreeSwitch<cr>", desc = "Switch" },
 
 		-- Meta
 		{ "<leader>1", group = "+settings" },
@@ -121,12 +125,6 @@ M.config = function()
 
 		{ "<leader>t", group = "+trouble" },
 		{ "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", desc = "Trouble" },
-
-		{ "<leader>w", group = "+Worktree" },
-
-		{ "<leader>wc", "<cmd>WorktreeCreate<cr>", desc = "Create" },
-		{ "<leader>wd", "<cmd>WorktreeDelete<cr>", desc = "Delete" },
-		{ "<leader>ws", "<cmd>WorktreeSwitch<cr>", desc = "Switch" },
 
 		{ "<leader>r", group = "+rest" },
 		{ "<leader>rr", "<cmd>Rest run<cr>", desc = "Run" },

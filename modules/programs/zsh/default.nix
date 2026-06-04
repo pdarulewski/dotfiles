@@ -7,6 +7,8 @@
   zstyle = lib.mkOrder 510 ''
     zstyle ':fzf-tab:*' fzf-flags '--height=70%'
     zstyle ':completion:*:git-checkout:*' sort false
+    zstyle ':completion:*:gwo:*' sort false
+    zstyle ':completion:*:gwb:*' sort false
     zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 -algU --changed --git --group-directories-first --icons=always --color=always --no-filesize $realpath'
     zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 -algU --changed --git --group-directories-first --icons=always --color=always --no-filesize $realpath'
     zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always --style=numbers --theme=ansi $realpath'

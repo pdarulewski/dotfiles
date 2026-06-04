@@ -24,10 +24,24 @@ function g() {
   open "https://$repo_name"
 }
 
-function gwa() {
+_git_branch_complete() {
+  local expl
+  local -a branches
+  branches=(${(f)"$(git branch --all --format='%(refname:short)' 2>/dev/null)"})
+  _wanted branches expl 'branch' compadd -a branches
+}
+compdef _git_branch_complete gwo gwb
+
+function gwb() {
   local branch=$1
   local dir=${branch//\//-}
-  git worktree add -b "$dir" "$branch"
+  git worktree add -b "$branch" "$dir"
+}
+
+function gwo() {
+  local branch=$1
+  local dir=${branch//\//-}
+  git worktree add "$dir" "$branch"
 }
 
 function gwd() {

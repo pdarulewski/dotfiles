@@ -10,9 +10,12 @@ M.config = function()
 	end
 
 	oil.setup({
-		watch_for_changes = false,
+		watch_for_changes = true,
 		float = {
 			max_width = 0.4,
+		},
+		view_options = {
+			show_hidden = true,
 		},
 	})
 end

@@ -4,6 +4,47 @@ local M = {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
+		dashboard = {
+			enabled = true,
+			preset = {
+				keys = {
+					{
+						icon = " ",
+						key = "f",
+						desc = "Find File",
+						action = "<cmd>Telescope find_files hidden=true<cr>",
+					},
+					{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+					{
+						icon = " ",
+						key = "g",
+						desc = "Find Text",
+						action = "<cmd>Telescope live_grep hidden=true<cr>",
+					},
+					{
+						icon = "󰒲 ",
+						key = "L",
+						desc = "Lazy",
+						action = ":Lazy",
+						enabled = package.loaded.lazy ~= nil,
+					},
+					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+				},
+			},
+			sections = {
+				{
+					section = "terminal",
+					cmd = "chafa ~/.config/wall.png --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
+					height = 17,
+					padding = 1,
+				},
+				{
+					pane = 2,
+					{ section = "keys", gap = 1, padding = 1 },
+					{ section = "startup" },
+				},
+			},
+		},
 		-- notifications in the bottom right corner
 		notifier = {
 			enabled = true,
@@ -25,7 +66,6 @@ local M = {
 		animate = { enabled = false },
 		bigfile = { enabled = false },
 		bufdelete = { enabled = false },
-		dashboard = { enabled = false },
 		dim = { enabled = false },
 		explorer = { enabled = false },
 		git = { enabled = false },
