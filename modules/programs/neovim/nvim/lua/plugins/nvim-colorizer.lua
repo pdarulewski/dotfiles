@@ -12,7 +12,7 @@ M.config = function()
 	end
 
 	colorizer.setup({
-		"lua",
+		"*",
 		css = { names = true },
 	}, {
 		names = false,
