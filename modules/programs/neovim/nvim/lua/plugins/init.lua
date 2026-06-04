@@ -6,9 +6,6 @@ return {
 		branch = "main",
 	},
 
-	-- lazygit in nvim terminal
-	{ "kdheepak/lazygit.nvim" },
-
 	-- go back to any previous change
 	{ "mbbill/undotree" },
 

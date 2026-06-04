@@ -39,12 +39,15 @@ M.config = function()
 
 		{ "<leader>F", "<cmd> lua require('telescope').extensions.refactoring.refactors()<cr>", desc = "Refactor" },
 
-		{ "<leader>s", "<cmd>Outline<cr>", desc = "Symbols" },
+		{ "<leader>s", "<cmd>lua Snacks.scratch()<cr>", desc = "Scratch" },
+		{ "<leader>o", "<cmd>Outline<cr>", desc = "Symbols" },
 		{ "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "Undo Tree" },
-		{ "<leader>g", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 
-		{ "<leader>ll", "<cmd>lua gh_open_in_browser()<cr>", desc = "Open GitHub" },
-		{ "<leader>lc", "<cmd>lua gh_copy_to_clipboard()<cr>", desc = "Copy link GitHub" },
+		{ "<leader>g", group = "+git" },
+		{ "<leader>gg", "<cmd>lua Snacks.lazygit()<cr>", desc = "LazyGit" },
+		{ "<leader>gl", "<cmd>lua gh_open_in_browser()<cr>", desc = "Open GitHub" },
+		{ "<leader>gc", "<cmd>lua gh_copy_to_clipboard()<cr>", desc = "Copy link GitHub" },
+		{ "<leader>gp", "<cmd>lua Snacks.picker.gh_pr()<cr>", desc = "PRs" },
 
 		-- Meta
 		{ "<leader>1", group = "+settings" },
@@ -119,12 +122,11 @@ M.config = function()
 		{ "<leader>t", group = "+trouble" },
 		{ "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", desc = "Trouble" },
 
-		{
-			"<leader>wc",
-			"<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>",
-			desc = "Create",
-		},
-		{ "<leader>wl", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>", desc = "List" },
+		{ "<leader>w", group = "+Worktree" },
+
+		{ "<leader>wc", "<cmd>WorktreeCreate<cr>", desc = "Create" },
+		{ "<leader>wd", "<cmd>WorktreeDelete<cr>", desc = "Delete" },
+		{ "<leader>ws", "<cmd>WorktreeSwitch<cr>", desc = "Switch" },
 
 		{ "<leader>r", group = "+rest" },
 		{ "<leader>rr", "<cmd>Rest run<cr>", desc = "Run" },
