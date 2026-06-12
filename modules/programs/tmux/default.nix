@@ -64,7 +64,7 @@ in {
     extraConfig = ''
       unbind '"'
       unbind %
-      bind v split-window -h -p 25
+      bind v split-window -h -p 35
       bind s split-window -v
 
       bind-key -r f run-shell "tmux neww '${sessionizer}/bin/sessionizer'"
