@@ -1,8 +1,9 @@
 local neovim_group = vim.api.nvim_create_augroup("neovim", { clear = true })
 
-vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
 	desc = "Check if we need to reload the file when it changed outside of neovim",
-	command = "checktime",
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = "*",
 	group = neovim_group,
 })
 
