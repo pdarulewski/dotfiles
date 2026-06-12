@@ -24,6 +24,7 @@ M.config = function()
 		swift = { "swiftlint" },
 		sql = { "sqlfluff" },
 		yaml = { "yamllint" },
+		zig = { "zlint" },
 		["*"] = { "codespell" },
 	}
 

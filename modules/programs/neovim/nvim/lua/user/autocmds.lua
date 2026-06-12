@@ -98,7 +98,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	desc = "dotenv",
-	pattern = { ".env" },
+	pattern = { "**/.env", "**/.*.env" },
 	callback = function(event)
 		vim.bo[event.buf].filetype = "dotenv"
 	end,

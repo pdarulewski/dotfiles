@@ -72,6 +72,8 @@
         packages = with nixpkgs.legacyPackages.${system}; [
           nil
           alejandra
+          luarocks
+          lua51Packages.luacheck
         ];
       };
     })

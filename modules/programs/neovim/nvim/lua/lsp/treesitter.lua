@@ -61,6 +61,7 @@ M.config = function()
 		"typescript",
 		"vim",
 		"yaml",
+		"zig",
 		"zsh",
 	}
 

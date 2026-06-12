@@ -34,6 +34,7 @@ M.config = function()
 			toml = { "taplo" },
 			typescript = { "prettier" },
 			yaml = { "yamlfmt" },
+			zig = { "zigfmt" },
 			zsh = { "shfmt", "shellcheck" },
 			["*"] = { "trim_newlines", "trim_whitespace", "codespell" },
 		},

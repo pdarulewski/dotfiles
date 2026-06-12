@@ -1,32 +1,11 @@
 local M = {
-	"williamboman/mason-lspconfig.nvim",
+	"mason-org/mason.nvim",
 	dependencies = {
-		{ "mason-org/mason.nvim", opts = {} },
 		"neovim/nvim-lspconfig",
 	},
 }
 
 M.config = function()
-	local ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-	if not ok then
-		return
-	end
-
-	mason_lspconfig.setup({
-		ensure_installed = {
-			"bashls",
-			"buf_ls",
-			"clangd",
-			"docker_compose_language_service",
-			"dockerls",
-			"gopls",
-			"lua_ls",
-			"nil_ls",
-			"ty",
-			"yamlls",
-		},
-	})
-
 	local registry = require("mason-registry")
 	local packages = {
 		"alejandra",
@@ -40,7 +19,6 @@ M.config = function()
 		"shfmt",
 		"sql-formatter",
 		"stylua",
-		"taplo",
 		"yamllint",
 	}
 

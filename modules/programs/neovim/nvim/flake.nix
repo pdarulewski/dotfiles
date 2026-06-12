@@ -18,9 +18,6 @@
         formatter = pkgs.nixfmt-tree;
         devShells.default = pkgs.mkShell {
           packages = [
-            pkgs.cargo # nix
-            pkgs.luarocks # nvim
-            pkgs.nodejs # npm for other lsp
           ];
         };
       }
