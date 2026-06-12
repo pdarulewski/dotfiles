@@ -5,6 +5,7 @@ local M = {
 	---@type snacks.Config
 	opts = {
 		dashboard = {
+			width = 80,
 			enabled = true,
 			preset = {
 				keys = {
@@ -14,7 +15,6 @@ local M = {
 						desc = "Find File",
 						action = "<cmd>Telescope find_files hidden=true<cr>",
 					},
-					{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
 					{
 						icon = " ",
 						key = "g",
@@ -34,8 +34,8 @@ local M = {
 			sections = {
 				{
 					section = "terminal",
-					cmd = "chafa ~/.config/wall.png --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
-					height = 17,
+					cmd = "chafa /Users/pd/whale.jpg --format symbols --symbols vhalf --size 80x20 --stretch; sleep .1",
+					height = 15,
 					padding = 1,
 				},
 				{

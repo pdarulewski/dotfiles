@@ -23,6 +23,7 @@
     # neofetch
     # onefetch
     claude-code
+    chafa
 
     # kubernetes
     argocd

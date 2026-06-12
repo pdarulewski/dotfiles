@@ -21,6 +21,13 @@ return {
 	-- set transparent background
 	{ "xiyaowong/transparent.nvim" },
 
+	{
+		"nvzone/typr",
+		dependencies = "nvzone/volt",
+		opts = {},
+		cmd = { "Typr", "TyprStats" },
+	},
+
 	-- vim tmux navigation
 	{
 		"christoomey/vim-tmux-navigator",
