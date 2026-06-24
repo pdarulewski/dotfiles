@@ -12,13 +12,10 @@ M.config = function()
 		"codespell",
 		"html-lsp",
 		"jsonlint",
-		"luacheck",
 		"mdformat",
 		"prettier",
 		"shellcheck",
 		"shfmt",
-		"sql-formatter",
-		"stylua",
 		"yamllint",
 	}
 

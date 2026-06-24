@@ -70,10 +70,11 @@
       devShells.default = nixpkgs.legacyPackages.${system}.mkShell {
         name = "dotfiles";
         packages = with nixpkgs.legacyPackages.${system}; [
-          nil
           alejandra
-          luarocks
           lua51Packages.luacheck
+          luarocks
+          nil
+          stylua
         ];
       };
     })
