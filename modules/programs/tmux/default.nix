@@ -65,7 +65,7 @@ in {
       unbind '"'
       unbind %
       bind v split-window -h -p 35
-      bind s split-window -v
+      bind s split-window -v -p 35
 
       bind-key -r f run-shell "tmux neww '${sessionizer}/bin/sessionizer'"
 

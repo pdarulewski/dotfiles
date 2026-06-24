@@ -47,7 +47,7 @@ function gwo() {
 function gwd() {
   local branch=$1
   local dir=${branch//\//-}
-  git worktree remove "$dir"
+  git worktree remove --force "$dir"
 }
 
 function gwp() {

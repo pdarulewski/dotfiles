@@ -19,11 +19,9 @@
     # security
     gnupg
 
-    # misc
-    # neofetch
-    # onefetch
-    claude-code
-    chafa
+    # dev
+    bruno
+    bruno-cli
 
     # kubernetes
     argocd
@@ -33,6 +31,11 @@
     # nvim
     tree-sitter
 
+    # misc
+    # neofetch
+    # onefetch
+    claude-code
+    chafa
     rectangle
     spicetify-cli
   ];
