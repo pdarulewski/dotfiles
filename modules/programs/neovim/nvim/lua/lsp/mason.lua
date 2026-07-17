@@ -6,6 +6,13 @@ local M = {
 }
 
 M.config = function()
+	local ok, mason = pcall(require, "mason")
+	if not ok then
+		return
+	end
+
+	mason.setup()
+
 	local registry = require("mason-registry")
 	local packages = {
 		"alejandra",

@@ -13,13 +13,17 @@ local M = {
 						icon = " ",
 						key = "f",
 						desc = "Find File",
-						action = "<cmd>Telescope find_files hidden=true<cr>",
+						action = function()
+							Snacks.picker.files()
+						end,
 					},
 					{
 						icon = " ",
 						key = "g",
 						desc = "Find Text",
-						action = "<cmd>Telescope live_grep hidden=true<cr>",
+						action = function()
+							Snacks.picker.grep()
+						end,
 					},
 					{
 						icon = "󰒲 ",
@@ -45,6 +49,7 @@ local M = {
 				},
 			},
 		},
+		explorer = { enabled = true },
 		-- notifications in the bottom right corner
 		notifier = {
 			enabled = true,
@@ -53,7 +58,48 @@ local M = {
 		},
 
 		-- picker for pop ups
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			sources = {
+				explorer = {
+					auto_close = true,
+					hidden = true,
+					git_untracked = true,
+					include = {
+						"**/.*env",
+					},
+					layout = {
+						preview = true,
+						layout = {
+							box = "horizontal",
+							width = 0.8,
+							height = 0.8,
+							{
+								box = "vertical",
+								border = "rounded",
+								title = "{source} {live} {flags}",
+								title_pos = "center",
+								{ win = "input", height = 1, border = "bottom" },
+								{ win = "list", border = "none" },
+							},
+							{ win = "preview", border = "rounded", width = 0.7, title = "{preview}" },
+						},
+					},
+				},
+				files = {
+					hidden = true,
+				},
+				git_files = {
+					untracked = true,
+				},
+				git_grep = {
+					untracked = true,
+				},
+				grep = {
+					hidden = true,
+				},
+			},
+		},
 
 		lazygit = { enabled = true },
 		gh = { enabled = true },
@@ -67,7 +113,6 @@ local M = {
 		bigfile = { enabled = false },
 		bufdelete = { enabled = false },
 		dim = { enabled = false },
-		explorer = { enabled = false },
 		git = { enabled = false },
 		image = { enabled = false },
 		keymap = { enabled = false },
@@ -89,6 +134,58 @@ local M = {
 		debug = { enabled = false },
 		gitbrowse = { enabled = false },
 		zen = { enabled = false },
+	},
+	keys = {
+		{
+			"gd",
+			function()
+				Snacks.picker.lsp_definitions()
+			end,
+			desc = "Goto Definition",
+		},
+		{
+			"gD",
+			function()
+				Snacks.picker.lsp_declarations()
+			end,
+			desc = "Goto Declaration",
+		},
+		{
+			"gi",
+			function()
+				Snacks.picker.lsp_implementations()
+			end,
+			desc = "Goto Implementation",
+		},
+		{
+			"go",
+			function()
+				Snacks.picker.lsp_type_definitions()
+			end,
+			desc = "Goto Type Definition",
+		},
+		{
+			"gr",
+			function()
+				Snacks.picker.lsp_references()
+			end,
+			nowait = true,
+			desc = "References",
+		},
+		{
+			"gai",
+			function()
+				Snacks.picker.lsp_incoming_calls()
+			end,
+			desc = "Calls Incoming",
+		},
+		{
+			"gao",
+			function()
+				Snacks.picker.lsp_outgoing_calls()
+			end,
+			desc = "Calls Outgoing",
+		},
 	},
 }
 

@@ -1,28 +1,36 @@
 vim.lsp.enable({
-  "bashls",
-  "buf_ls",
-  "clangd",
-  "docker_compose_language_service",
-  "docker_language_server",
-  "dockerls",
-  "gopls",
-  "html",
-  "ltex",
-  "lua_ls",
-  "marksman",
-  "nil_ls",
-  "ruff",
-  "taplo",
-  "terraformls",
-  "ty",
-  "yamlls",
-  "zls",
+	"bashls",
+	"buf_ls",
+	"clangd",
+	"docker_compose_language_service",
+	"docker_language_server",
+	"dockerls",
+	"gopls",
+	"html",
+	"ltex",
+	"lua_ls",
+	"marksman",
+	"nil_ls",
+	"ruff",
+	"taplo",
+	"terraformls",
+	"ty",
+	"yaml-language-server",
+	"zls",
 })
 
-vim.lsp.config['zls'] = {
-  settings = {
-    zls = {
-      enable_build_on_save = true,
-    }
-  },
+vim.lsp.config["gopls"] = {
+	settings = {
+		gopls = {
+			semanticTokens = false,
+		},
+	},
+}
+
+vim.lsp.config["zls"] = {
+	settings = {
+		zls = {
+			enable_build_on_save = true,
+		},
+	},
 }

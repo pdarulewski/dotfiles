@@ -2,8 +2,8 @@ local neovim_group = vim.api.nvim_create_augroup("neovim", { clear = true })
 
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
 	desc = "Check if we need to reload the file when it changed outside of neovim",
-  command = "if mode() != 'c' | checktime | endif",
-  pattern = "*",
+	command = "if mode() != 'c' | checktime | endif",
+	pattern = "*",
 	group = neovim_group,
 })
 
@@ -43,7 +43,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		"spectre_panel",
 		"startuptime",
 		"tsplayground",
-		"TelescopePrompt",
 		"checkhealth",
 	},
 	callback = function(event)
@@ -67,12 +66,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = event.buf }
 
 		vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-		vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-		vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-		vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-		vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
-
-		vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+		vim.keymap.set("n", "gd", function()
+			Snacks.picker.lsp_definitions()
+		end, opts)
+		vim.keymap.set("n", "gD", function()
+			Snacks.picker.lsp_declarations()
+		end, opts)
+		vim.keymap.set("n", "gi", function()
+			Snacks.picker.lsp_implementations()
+		end, opts)
+		vim.keymap.set("n", "go", function()
+			Snacks.picker.lsp_type_definitions()
+		end, opts)
+		vim.keymap.set("n", "gr", function()
+			Snacks.picker.lsp_references()
+		end, opts)
 		vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
 		vim.keymap.set("n", "gR", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 		vim.keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
@@ -83,66 +91,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- SECTION: filetypes
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	desc = "Disable linting for certain filetypes",
-	pattern = {
-		".env",
-		"*/helm/*/templates/*.yaml",
-		".air.toml",
-	},
-	callback = function(event)
-		vim.diagnostic.enable(false, { buffer = event.buf })
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	desc = "dotenv",
-	pattern = { "**/.env", "**/.*.env" },
-	callback = function(event)
-		vim.bo[event.buf].filetype = "dotenv"
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile", "FileType" }, {
-	desc = "gotmpl",
-	pattern = {
-		"*/templates/*.yaml",
-		"tmpl",
-	},
-	callback = function(event)
-		vim.bo[event.buf].filetype = "gotmpl"
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	desc = "ruby",
-	pattern = { "*.brewfile" },
-	callback = function(event)
-		vim.bo[event.buf].filetype = "ruby"
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	desc = "terraform",
-	pattern = { "*.tf" },
-	callback = function(event)
-		vim.bo[event.buf].filetype = "terraform"
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	desc = "tiltfile",
-	pattern = { "Tiltfile" },
-	callback = function(event)
-		vim.bo[event.buf].filetype = "starlark"
-	end,
-})
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	desc = "Disable folding in Telescope results",
-	pattern = "TelescopeResults",
+	desc = "Disable folding in Snacks picker",
+	pattern = { "snacks_picker_list", "snacks_picker_preview" },
 	command = [[setlocal nofoldenable]],
 })
 

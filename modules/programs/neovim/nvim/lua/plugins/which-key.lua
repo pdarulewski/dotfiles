@@ -28,18 +28,18 @@ M.config = function()
 		-- Basic
 		{ "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", desc = "Comment" },
 
-		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer" },
+		{ "<leader>e", function() Snacks.explorer() end, desc = "Explorer" },
 		{ "<leader>E", "<cmd>lua require('oil').open_float()<cr>", desc = "Explorer" },
 
 		{ "<leader>W", "<cmd>noautocmd w<cr>", desc = "Write without saving" },
 		{ "<leader>c", "<cmd>bp|bd #<cr>", desc = "Close Buffer" },
-		{ "<leader>n", "<cmd>noh<cr>", desc = "No highlight" },
+		{ "<leader>n", "<cmd>nohlsearch<cr>", desc = "No highlight" },
 		{ "<leader>w", "<cmd>set wrap!<cr>", desc = "Toggle wrap" },
 		{ "<leader>q", "<cmd>wa<cr><cmd>qa<cr>", desc = "Quit" },
 
-		{ "<leader>F", "<cmd> lua require('telescope').extensions.refactoring.refactors()<cr>", desc = "Refactor" },
+		{ "<leader>F", "<cmd>lua require('refactoring').select_refactor()<cr>", desc = "Refactor" },
 
-		{ "<leader>s", "<cmd>lua Snacks.scratch()<cr>", desc = "Scratch" },
+		{ "<leader>s", "<cmd>lua Snacks.scratch({ filekey = { cwd = false, branch = false } })<cr>", desc = "Scratch" },
 		{ "<leader>o", "<cmd>Outline<cr>", desc = "Symbols" },
 		{ "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "Undo Tree" },
 
@@ -112,16 +112,16 @@ M.config = function()
 		{ "<leader>Ds", "<cmd>lua require('dbee').store('csv', 'output.csv', {})<cr>", desc = "store in csv" },
 
 		{ "<leader>f", group = "+find" },
-		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-		{ "<leader>ff", "<cmd>Telescope git_files hidden=true<cr>", desc = "Git Files" },
-		{ "<leader>fF", "<cmd>Telescope find_files hidden=true<cr>", desc = "Files" },
-		{ "<leader>fn", "<cmd>Telescope notify<cr>", desc = "Notifications" },
-		{ "<leader>fp", "<cmd>Telescope live_grep search_dirs=./.venv hidden=true<cr>", desc = "In project" },
-		{ "<leader>fr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-		{ "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Symbols" },
-		{ "<leader>ft", "<cmd>Telescope live_grep hidden=true<cr>", desc = "Text" },
-		{ "<leader>fT", "<cmd>TodoTelescope<cr>", desc = "TODOs" },
-		{ "<leader>f/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Fuzzy search here" },
+		{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+		{ "<leader>ff", function() Snacks.picker.git_files() end, desc = "Git Files" },
+		{ "<leader>fF", function() Snacks.picker.files() end, desc = "Files" },
+		{ "<leader>fn", function() Snacks.picker.notifications() end, desc = "Notifications" },
+		{ "<leader>fp", function() Snacks.picker.grep({ dirs = { "./.venv" } }) end, desc = "In project" },
+		{ "<leader>fr", function() Snacks.picker.lsp_references() end, desc = "References" },
+		{ "<leader>fs", function() Snacks.picker.lsp_symbols() end, desc = "Symbols" },
+		{ "<leader>ft", function() Snacks.picker.grep() end, desc = "Text" },
+		{ "<leader>fT", function() Snacks.picker.todo_comments() end, desc = "TODOs" },
+		{ "<leader>f/", function() Snacks.picker.lines() end, desc = "Fuzzy search here" },
 
 		{ "<leader>t", group = "+trouble" },
 		{ "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", desc = "Trouble" },
@@ -138,7 +138,7 @@ M.config = function()
 		{ "<leader>p", '"_dP', desc = "paste and keep" },
 		{ "<leader>P", '"_dp', desc = "paste and keep" },
 
-		{ "<leader>F", "<cmd> lua require('telescope').extensions.refactoring.refactors()<cr>", desc = "Refactor" },
+		{ "<leader>F", "<cmd>lua require('refactoring').select_refactor()<cr>", desc = "Refactor" },
 
 		{ "<leader>d", group = "+dap" },
 		{ "<leader>du", "<cmd>lua require('dapui').toggle({ reset = true })<cr>", desc = "Toggle UI" },
