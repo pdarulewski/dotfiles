@@ -74,6 +74,7 @@
           lua51Packages.luacheck
           luarocks
           nil
+          nodejs
           stylua
         ];
       };
