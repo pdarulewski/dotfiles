@@ -82,11 +82,6 @@ in {
       ga = "git add";
       gaa = "git add --all";
 
-      gcb = "git checkout -b";
-      gco = "git checkout";
-
-      gbd = "git branch -D";
-
       gst = "git status";
 
       gcm = "git commit -m";

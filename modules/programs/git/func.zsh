@@ -32,10 +32,17 @@ _git_branch_complete() {
 }
 compdef _git_branch_complete gwo gwb
 
+function _is_bare_worktree() {
+  local common_dir
+  common_dir=$(git rev-parse --git-common-dir 2>/dev/null) || return 1
+  [[ "$(basename "$common_dir")" == ".bare" ]]
+}
+
 function gwb() {
   local branch=$1
   local dir=${branch//\//-}
   git worktree add -b "$branch" "$dir"
+  cd "$dir"
 }
 
 function gwo() {
@@ -48,6 +55,30 @@ function gwd() {
   local branch=$1
   local dir=${branch//\//-}
   git worktree remove --force "$dir"
+}
+
+function gco() {
+  if _is_bare_worktree; then
+    gwo "$@"
+  else
+    git checkout "$@"
+  fi
+}
+
+function gcb() {
+  if _is_bare_worktree; then
+    gwb "$@"
+  else
+    git checkout -b "$@"
+  fi
+}
+
+function gbd() {
+  if _is_bare_worktree; then
+    gwd "$@"
+  fi
+
+  git branch -D "$@"
 }
 
 function gwp() {

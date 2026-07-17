@@ -7,14 +7,6 @@
     settings = {
       customCommands = [
         {
-          key = "C";
-          command = "git cz c";
-          description = "commit with commitizen";
-          context = "files";
-          loadingText = "opening commitizen commit tool";
-          output = "terminal";
-        }
-        {
           key = "R";
           command = ''git checkout HEAD -- {{.SelectedFile.Name | quote}}'';
           description = "restore file";
@@ -37,10 +29,27 @@
         }
         {
           key = "<c-g>";
-          command = "gh pr create";
+          command = "gh pr create --base {{.Form.Branch}}";
           context = "global";
           loadingText = "Creating pull request on GitHub";
           output = "terminal";
+          prompts = [
+            {
+              type = "menu";
+              title = "What branch to open a PR to?";
+              key = "Branch";
+              options = [
+                {
+                  name = "main";
+                  value = "main";
+                }
+                {
+                  name = "develop";
+                  value = "develop";
+                }
+              ];
+            }
+          ];
         }
         {
           key = "E";
