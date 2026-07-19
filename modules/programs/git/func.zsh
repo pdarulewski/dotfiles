@@ -6,12 +6,24 @@ function grbi() {
 
 # clone "git@github.com:pdarulewski/dotfiles.git" into ~/dev/github.com/pdarulewski/dotfiles
 function gc() {
-  local url=$(echo $1 | cut -d "@" -f 2 | cut -d ":" -f 1)
-  local org=$(echo $1 | cut -d ":" -f 2 | cut -d "/" -f 1)
-  local repo=$(basename -s .git $1)
-  local target="$HOME/dev/$url/$org/$repo"
+  local url=$1
+  local host org repo target
 
-  git clone --bare $1 "$target/.bare"
+  if [[ $url == git@* ]]; then
+    host=$(echo $url | cut -d "@" -f 2 | cut -d ":" -f 1)
+    org=$(echo $url | cut -d ":" -f 2 | cut -d "/" -f 1)
+  elif [[ $url == https://* ]]; then
+    host=$(echo $url | sed -E 's|https://([^/]*)/.*|\1|')
+    org=$(echo $url | sed -E 's|https://[^/]*/([^/]*)/.*|\1|')
+  else
+    echo "Unsupported URL format: $url"
+    return 1
+  fi
+
+  repo=$(basename -s .git $url)
+  target="$HOME/dev/$host/$org/$repo"
+
+  git clone --bare $url "$target/.bare"
   echo "gitdir: ./.bare" >"$target/.git"
   git -C "$target/.bare" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
   git -C "$target/.bare" fetch origin
