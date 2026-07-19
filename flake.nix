@@ -39,6 +39,8 @@
       url = "github:derailed/k9s";
       flake = false;
     };
+
+    python.url = "github:nixos/nixpkgs/ee09932cedcef15aaf476f9343d1dea2cb77e261";
   };
 
   outputs = inputs @ {
@@ -71,6 +73,7 @@
         name = "dotfiles";
         packages = with nixpkgs.legacyPackages.${system}; [
           alejandra
+          inputs.python.legacyPackages.${system}.python312
           lua51Packages.luacheck
           luarocks
           nil
