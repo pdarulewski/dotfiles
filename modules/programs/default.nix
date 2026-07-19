@@ -1,8 +1,44 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
+  packages = with pkgs; [
+    # general
+    fd
+    jq
+    tree
+    wget
+
+    # git
+    delta
+    git-lfs
+
+    # security
+    gnupg
+
+    # dev
+    bruno
+    bruno-cli
+
+    # kubernetes
+    argocd
+    kubernetes-helm
+    kubectx
+
+    # nvim
+    tree-sitter
+
+    # misc
+    # neofetch
+    # onefetch
+    claude-code
+    chafa
+    rectangle
+    spicetify-cli
+  ];
+
   imports = [
     ./atuin
     ./btop

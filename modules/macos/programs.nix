@@ -5,41 +5,6 @@
   # https://github.com/nix-community/home-manager/issues/108
   programs.zsh.enableCompletion = false;
 
-  environment.systemPackages = with pkgs; [
-    # general
-    fd
-    jq
-    tree
-    wget
-
-    # git
-    delta
-    git-lfs
-
-    # security
-    gnupg
-
-    # dev
-    bruno
-    bruno-cli
-
-    # kubernetes
-    argocd
-    kubernetes-helm
-    kubectx
-
-    # nvim
-    tree-sitter
-
-    # misc
-    # neofetch
-    # onefetch
-    claude-code
-    chafa
-    rectangle
-    spicetify-cli
-  ];
-
   fonts.packages = with pkgs; [
     victor-mono
     nerd-fonts.fira-code
