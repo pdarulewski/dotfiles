@@ -50,7 +50,6 @@ M.config = function()
 		"python",
 		"regex",
 		"rust",
-		"sh",
 		"sql",
 		"ssh_config",
 		"starlark",

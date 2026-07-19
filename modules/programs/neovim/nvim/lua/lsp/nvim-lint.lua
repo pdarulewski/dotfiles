@@ -25,6 +25,7 @@ M.config = function()
 		sql = { "sqlfluff" },
 		yaml = { "yamllint" },
 		zig = { "zlint" },
+		zsh = { "zsh" },
 		["*"] = { "codespell" },
 	}
 
