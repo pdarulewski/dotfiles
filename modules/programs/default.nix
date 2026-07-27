@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  packages = with pkgs; [
+  home.packages = with pkgs; [
     # general
     fd
     jq
