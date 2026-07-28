@@ -67,6 +67,7 @@ local M = {
 					git_untracked = true,
 					include = {
 						"**/.*env",
+						"**/scratch*",
 					},
 					layout = {
 						preview = true,
