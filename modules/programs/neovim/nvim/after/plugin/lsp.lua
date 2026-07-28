@@ -7,7 +7,6 @@ vim.lsp.enable({
 	"dockerls",
 	"gopls",
 	"html",
-	"ltex",
 	"lua_ls",
 	"marksman",
 	"nil_ls",

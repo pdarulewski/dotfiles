@@ -16,6 +16,7 @@ M.config = function()
 		-- env = { "shellcheck" },
 		go = { "golangcilint" },
 		json = { "jsonlint" },
+		latex = { "ltex" },
 		lua = { "luacheck" },
 		-- markdown = { "markdownlint" },
 		python = { "ruff" },
