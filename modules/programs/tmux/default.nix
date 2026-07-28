@@ -71,7 +71,7 @@ in {
 
       # Zellij-like pane frames
       set -g pane-border-status top
-      set -g pane-border-format " [ ###P #W ] "
+      set -g pane-border-format " [ ###P #W  #{pane_current_path} ] "
       set -g pane-border-lines double
 
       # Active pane border colors (Rose Pine Moon colors)
