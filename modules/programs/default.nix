@@ -4,40 +4,47 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    # general
-    fd
-    jq
-    tree
-    wget
+  home.packages =
+    with pkgs;
+    [
+      # general
+      fd
+      jq
+      tree
+      wget
 
-    # git
-    delta
-    git-lfs
+      # git
+      delta
+      git-lfs
 
-    # security
-    gnupg
+      # security
+      gnupg
 
-    # dev
-    bruno
-    bruno-cli
+      # dev
+      bruno
+      bruno-cli
 
-    # kubernetes
-    argocd
-    kubernetes-helm
-    kubectx
+      # kubernetes
+      argocd
+      kubernetes-helm
+      kubectx
 
-    # nvim
-    tree-sitter
+      # nvim
+      tree-sitter
 
-    # misc
-    # neofetch
-    # onefetch
-    claude-code
-    chafa
-    rectangle
-    spicetify-cli
-  ];
+      # misc
+      # neofetch
+      # onefetch
+      claude-code
+      chafa
+      spicetify-cli
+    ]
+    ++ lib.optionals stdenv.isDarwin [
+      rectangle
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      wl-clipboard
+    ];
 
   imports = [
     ./atuin

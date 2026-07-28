@@ -1,5 +1,5 @@
 {
-  description = "pd system flake (macOS Intel, Apple Silicon, and future Arch)";
+  description = "pd system flake (macOS Intel, Apple Silicon, Ubuntu)";
 
   inputs = {
     nixpkgs = {
@@ -67,6 +67,13 @@
         specialArgs = {inherit inputs completions themes;};
         modules = modules;
       };
+
+    mkHomeSystem = arch: modules:
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${arch};
+        extraSpecialArgs = {inherit inputs completions themes;};
+        modules = modules;
+      };
   in
     flake-utils.lib.eachDefaultSystem (system: {
       devShells.default = nixpkgs.legacyPackages.${system}.mkShell {
@@ -80,9 +87,30 @@
           nodejs
           stylua
         ];
+        shellHook = ''
+          update_all() { nix flake update; }
+
+          apply() {
+            case "$(uname -s)-$(uname -m)" in
+              Darwin-arm64)  sudo nix run nix-darwin -- switch --flake .#pd-macos-apple ;;
+              Darwin-x86_64) sudo nix run nix-darwin -- switch --flake .#pd-macos-intel ;;
+              Linux-x86_64)  nix run 'github:nix-community/home-manager' -- switch --flake .#pd-ubuntu ;;
+              *) echo "Unsupported platform: $(uname -s)-$(uname -m)" ;;
+            esac
+          }
+        '';
       };
     })
     // {
+      homeConfigurations = {
+        "pd-ubuntu" = mkHomeSystem "x86_64-linux" [
+          ./hosts/ubuntu/configuration.nix
+
+          ./modules/linux/programs.nix
+          ./modules/programs
+        ];
+      };
+
       darwinConfigurations = {
         "pd-macos-intel" = mkDarwinSystem "pd-macos-intel" "x86_64-darwin" [
           ./hosts/macos-intel/configuration.nix

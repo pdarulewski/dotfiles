@@ -17,10 +17,12 @@
   currentDir = builtins.path {path = ./.;};
 
   func = lib.mkOrder 1500 ''
-    # add brew on arm fix
-    if [[ $(uname -m) == 'arm64' ]]; then
-      eval "$(/opt/homebrew/bin/brew shellenv)"
-    fi
+    ${lib.optionalString pkgs.stdenv.isDarwin ''
+      # add brew on arm fix
+      if [[ $(uname -m) == 'arm64' ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+      fi
+    ''}
 
     source ${currentDir}/func.zsh
     source ${currentDir}/func_chpwd.zsh
@@ -70,20 +72,25 @@ in {
       GPG_TTY = "$(tty)"; # gpg: signing failed: Inappropriate ioctl for device
     };
 
-    shellAliases = {
-      update_all = "nix flake update";
-      update_apple = "sudo nix run nix-darwin -- switch --flake .#pd-macos-apple";
-      update_intel = "sudo nix run nix-darwin -- switch --flake .#pd-macos-intel";
-      prune = "nix-store --gc"; # https://nixos.wiki/wiki/Cleaning_the_nix_store
+    shellAliases =
+      {
+        prune = "nix-store --gc"; # https://nixos.wiki/wiki/Cleaning_the_nix_store
 
-      ".." = "cd ..";
-      "..." = "cd ../..";
-      "...." = "cd ../../..";
+        ".." = "cd ..";
+        "..." = "cd ../..";
+        "...." = "cd ../../..";
 
-      diff = "diff --side-by-side -W $(( $(tput cols) - 2 ))";
-      jqpb = "pbpaste | jq '.' | pbcopy";
-      v = "nvim";
-    };
+        diff = "diff --side-by-side -W $(( $(tput cols) - 2 ))";
+        v = "nvim";
+      }
+      // lib.optionalAttrs pkgs.stdenv.isDarwin {
+        jqpb = "pbpaste | jq '.' | pbcopy";
+      }
+      // lib.optionalAttrs pkgs.stdenv.isLinux {
+        pbcopy = "wl-copy";
+        pbpaste = "wl-paste";
+        jqpb = "wl-paste | jq '.' | wl-copy";
+      };
 
     initContent = lib.mkMerge [
       zstyle
