@@ -42,7 +42,7 @@ _git_branch_complete() {
   branches=(${(f)"$(git branch --all --format='%(refname:short)' 2>/dev/null)"})
   _wanted branches expl 'branch' compadd -a branches
 }
-compdef _git_branch_complete gwo gwb
+compdef _git_branch_complete gwo gwb gbd gco
 
 function _is_bare_worktree() {
   local common_dir
@@ -60,7 +60,11 @@ function gwb() {
 function gwo() {
   local branch=$1
   local dir=${branch//\//-}
-  git worktree add "$dir" "$branch"
+  if [[ -d "$dir" ]]; then
+    cd "$dir"
+  else
+    git worktree add "$dir" "$branch"
+  fi
 }
 
 function gwd() {
