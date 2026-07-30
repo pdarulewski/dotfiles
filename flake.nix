@@ -64,7 +64,7 @@
     mkDarwinSystem = name: arch: modules:
       nix-darwin.lib.darwinSystem {
         system = arch;
-        specialArgs = {inherit inputs completions themes;};
+        specialArgs = {inherit inputs completions themes self;};
         modules = modules;
       };
   in

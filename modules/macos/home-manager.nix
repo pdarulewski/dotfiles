@@ -2,6 +2,7 @@
   inputs,
   completions,
   themes,
+  self,
   ...
 }: {
   imports = [
@@ -9,7 +10,7 @@
   ];
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs completions themes;};
+    extraSpecialArgs = {inherit inputs completions themes self;};
 
     useGlobalPkgs = true;
     useUserPackages = true;

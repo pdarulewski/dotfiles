@@ -1,5 +1,11 @@
-{config, ...}: let
-  nvimDir = "${config.home.homeDirectory}/dev/github.com/pdarulewski/dotfiles/modules/programs/neovim/nvim";
+{
+  config,
+  self,
+  ...
+}: let
+  # Live editing (requires rebuild only when switching modes):
+  # nvimDir = "${config.home.homeDirectory}/dev/github.com/pdarulewski/dotfiles/main/modules/programs/neovim/nvim";
+  nvimDir = "${self}/modules/programs/neovim/nvim";
 in {
   programs.neovim = {
     enable = true;
