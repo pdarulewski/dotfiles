@@ -75,6 +75,7 @@ function gwd() {
 
 function gco() {
   if _is_bare_worktree; then
+    [[ -d "../.bare" ]] && cd ..
     gwo "$@"
   else
     git checkout "$@"
@@ -83,6 +84,7 @@ function gco() {
 
 function gcb() {
   if _is_bare_worktree; then
+    [[ -d "../.bare" ]] && cd ..
     gwb "$@"
   else
     git checkout -b "$@"
