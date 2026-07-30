@@ -68,10 +68,22 @@
         modules = modules;
       };
   in
-    flake-utils.lib.eachDefaultSystem (system: {
-      devShells.default = nixpkgs.legacyPackages.${system}.mkShell {
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+      switch = pkgs.writeShellApplication {
+        name = "switch";
+        text = ''
+          case "$(uname -s)-$(uname -m)" in
+            Darwin-arm64)  sudo nix run nix-darwin -- switch --flake .#pd-macos-apple ;;
+            Darwin-x86_64) sudo nix run nix-darwin -- switch --flake .#pd-macos-intel ;;
+            *) echo "Unsupported platform: $(uname -s)-$(uname -m)" ;;
+          esac
+        '';
+      };
+    in {
+      devShells.default = pkgs.mkShell {
         name = "dotfiles";
-        packages = with nixpkgs.legacyPackages.${system}; [
+        packages = with pkgs; [
           alejandra
           inputs.python.legacyPackages.${system}.python312
           lua51Packages.luacheck
@@ -79,6 +91,7 @@
           nil
           nodejs
           stylua
+          switch
         ];
       };
     })
