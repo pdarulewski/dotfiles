@@ -28,6 +28,10 @@ M.config = function()
 		return table.concat(names, " ♦ ")
 	end
 
+	local debugger = function()
+		return require("dap").status()
+	end
+
 	local theme = os.getenv("THEME")
 
 	if theme == "ocean" then
@@ -46,7 +50,8 @@ M.config = function()
 				},
 				lualine_x = {
 					lint_progress,
-					active_formatters,
+					-- active_formatters,
+					debugger,
 					"encoding",
 					"fileformat",
 					"filetype",
