@@ -28,7 +28,13 @@ M.config = function()
 		-- Basic
 		{ "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", desc = "Comment" },
 
-		{ "<leader>e", function() Snacks.explorer() end, desc = "Explorer" },
+		{
+			"<leader>e",
+			function()
+				Snacks.explorer()
+			end,
+			desc = "Explorer",
+		},
 		{ "<leader>E", "<cmd>lua require('oil').open_float()<cr>", desc = "Explorer" },
 
 		{ "<leader>W", "<cmd>noautocmd w<cr>", desc = "Write without saving" },
@@ -112,16 +118,76 @@ M.config = function()
 		{ "<leader>Ds", "<cmd>lua require('dbee').store('csv', 'output.csv', {})<cr>", desc = "store in csv" },
 
 		{ "<leader>f", group = "+find" },
-		{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
-		{ "<leader>ff", function() Snacks.picker.git_files() end, desc = "Git Files" },
-		{ "<leader>fF", function() Snacks.picker.files() end, desc = "Files" },
-		{ "<leader>fn", function() Snacks.picker.notifications() end, desc = "Notifications" },
-		{ "<leader>fp", function() Snacks.picker.grep({ dirs = { "./.venv" } }) end, desc = "In project" },
-		{ "<leader>fr", function() Snacks.picker.lsp_references() end, desc = "References" },
-		{ "<leader>fs", function() Snacks.picker.lsp_symbols() end, desc = "Symbols" },
-		{ "<leader>ft", function() Snacks.picker.grep() end, desc = "Text" },
-		{ "<leader>fT", function() Snacks.picker.todo_comments() end, desc = "TODOs" },
-		{ "<leader>f/", function() Snacks.picker.lines() end, desc = "Fuzzy search here" },
+		{
+			"<leader>fb",
+			function()
+				Snacks.picker.buffers()
+			end,
+			desc = "Buffers",
+		},
+		{
+			"<leader>ff",
+			function()
+				Snacks.picker.git_files()
+			end,
+			desc = "Git Files",
+		},
+		{
+			"<leader>fF",
+			function()
+				Snacks.picker.files()
+			end,
+			desc = "Files",
+		},
+		{
+			"<leader>fn",
+			function()
+				Snacks.picker.notifications()
+			end,
+			desc = "Notifications",
+		},
+		{
+			"<leader>fp",
+			function()
+				Snacks.picker.grep({ dirs = { "./.venv" } })
+			end,
+			desc = "In project",
+		},
+		{
+			"<leader>fr",
+			function()
+				Snacks.picker.lsp_references()
+			end,
+			desc = "References",
+		},
+		{
+			"<leader>fs",
+			function()
+				Snacks.picker.lsp_symbols()
+			end,
+			desc = "Symbols",
+		},
+		{
+			"<leader>ft",
+			function()
+				Snacks.picker.grep()
+			end,
+			desc = "Text",
+		},
+		{
+			"<leader>fT",
+			function()
+				Snacks.picker.todo_comments()
+			end,
+			desc = "TODOs",
+		},
+		{
+			"<leader>f/",
+			function()
+				Snacks.picker.lines()
+			end,
+			desc = "Fuzzy search here",
+		},
 
 		{ "<leader>t", group = "+trouble" },
 		{ "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", desc = "Trouble" },
@@ -141,13 +207,7 @@ M.config = function()
 		{ "<leader>F", "<cmd>lua require('refactoring').select_refactor()<cr>", desc = "Refactor" },
 
 		{ "<leader>d", group = "+dap" },
-		{ "<leader>du", "<cmd>lua require('dapui').toggle({ reset = true })<cr>", desc = "Toggle UI" },
-		{
-			"<leader>dr",
-			"<cmd>lua require('dapui').close()<cr><cmd>lua require('dapui').toggle({ reset = true })<cr>",
-			desc = "Toggle UI",
-		},
-		{ "<leader>dc", "<cmd>lua require('dapui').close()<cr>", desc = "Close UI" },
+		{ "<leader>du", "<cmd>DapViewToggle<cr>", desc = "Toggle UI" },
 
 		{ "<leader>P", group = "+python" },
 		{
