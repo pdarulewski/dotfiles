@@ -98,14 +98,7 @@ M.config = function()
 		{ "<leader>hc", "<cmd>HopChar1<cr>", desc = "Hop Char" },
 
 		{ "<leader>d", group = "+dap" },
-		{ "<leader>du", "<cmd>lua require('dapui').toggle({ reset = true })<cr>", desc = "Toggle UI" },
-		{
-			"<leader>dR",
-			"<cmd>lua require('dapui').close()<cr><cmd>lua require('dapui').toggle({ reset = true })<cr>",
-			desc = "Toggle UI",
-		},
-		{ "<leader>dc", "<cmd>lua require('dapui').close()<cr>", desc = "Close UI" },
-		{ "<leader>de", "<cmd>lua require('dapui').eval()<cr>", desc = "Evaluate" },
+		{ "<leader>du", "<cmd>DapViewToggle<cr>", desc = "Toggle UI" },
 		{ "<leader>dt", "<cmd>lua require('dap').toggle_breakpoint()<cr>", desc = "Breakpoint" },
 		{
 			"<leader>dT",
