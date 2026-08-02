@@ -6,6 +6,10 @@ return {
 
 	version = "1.*",
 	opts = {
+		enabled = function()
+			return vim.bo.buftype ~= "prompt" and vim.bo.filetype ~= "snacks_picker_input"
+		end,
+
 		keymap = {
 			preset = "default",
 

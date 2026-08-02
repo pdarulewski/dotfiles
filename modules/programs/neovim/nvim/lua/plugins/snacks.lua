@@ -60,6 +60,17 @@ local M = {
 		-- picker for pop ups
 		picker = {
 			enabled = true,
+			win = {
+				input = {
+					keys = {
+						["<Esc>"] = { "focus_list", mode = { "n", "i" } },
+						["<Tab>"] = { "list_down", mode = { "i", "n" } },
+						["<S-Tab>"] = { "list_up", mode = { "i", "n" } },
+						["j"] = { "list_down", mode = { "n" } },
+						["k"] = { "list_up", mode = { "n" } },
+					},
+				},
+			},
 			sources = {
 				explorer = {
 					auto_close = true,
