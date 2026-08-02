@@ -78,19 +78,39 @@ M.config = function()
 
 	dap_go.setup()
 
-	-- https://github.com/mfussenegger/nvim-dap/issues/232#issuecomment-877699202
-	dap.configurations.go = nil
-
-	dap.adapters.delve = function(callback, config)
-		callback({
-			outputMode = "remote",
-		})
+	local adapter = dap.adapters.go
+	dap.adapters.go = function(cb, config)
+		if config and config.request == "launch" and not config.outputMode then
+			config.outputMode = "remote"
+		end
+		if type(adapter) == "function" then
+			adapter(cb, config)
+		else
+			cb(adapter)
+		end
 	end
 
-	dap.providers.configs["container"] = function(bufnr)
+	local ok_vscode, dap_vscode = pcall(require, "dap.ext.vscode")
+	if ok_vscode then
+		local orig_load_launchjs = dap_vscode.load_launchjs
+		dap_vscode.load_launchjs = function(path, type_to_filetypes)
+			orig_load_launchjs(path, type_to_filetypes)
+			if dap.configurations.go then
+				for _, config in ipairs(dap.configurations.go) do
+					if config.request == "launch" and not config.outputMode then
+						config.outputMode = "remote"
+					end
+				end
+			end
+		end
+	end
+
+	dap.configurations.go = nil
+
+	dap.providers.configs["0_attach_container"] = function(bufnr)
 		return {
 			{
-				name = "attach to container",
+				name = "🐳 attach to container",
 				type = "go",
 				mode = "remote",
 				outputMode = "remote",
@@ -101,10 +121,10 @@ M.config = function()
 		}
 	end
 
-	dap.providers.configs["air"] = function(bufnr)
+	dap.providers.configs["0_attach_air"] = function(bufnr)
 		return {
 			{
-				name = "attach to air",
+				name = "☁️ attach to air",
 				type = "go",
 				mode = "remote",
 				outputMode = "remote",
@@ -115,10 +135,10 @@ M.config = function()
 		}
 	end
 
-	dap.providers.configs["gofile"] = function(bufnr)
+	dap.providers.configs["0_go_file"] = function(bufnr)
 		return {
 			{
-				name = "run current go file",
+				name = "🦫 run current go file",
 				type = "go",
 				request = "launch",
 				program = "${file}",
