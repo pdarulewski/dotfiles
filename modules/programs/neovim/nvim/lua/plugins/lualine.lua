@@ -32,98 +32,99 @@ M.config = function()
 		return require("dap").status()
 	end
 
-	local theme = os.getenv("THEME")
+	-- Bubbles config for lualine
+	-- Author: lokesh-krishna
+	-- MIT license, see LICENSE for more details.
+	-- https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/bubbles.lua
 
-	if theme == "ocean" then
-		lualine.setup({
-			options = {
-				globalstatus = true,
-				theme = "tokyonight",
-			},
-			sections = {
-				lualine_c = {
-					{
-						"filename",
-						file_status = true,
-						path = 1,
-					},
-				},
-				lualine_x = {
-					lint_progress,
-					-- active_formatters,
-					debugger,
-					"encoding",
-					"fileformat",
-					"filetype",
-				},
-			},
-		})
-	elseif theme == "rose" then
-		-- Bubbles config for lualine
-		-- Author: lokesh-krishna
-		-- MIT license, see LICENSE for more details.
-		-- https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/bubbles.lua
+	local colors = {
+		blue = "#3e8fb0",
+		cyan = "#9ccfd8",
+		black = "#1f1d2e",
+		white = "#e0def4",
+		red = "#eb6f92",
+		violet = "#c4a7e7",
+		grey = "#2a273f",
+	}
 
-		local colors = {
-			blue = "#3e8fb0",
-			cyan = "#9ccfd8",
-			black = "#1f1d2e",
-			white = "#e0def4",
-			red = "#eb6f92",
-			violet = "#c4a7e7",
-			grey = "#2a273f",
-		}
+	local bubbles_theme = {
+		normal = {
+			a = { fg = colors.black, bg = colors.violet },
+			b = { fg = colors.white, bg = colors.grey },
+			c = { fg = colors.white },
+			y = { fg = colors.black, bg = colors.cyan },
+			z = { fg = colors.black, bg = colors.violet },
+		},
 
-		local bubbles_theme = {
-			normal = {
-				a = { fg = colors.black, bg = colors.violet },
-				b = { fg = colors.white, bg = colors.grey },
-				c = { fg = colors.white },
-			},
+		insert = {
+			a = { fg = colors.black, bg = colors.blue },
+			z = { fg = colors.black, bg = colors.blue },
+		},
+		visual = {
+			a = { fg = colors.black, bg = colors.cyan },
+			z = { fg = colors.black, bg = colors.cyan },
+		},
+		replace = {
+			a = { fg = colors.black, bg = colors.red },
+			z = { fg = colors.black, bg = colors.red },
+		},
 
-			insert = { a = { fg = colors.black, bg = colors.blue } },
-			visual = { a = { fg = colors.black, bg = colors.cyan } },
-			replace = { a = { fg = colors.black, bg = colors.red } },
+		inactive = {
+			a = { fg = colors.white, bg = colors.black },
+			b = { fg = colors.white, bg = colors.black },
+			c = { fg = colors.white },
+		},
+	}
 
-			inactive = {
-				a = { fg = colors.white, bg = colors.black },
-				b = { fg = colors.white, bg = colors.black },
-				c = { fg = colors.white },
-			},
-		}
-
-		lualine.setup({
-			options = {
-				globalstatus = true,
-				theme = bubbles_theme,
-				component_separators = "",
-				section_separators = { left = "", right = "" },
-			},
-			sections = {
-				lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
-				lualine_b = { "branch" },
-				lualine_c = {
-					{
-						"filename",
-						file_status = true,
-						path = 1,
-					},
-				},
-				lualine_x = {
-					lint_progress,
-					active_formatters,
-					"encoding",
-					"fileformat",
-					"filetype",
-				},
-				lualine_z = {
-					{ "location", separator = { right = "" }, left_padding = 2 },
+	lualine.setup({
+		options = {
+			globalstatus = true,
+			theme = bubbles_theme,
+			component_separators = "",
+			section_separators = { left = "", right = "" },
+		},
+		sections = {
+			lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+			lualine_b = { "branch" },
+			lualine_c = {
+				{
+					"filename",
+					file_status = true,
+					path = 1,
 				},
 			},
-		})
-	else
-		error("Theme not found")
-	end
+
+			lualine_x = {
+				lint_progress,
+				-- active_formatters,
+				"encoding",
+				"fileformat",
+				"filetype",
+			},
+			lualine_y = {
+				{
+					function()
+						return require("dap").status()
+					end,
+					icon = { "" },
+					separator = { left = "", right = "" },
+					left_padding = 2,
+					right_padding = 2,
+					cond = function()
+						if not package.loaded.dap then
+							return false
+						end
+						local session = require("dap").session()
+						return session ~= nil
+					end,
+				},
+			},
+			lualine_z = {
+				{ "progress", separator = { left = "" }, left_padding = 2 },
+				{ "location", separator = { right = "" }, left_padding = 2 },
+			},
+		},
+	})
 end
 
 return M
