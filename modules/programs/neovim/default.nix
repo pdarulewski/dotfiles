@@ -7,6 +7,8 @@
   # nvimDir = "${config.home.homeDirectory}/dev/github.com/pdarulewski/dotfiles/main/modules/programs/neovim/nvim";
   nvimDir = "${self}/modules/programs/neovim/nvim";
 in {
+  xdg.configFile."nvim/dashboard.jpg".source = ./dashboard.jpg;
+
   programs.neovim = {
     enable = true;
 

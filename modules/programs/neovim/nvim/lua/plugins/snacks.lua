@@ -38,7 +38,7 @@ local M = {
 			sections = {
 				{
 					section = "terminal",
-					cmd = "chafa /Users/pd/whale.jpg --format symbols --symbols vhalf --size 80x20 --stretch; sleep .1",
+					cmd = "chafa ~/.config/nvim/dashboard.jpg --format symbols --symbols vhalf --size 80x20 --stretch; sleep .1",
 					height = 15,
 					padding = 1,
 				},
