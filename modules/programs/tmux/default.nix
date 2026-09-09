@@ -62,6 +62,9 @@ in {
     ];
 
     extraConfig = ''
+      set -s extended-keys on
+      set -as terminal-features 'xterm*:extkeys'
+
       unbind '"'
       unbind %
       bind v split-window -h -p 35
