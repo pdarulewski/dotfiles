@@ -19,10 +19,10 @@ map("n", "n", "nzzzv", opts)
 map("n", "N", "Nzzzv", opts)
 
 -- resize windows
-map("n", "<C-S-h>", ":vertical res +2<CR>", opts)
-map("n", "<C-S-j>", ":res -2<CR>", opts)
-map("n", "<C-S-k>", ":res +2<CR>", opts)
-map("n", "<C-S-l>", ":vertical res -2<CR>", opts)
+map("n", "<C-S-Left>", ":vertical res +2<CR>", opts)
+map("n", "<C-S-Up>", ":res -2<CR>", opts)
+map("n", "<C-S-Down>", ":res +2<CR>", opts)
+map("n", "<C-S-Right>", ":vertical res -2<CR>", opts)
 
 -- save buffer
 map("i", "jk", "<ESC>:wa<cr>", opts)
