@@ -59,6 +59,9 @@ in {
           set -g @extrakto_copy_key "tab"
         '';
       }
+      {
+        plugin = tmux-sessionx;
+      }
     ];
 
     extraConfig = ''
