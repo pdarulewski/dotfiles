@@ -31,7 +31,7 @@ M.config = function()
 			enabled = true,
 			position = "eol_right_align",
 		},
-		auto_toggle = true,
+		auto_toggle = "open",
 	})
 end
 
