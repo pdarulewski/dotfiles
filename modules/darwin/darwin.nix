@@ -3,6 +3,12 @@
     darwin = {
       nixpkgs.config.allowUnfree = true;
 
+      system.stateVersion = 6;
+      nix.settings = {
+        experimental-features = ["nix-command" "flakes"];
+        trusted-users = ["root" "pd"];
+      };
+
       # disable global completions, so they don't load twice
       # https://github.com/nix-community/home-manager/issues/108
       programs.zsh.enableCompletion = false;
