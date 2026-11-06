@@ -3,6 +3,7 @@
     fonts.packages = with pkgs; [
       victor-mono
       nerd-fonts.fira-code
+      nerd-fonts.iosevka
       nerd-fonts.symbols-only
     ];
   };
