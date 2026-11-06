@@ -20,6 +20,10 @@
       url = "github:numtide/flake-utils";
     };
 
+    import-tree.url = "github:denful/import-tree";
+
+    den.url = "github:denful/den";
+
     eza = {
       url = "github:eza-community/eza";
       flake = false;
@@ -51,22 +55,15 @@
     flake-utils,
     ...
   }: let
-    completions = {
-      eza = inputs.eza;
-    };
+    den =
+      (inputs.nixpkgs.lib.evalModules {
+        modules = [(inputs.import-tree ./modules)];
+        specialArgs.inputs = inputs;
+      }).config;
 
-    themes = {
-      btop = inputs.rose-pine-btop;
-      eza = inputs.eza-themes;
-      k9s = inputs.k9s;
-    };
-
-    mkDarwinSystem = name: arch: modules:
-      nix-darwin.lib.darwinSystem {
-        system = arch;
-        specialArgs = {inherit inputs completions themes self;};
-        modules = modules;
-      };
+    inherit (den.den.hosts.x86_64-darwin) inazuma;
+    inherit (den.den.hosts.aarch64-darwin) akari;
+    inherit (den.den.hosts.x86_64-linux) nuno;
   in
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
@@ -74,8 +71,9 @@
         name = "switch";
         text = ''
           case "$(uname -s)-$(uname -m)" in
-            Darwin-arm64)  sudo nix run nix-darwin -- switch --flake .#pd-macos-apple ;;
-            Darwin-x86_64) sudo nix run nix-darwin -- switch --flake .#pd-macos-intel ;;
+            Darwin-arm64)  sudo nix run nix-darwin -- switch --flake .#akari ;;
+            Darwin-x86_64) sudo nix run nix-darwin -- switch --flake .#inazuma ;;
+            Linux-x86_64)  sudo nixos-rebuild switch --flake .#nuno ;;
             *) echo "Unsupported platform: $(uname -s)-$(uname -m)" ;;
           esac
         '';
@@ -97,25 +95,25 @@
     })
     // {
       darwinConfigurations = {
-        "pd-macos-intel" = mkDarwinSystem "pd-macos-intel" "x86_64-darwin" [
-          ./hosts/macos-intel/configuration.nix
+        inazuma = nix-darwin.lib.darwinSystem {
+          modules = [
+            inazuma.mainModule
+          ];
+        };
 
-          ./modules/macos/system-defaults.nix
-          ./modules/macos/home-manager.nix
-          ./modules/macos/homebrew.nix
-          ./modules/macos/programs.nix
-          ./modules/macos/users.nix
-        ];
+        akari = nix-darwin.lib.darwinSystem {
+          modules = [
+            akari.mainModule
+          ];
+        };
+      };
 
-        "pd-macos-apple" = mkDarwinSystem "pd-macos-apple" "aarch64-darwin" [
-          ./hosts/macos-apple/configuration.nix
-
-          ./modules/macos/system-defaults.nix
-          ./modules/macos/home-manager.nix
-          ./modules/macos/homebrew.nix
-          ./modules/macos/programs.nix
-          ./modules/macos/users.nix
-        ];
+      nixosConfigurations = {
+        nuno = nixpkgs.lib.nixosSystem {
+          modules = [
+            nuno.mainModule
+          ];
+        };
       };
     };
 }
