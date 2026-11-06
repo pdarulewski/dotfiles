@@ -1,7 +1,8 @@
 {...}: {
   den.aspects.git.homeManager = {
-    pkgs,
+    config,
     lib,
+    pkgs,
     ...
   }: {
     programs.git = {
@@ -74,6 +75,10 @@
         };
       };
     };
+
+    home.activation.createDevDirs = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      mkdir -p ${config.home.homeDirectory}/dev
+    '';
 
     programs.zsh = {
       initContent = lib.mkOrder 1500 ''
