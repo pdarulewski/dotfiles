@@ -4,6 +4,8 @@
   den.aspects.akari = {
     includes = [
       den.batteries.hostname
+
+      den.aspects.darwin
       den.aspects.fonts
     ];
 
