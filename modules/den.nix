@@ -41,41 +41,6 @@
 
   den.schema.user.classes = lib.mkDefault ["homeManager"];
 
-  den.hosts.x86_64-darwin.inazuma.users.pd = {};
-  den.hosts.aarch64-darwin.akari.users.pd = {};
-
-  den.aspects.inazuma = {
-    includes = [
-      den.batteries.hostname
-      den.aspects.fonts
-    ];
-
-    darwin = {pkgs, ...}: {
-      environment.systemPackages = [
-        pkgs.git
-        pkgs.vim
-      ];
-
-      nixpkgs.hostPlatform = "x86_64-darwin";
-    };
-  };
-
-  den.aspects.akari = {
-    includes = [
-      den.batteries.hostname
-      den.aspects.fonts
-    ];
-
-    darwin = {pkgs, ...}: {
-      environment.systemPackages = [
-        pkgs.git
-        pkgs.vim
-      ];
-
-      nixpkgs.hostPlatform = "aarch64-darwin";
-    };
-  };
-
   den.aspects.pd = {
     includes = [
       den.batteries.define-user
