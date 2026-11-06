@@ -20,14 +20,14 @@
         font-family-italic = "Victor Mono";
         font-family-bold-italic = "Victor Mono";
 
-        adjust-cell-height = 18;
+        adjust-cell-height = 25;
         font-size = 11;
 
         cursor-style = "block";
         cursor-style-blink = false;
         cursor-color = "#ea9a97";
 
-        theme = "Rose Pine Moon";
+        theme = "Rose Pine";
 
         background-opacity = 0.90;
         background-blur-radius = 60;

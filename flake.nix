@@ -57,7 +57,7 @@
   }: let
     den =
       (inputs.nixpkgs.lib.evalModules {
-        modules = [(inputs.import-tree ./home)];
+        modules = [(inputs.import-tree ./modules)];
         specialArgs.inputs = inputs;
       }).config;
 

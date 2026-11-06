@@ -2,7 +2,7 @@
   den.aspects.neovim.homeManager = {config, ...}: let
     # Live editing (requires rebuild only when switching modes):
     # nvimDir = "${config.home.homeDirectory}/dev/github.com/pdarulewski/dotfiles/main/home/programs/neovim/nvim";
-    nvimDir = "${inputs.self}/home/programs/neovim/nvim";
+    nvimDir = "${inputs.self}/modules/features/neovim/nvim";
   in {
     xdg.configFile."nvim/dashboard.jpg".source = ./dashboard.jpg;
 
