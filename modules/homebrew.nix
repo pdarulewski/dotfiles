@@ -1,4 +1,4 @@
-{den, ...}: {
+{...}: {
   den.aspects.homebrew = {
     darwin.homebrew = {
       enable = true;
@@ -26,7 +26,4 @@
       ];
     };
   };
-
-  den.aspects.inazuma.includes = [den.aspects.homebrew];
-  den.aspects.akari.includes = [den.aspects.homebrew];
 }

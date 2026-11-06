@@ -7,6 +7,7 @@
 
       den.aspects.darwin
       den.aspects.fonts
+      den.aspects.homebrew
     ];
 
     darwin = {pkgs, ...}: {
