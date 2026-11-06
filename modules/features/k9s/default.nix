@@ -1,5 +1,16 @@
-{inputs, ...}: {
+{...}: {
   den.aspects.k9s.homeManager = {
+    lib,
+    pkgs,
+    ...
+  }: let
+    k9s = pkgs.fetchFromGitHub {
+      owner = "derailed";
+      repo = "k9s";
+      rev = "558caafe7ba067467de46b320cc22ef11fef9c34";
+      hash = "sha256-70Rfu1BVd/QnwWXRRpwIeZ2UJNWIGixpdiOHo4v7adA=";
+    };
+  in {
     programs.k9s = {
       enable = true;
 
@@ -87,14 +98,12 @@
           ui = {
             headless = true;
             logoless = true;
-            skin = "theme";
+            skin = "rose-pine-moon";
           };
         };
       };
-
-      skins = {
-        theme = "${inputs.k9s}/skins/rose-pine-moon.yaml";
-      };
     };
+
+    xdg.configFile."k9s/skins/rose-pine-moon.yaml".source = "${k9s}/skins/rose-pine-moon.yaml";
   };
 }

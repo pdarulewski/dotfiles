@@ -24,26 +24,6 @@
 
     den.url = "github:denful/den";
 
-    eza = {
-      url = "github:eza-community/eza";
-      flake = false;
-    };
-
-    eza-themes = {
-      url = "github:eza-community/eza-themes";
-      flake = false;
-    };
-
-    rose-pine-btop = {
-      url = "github:rose-pine/btop";
-      flake = false;
-    };
-
-    k9s = {
-      url = "github:derailed/k9s";
-      flake = false;
-    };
-
     python.url = "github:nixos/nixpkgs/ee09932cedcef15aaf476f9343d1dea2cb77e261";
   };
 
